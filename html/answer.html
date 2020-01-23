@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>答题练习</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/animate/animate.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/testTutorial.css" />
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="tn-header">
+        <div class="tn-header-wrap">
+            <b>
+          <a href="../index.html" title="测谈网">测谈网</a>
+        </b>
+            <nav>
+                <div class="select"><a href="../index.html">首页</a></div>
+                <div class="select select-menu1">
+                    测试教程
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="test_tutorial.html">测试教程</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="select select-menu2">
+                    交流讨论
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+
+                        <li><a href="question.html">交流讨论</a></li>
+                        <li><a href="experience.html">文章心得</a></li>
+                        <li><a href="inspiration.html">灵光一闪</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 带选择的搜索 -->
+            <div class="search">
+                <select name="" id="">
+            <option value="">全局</option>
+            <option value="">文章</option>
+            <option value="">评论</option>
+          </select>
+                <div class="input-box">
+                    <input type="text" placeholder="输入你想知道的" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+            </div>
+            <div class="utils-box logged log_show">
+                <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
+                <a href="">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <a href="">
+                    <img src="../assets/imgs/avatar.jpg" alt="" />
+                </a>
+            </div>
+            <div class="utils-box notLog log_hide">
+                <div class="operating login">
+                    <a href="login.html">登录</a>
+                </div>
+                <div class="operating registered">
+                    <a href="register.html">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap answer">
+        <div class="wrap banner-title">
+            <div class="banner-title-box">
+                <div class="title">测谈答题练习</div>
+            </div>
+        </div>
+        <div class="main answer-body">
+            <div class="main-left answer-left">
+                <div class="title">
+                    <div class="fw name">关于答题的规则描述</div>
+                    <a target="_blank" href="./answering.html" class="btn">立即答题</a>
+                </div>
+                <img class="" src="../assets/imgs/swiper.png" alt="" />
+                <div class="rule">
+                    <p class="rule-title">1、规则1</p>
+                    <p>
+                        Vue Element+Node.js开发企业通业务系统复杂度不断上升，就要利用接口自动 化测试减少人力成本,提高效率。本步骤全面学习接口自动化测试技能，结合典型 应用场景帮你一步到位。业务系统动化测试减少人力成本,提高效率。本步骤全面 型应用场
+                    </p>
+                </div>
+                <div class="rule">
+                    <p class="rule-title">2、规则2</p>
+                    <p>
+                        Vue Element+Node.js开发企业通业务系统复杂度不断上升，就要利用接口自动 化测试减少人力成本,提高效率。本步骤全面学习接口自动化测试技能，结合典型 应用场景帮你一步到位。业务系统动化测试减少人力成本,提高效率。本步骤全面 型应用场
+                    </p>
+                </div>
+            </div>
+            <div class="main-right">
+                <div class="editTool">
+                    <div class="editTool-item" onclick="go_write_article()">
+                        <img src="../assets/imgs/e1.png" alt="" />
+                        <span>写文章</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_inspiration()">
+                        <img src="../assets/imgs/e2.png" alt="" />
+                        <span>写灵感</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_question()">
+                        <img src="../assets/imgs/e3.png" alt="" />
+                        <span>写疑惑</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_learn()">
+                        <img src="../assets/imgs/e4.png" alt="" />
+                        <span>学习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_answering()">
+                        <img src="../assets/imgs/e5.png" alt="" />
+                        <span>练习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_actual_combat_project()">
+                        <img src="../assets/imgs/e6.png" alt="" />
+                        <span>实战</span>
+                    </div>
+                </div>
+                <div class="right-title">
+                    <img src="../assets/imgs/cup.png" alt="" />
+                    <span>答题成绩排行榜</span>
+                </div>
+
+                <div class="ranking">
+                    <div class="ranking-head">
+                        <div class="sort">
+                            排名
+                        </div>
+                        <div class="user">
+                            用户
+                        </div>
+                        <div class="result">答题成绩</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            <img src="../assets/imgs/Medal1.png" alt="" />
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>uffbfbh</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            <img src="../assets/imgs/Medal2.png" alt="" />
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>ufbh</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            <img src="../assets/imgs/Medal3.png" alt="" />
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>X小姨妈</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            4
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>ufbh</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            5
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>X小姨妈</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部 -->
+    <div class="tn-footer">
+        <div class="tn-footer-wrap">
+            <div class="intro">
+                <div class="about">
+                    <li>
+                        <span><a href="">企业合作</a></span>
+                        <i></i>
+                        <span><a href="">人才招聘</a></span>
+                        <i></i>
+                        <span><a href="">联系我们</a></span>
+                        <i></i>
+                        <span><a href="">关于我们</a></span>
+                        <i></i>
+                        <span><a href="">帮助中心</a></span>
+                    </li>
+                    <li>
+                        <span><a href="">意见反馈</a></span>
+                        <i></i>
+                        <span><a href="">友情链接</a></span>
+                    </li>
+                </div>
+                <div class="chat">
+                    <div class="QR QR-qq">
+                        <img src="../assets/imgs/qrcode.png" alt="QQ群" />
+                        <span>QQ群</span>
+                    </div>
+                    <div class="QR QR-weixin">
+                        <img src="../assets/imgs/qrcode.png" alt="微信" />
+                        <span>微信</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            2020 All rights reserved 浪晋科技, Powered by 流云.
+        </div>
+    </div>
+
+    <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+</body>
+
+</html>

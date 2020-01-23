@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./lib/animate/animate.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>测谈网</title>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="tn-header">
+        <div class="tn-header-wrap">
+            <b>
+          <a href="./index.html" title="测谈网">测谈网</a>
+        </b>
+            <nav>
+                <div class="select"><a href="index.html">首页</a></div>
+                <div class="select select-menu1">
+                    测试教程
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="html/test_tutorial.html">测试教程</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="select select-menu2">
+                    交流讨论
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="html/question.html">交流讨论</a></li>
+                        <li><a href="html/experience.html">文章心得</a></li>
+                        <li><a href="html/inspiration.html">灵光一闪</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="search">
+                <select name="" id="">
+                    <option value="">全局</option>
+                    <option value="">文章</option>
+                    <option value="">评论</option>
+                </select>
+                <div class="input-box">
+                    <input type="text" placeholder="输入你想知道的" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+            </div>
+
+            <div class="utils-box logged" id="logined">
+                <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
+
+                <a href="javascript:void(0)" onclick="user_logout()">
+                    <span class="glyphicon glyphicon-cog" onclick="user_logout()"></span>
+                </a>
+                <a href="" id="personal">
+                    <img src="" id="headpic" alt="" />
+                </a>
+            </div>
+            <div class="utils-box notLog" id="unlogin">
+                <div class="operating login">
+                    <a href="html/login.html">登录</a>
+                </div>
+                <div class="operating registered">
+                    <a href="html/register.html">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 身体 -->
+    <div class="tn-main">
+        <!-- 轮播图 -->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- 指示器 -->
+            <ol class="carousel-indicators" id="lunbotu_index">
+                <!-- <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li> -->
+            </ol>
+
+            <!-- 轮播图片及说明文字 -->
+            <div class="carousel-inner" role="listbox" id="lunbotu">
+                <!-- <div class="item active">
+                    <a href="http://www.baidu.com" target="_blank">
+                        <img src="./assets/imgs/carousel.png" alt="图片1" />
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://www.baidu.com" target="_blank">
+                        <img src="./assets/imgs/carousel.png" alt="图片2" />
+                    </a>
+                </div> -->
+            </div>
+
+            <!-- 控制按钮：左右切换 -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+
+        <!-- 板块 -->
+        <div class="plate">
+            <div class="plate-wrap">
+                <!-- 主内容 -->
+                <div class="contenter">
+                    <!-- 推荐教程 -->
+                    <div class="article">
+                        <div class="article-title">
+                            <div class="name">推荐教程</div>
+                            <a class="lookmore" href="html/test_tutorial.html">
+                                查看更多 <span class="glyphicon glyphicon-play"></span>
+                            </a>
+                        </div>
+                        <div class="article-content Recommended">
+                            <ul id="articles">
+                                <!-- <li>
+                                    <img src="./assets/imgs/recommend.png" alt="" />
+                                    <div class="details">
+                                        <div class="desc">
+                                            Vue Element+Node.js开发 企业通用管理后台系统Vue Element+Node.js开发 企业通用管理后台系统
+                                        </div>
+                                        <div class="resets">
+                                            <div class="time">2019.12.23</div>
+                                            <div class="peoplelove">
+                                                <label>
+                            <span class="glyphicon glyphicon-user"></span>
+                            456
+                          </label>
+                                                <label>
+                            <span class="glyphicon glyphicon-heart"></span>
+                            456
+                          </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+         -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 热门讨论 -->
+                    <div class="article">
+                        <div class="article-title">
+                            <div class="name">热门讨论</div>
+                            <a class="lookmore" href="html/question.html">
+                                查看更多 <span class="glyphicon glyphicon-play"></span>
+                            </a>
+                        </div>
+                        <div class="article-content discuss">
+                            <ul id="questsions"></ul>
+                        </div>
+                    </div>
+
+                    <!-- 心得体会 -->
+                    <div class="article">
+                        <div class="article-title">
+                            <div class="name">心得体会</div>
+                            <a class="lookmore" href="html/experience.html">
+                                查看更多 <span class="glyphicon glyphicon-play"></span>
+                            </a>
+                        </div>
+                        <div class="article-content Experience">
+                            <ul id="xdth">
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 灵光一现 -->
+                    <div class="article">
+                        <div class="article-title">
+                            <div class="name">灵光一现</div>
+                            <a class="lookmore" href="html/inspiration.html">
+                                查看更多 <span class="glyphicon glyphicon-play"></span>
+                            </a>
+                        </div>
+                        <div class="article-content light">
+                            <div class="light-box" id="lgys">
+                                <!-- <li>
+                                    <img src="./assets/imgs/light_1.png" alt="" />
+                                    <div class="content">
+                                        <div class="title">
+                                            灵光乍现
+                                        </div>
+                                        <div class="desc">
+                                            叶通开发企业叶通开发企业得得得 内容是什么 最好别超出，超出省略号需求暂时做不到
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="./assets/imgs/light_2.png" alt="" />
+                                    <div class="content">
+                                        <div class="title">
+                                            灵光乍现
+                                        </div>
+                                        <div class="desc">
+                                            叶通开发企业叶通开发企业得得得 内容是什么 最好别超出，超出省略号需求暂时做不到
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="./assets/imgs/light_3.png" alt="" />
+                                    <div class="content">
+                                        <div class="title">
+                                            灵光乍现
+                                        </div>
+                                        <div class="desc">
+                                            叶通开发企业叶通开发企业得得得 内容是什么 最好别超出，超出省略号需求暂时做不到
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img src="./assets/imgs/light_4.png" alt="" />
+                                    <div class="content">
+                                        <div class="title">
+                                            灵光乍现
+                                        </div>
+                                        <div class="desc">
+                                            叶通开发企业叶通开发企业得得得 内容是什么 最好别超出，超出省略号需求暂时做不到
+                                        </div>
+                                    </div>
+                                </li> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 活跃用户 -->
+                    <div class="article">
+                        <div class="article-title">
+                            <div class="name">活跃用户</div>
+                            <!-- <div class="lookmore">
+                                查看更多 <span class="glyphicon glyphicon-play"></span>
+                            </div> -->
+                        </div>
+                        <div class="article-content activeUser">
+                            <ul id="hotuser">
+                                <!-- <li>
+                                    <img class="avatar" src="./assets/imgs/avatar1.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar2.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar3.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar4.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar2.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar3.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar1.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar3.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar1.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar3.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li>
+                                <li>
+                                    <img class="avatar" src="./assets/imgs/avatar1.png" alt="" />
+                                    <span>活跃用户</span>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 侧边栏 -->
+                <div class="side">
+                    <div class="side-content">
+                        <div class="editTool">
+                            <div class="editTool-item" onclick="go_write_article(true)">
+                                <img src="assets/imgs/e1.png" alt="" />
+                                <span>写文章</span>
+                            </div>
+                            <div class="editTool-item" onclick="go_write_inspiration(true)">
+                                <img src="assets/imgs/e2.png" alt="" />
+                                <span>写灵感</span>
+                            </div>
+                            <div class="editTool-item" onclick="go_write_question(true)">
+                                <img src="assets/imgs/e3.png" alt="" />
+                                <span>写疑惑</span>
+                            </div>
+                            <div class="editTool-item" onclick="go_student_learn(true)">
+                                <img src="assets/imgs/e4.png" alt="" />
+                                <span>学习</span>
+                            </div>
+                            <div class="editTool-item" onclick="go_student_answering(true)">
+                                <img src="assets/imgs/e5.png" alt="" />
+                                <span>练习</span>
+                            </div>
+                            <div class="editTool-item" onclick="go_actual_combat_project(true)">
+                                <img src="assets/imgs/e6.png" alt="" />
+                                <span>实战</span>
+                            </div>
+                        </div>
+                        <div class="right-title">
+                            <img src="./assets/imgs/cup.png" alt="" />
+                            <span>热门教程排行榜</span>
+                        </div>
+                        <div class="hot-list">
+                            <div class="hot-list-item sort">
+                                <div class="img-box">
+                                    <div class="tag">1</div>
+                                    <img src="./assets/imgs/z.png" alt="" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">初期的太极系列，都是单</div>
+                                    <p class="desc">初期的太极系列，都是单人</p>
+                                    <button class="btn">查看教程</button>
+                                </div>
+                            </div>
+                            <div class="hot-list-item">
+                                <div class="img-box">
+                                    <div class="tag">2</div>
+                                    <img src="./assets/imgs/z.png" alt="" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">初期的太极系列，都是单</div>
+                                    <p class="desc">初期的太极系列，都是单人</p>
+                                    <button class="btn">查看教程</button>
+                                </div>
+                            </div>
+                            <div class="hot-list-item">
+                                <div class="img-box">
+                                    <div class="tag">3</div>
+                                    <img src="./assets/imgs/z.png" alt="" />
+                                </div>
+                                <div class="info">
+                                    <div class="title">初期的太极系列，都是单</div>
+                                    <p class="desc">初期的太极系列，都是单人</p>
+                                    <button class="btn">查看教程</button>
+                                </div>
+                            </div>
+                            <a href="" target="_blank" class="hot-list-other">
+                                <div class="tag">4</div>
+                                <div class="title">初期的太极系列，都是单</div>
+                                <p class="desc">初期的太极系列，都是单人</p>
+                            </a>
+                            <a href="" target="_blank" class="hot-list-other">
+                                <div class="tag">5</div>
+                                <div class="title">初期的太极系列，都是单</div>
+                                <p class="desc">初期的太极系列，都是单人</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部 -->
+    <div class="tn-footer">
+        <div class="tn-footer-wrap">
+            <div class="intro">
+                <div class="about">
+                    <li>
+                        <span><a href="">企业合作</a></span>
+                        <i></i>
+                        <span><a href="">人才招聘</a></span>
+                        <i></i>
+                        <span><a href="">联系我们</a></span>
+                        <i></i>
+                        <span><a href="">关于我们</a></span>
+                        <i></i>
+                        <span><a href="">帮助中心</a></span>
+                    </li>
+                    <li>
+                        <span><a href="">意见反馈</a></span>
+                        <i></i>
+                        <span><a href="">友情链接</a></span>
+                    </li>
+                </div>
+                <div class="chat">
+                    <div class="QR QR-qq">
+                        <img src="./assets/imgs/qrcode.png" alt="QQ群" />
+                        <span>QQ群</span>
+                    </div>
+                    <div class="QR QR-weixin">
+                        <img src="./assets/imgs/qrcode.png" alt="微信" />
+                        <span>微信</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            2020 All rights reserved 浪晋科技. Powered by 流云.
+        </div>
+    </div>
+</body>
+<script src="./lib/jquery/jquery-3.4.1.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./js/config.js"></script>
+<script src="./js/index.js"></script>
+
+</html>

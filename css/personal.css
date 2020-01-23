@@ -1,0 +1,245 @@
+.personal-header {
+    border-bottom: 10px solid #f4f4f4;
+    padding-top: 145px;
+    width: 100%;
+    height: 400px;
+    /* background: url("../assets/imgs/user-banner.png") no-repeat center top; */
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+}
+
+.personal-header .info {
+    width: 1120px;
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.personal-header .info-item {
+    padding: 0 130px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.personal-header .info-item-item {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+}
+
+.personal-header .info-item-item .num {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.personal-header .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.personal-header .username {
+    padding: 10px 0;
+    font-weight: bold;
+    color: #444658;
+    font-size: 16px;
+}
+
+.personal-header .job {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    color: #949494;
+}
+
+.personal-header .job span {
+    padding: 0 10px;
+}
+
+.personal-header .btn {
+    width: 110px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.personal-body {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.personal-body .meaus {
+    border-bottom: 1px solid #f4f4f4;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-start;
+    padding-bottom: 7px;
+}
+
+.personal-body .meaus-item {
+    margin-right: 55px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.personal-body .meaus-item .num {
+    color: #949494;
+}
+
+.personal-body .meaus-item-active {
+    position: relative;
+}
+
+.personal-body .meaus-item-active::after {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #f7726b;
+    display: block;
+}
+
+.personal-body .list-item {
+    padding: 11px 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.personal-body .list-item .title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+    color: #949494;
+    justify-content: space-between;
+}
+
+.personal-body .list-item .desc {
+    font-weight: bold;
+    line-height: 20px;
+    transition: all 0.3s ease-out;
+}
+
+.personal-body .list-item .apply {
+    padding-top: 10px;
+}
+
+.personal-body .list-item .apply-word {
+    padding-top: 10px;
+}
+
+.personal-body .list-item .apply-word .desc {
+    position: relative;
+    overflow: hidden;
+    height: 40px;
+}
+
+.personal-body .list-item .apply-word .desc .more {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 300px;
+    background: #fff;
+}
+
+.personal-body .list-item .apply-word .desc .more .glyphicon {
+    font-size: 10px;
+}
+
+.personal-form {
+    width: 100%;
+    margin: 50px 0;
+}
+
+.personal-form .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.personal-form .form-group .form-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 48%;
+    flex-wrap: wrap;
+}
+
+.personal-form .form-group .name {
+    width: 45px;
+}
+
+.personal-form .form-group input,
+.personal-form .form-group select {
+    padding: 0 10px;
+    flex: 1;
+    height: 30px;
+    border: 1px solid #f4f4f4;
+    background-color: #f4f4f4;
+}
+
+.personal-form .form-group textarea {
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #f4f4f4;
+    background-color: #f4f4f4;
+    padding: 10px;
+}
+
+.personal-form .avatar {
+    justify-content: center;
+}
+
+.personal-form .avatar .img-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.personal-form .avatar .btn {
+    position: relative;
+    width: 100px;
+    height: 30px;
+}
+
+.personal-form .avatar .btn input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.personal-form .submit {
+    justify-content: flex-end;
+}
+
+.personal-form .submit .btn {
+    width: 150px;
+    height: 30px;
+}

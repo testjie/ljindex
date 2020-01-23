@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/animate/animate.css" />
+    <link rel="stylesheet" href="../css/botreset.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/modify.css" />
+    <link rel="stylesheet" type="text/css" href="../lib/webuploader/webuploader.css">
+
+    <title>修改个人信息</title>
+</head>
+
+<body>
+    <div class="tn-modify">
+        <div class="container">
+            <div class="modify">
+                <!-- <h2>修改个人信息</h2> -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="modify-avatar">
+                            <img src="" alt="" id="headpic" />
+                            <input type="hidden" value="" id="uid" />
+                            <div class="" style="position: relative;width: 100px;line-height: 30px;text-align: center;/* background: #f7726b; */border-radius: 3px;transition: all 0.2s ease;">
+                                <div id="uploader-demo" class="">
+                                    <div id="filePicker">修改头像</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modify-group">
+                            <div class="item">
+                                <label for="modify-un">昵称</label>
+                                <input type="text" id="username" class="form-control" placeholder="输入昵称" />
+                            </div>
+                            <div class="item">
+                                <label>职业</label>
+                                <div class="dropdown">
+                                    <input type="text" id="job" class="form-control" placeholder="输入个人职业" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modify-group">
+                            <div class="item">
+                                <label for="sex">性别</label>
+                                <input type="text " id="sex" class="form-control " placeholder="输入性别 " />
+                            </div>
+                            <div class="item ">
+                                <label>电话</label>
+                                <div class="dropdown ">
+                                    <input type="text " id="phone" class="form-control " placeholder="输入个人电话" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modify-group ">
+                            <div class="item pwd-item ">
+                                <label for="qq">QQ</label>
+                                <input type="text " id="qq" class="form-control " placeholder="请输入QQ号 " />
+                            </div>
+                            <div class="item pwd-item ">
+                                <label for="modify-confirmpw ">微信</label>
+                                <input type="text " id="weixin" class="form-control " placeholder="请确认微信号 " />
+                            </div>
+                        </div>
+                        <div class="modify-group ">
+                            <div class="item-big ">
+                                <label for="modify-mailbox ">邮箱</label>
+                                <input type="email " id="modify-mailbox" class="form-control " placeholder="请输入邮箱 " />
+                            </div>
+                        </div>
+                        <div class="modify-group ">
+                            <div class="item-big ">
+                                <label for="modify-mailbox ">地址</label>
+                                <input type="text " id="addr" class="form-control " placeholder="请输入地址 " />
+                            </div>
+                        </div>
+                        <div class="modify-textarea ">
+                            <textarea placeholder="个人签名 " id="qianming" rows="5 " cols="20 " name=" " id=" "></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row ">
+                    <div class="col-sm-12 ">
+                        <div class="modify-footer ">
+                            <button class="modify_btn modify_btn--cancel " title="返回首页 "><a href="../index.html ">返回首页</a></button>
+                            <button class="modify_btn modify_btn--register " id="acommit1" title="确认修改 ">确认修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/jquery/jquery-3.4.1.min.js "></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js "></script>
+    <script src="../js/config.js "></script>
+    <script src="../js/personal_info.js "></script>
+    <script type="text/javascript " src="../lib/webuploader/webuploader.js "></script>
+
+</body>
+
+</html>

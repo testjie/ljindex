@@ -1,0 +1,362 @@
+@charset "UTF-8";
+
+/* 中间 */
+
+.tn-main {
+    min-height: calc(100vh - 270px);
+}
+
+.tn-main .carousel {
+    min-height: 315px;
+    background: #404356;
+}
+
+.tn-main .carousel .carousel-inner .item a {
+    display: block;
+}
+
+.tn-main .carousel .carousel-inner .item a img {
+    width: 100%;
+}
+
+.tn-main .plate {
+    padding-top: 20px;
+}
+
+.tn-main .plate-wrap {
+    width: 1120px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    /*主内容*/
+    /*侧边栏*/
+}
+
+.tn-main .plate-wrap .contenter {
+    flex: 1;
+    width: 800px;
+    padding-right: 20px;
+}
+
+.tn-main .plate-wrap .contenter .article {
+    padding-bottom: 20px;
+    /*推荐教程*/
+    /*热门讨论*/
+    /*心得体会*/
+    /*灵光一闪*/
+    /*活跃用户*/
+}
+
+.tn-main .plate-wrap .contenter .article-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333333;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #719835;
+}
+
+.tn-main .plate-wrap .contenter .article-title .name {
+    font-size: 18px;
+    letter-spacing: 3px;
+}
+
+.tn-main .plate-wrap .contenter .article-title .lookmore {
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tn-main .plate-wrap .contenter .article-title .lookmore:hover {
+    color: #f7726b;
+}
+
+.tn-main .plate-wrap .contenter .article-title .lookmore span {
+    transform: scale(0.8);
+}
+
+.tn-main .plate-wrap .contenter .article-content .desc {
+    font-weight: bold;
+    font-size: 14px;
+    color: #4f4f4f;
+    text-align: justify;
+}
+
+.tn-main .plate-wrap .contenter .article-content .resets {
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tn-main .plate-wrap .contenter .article-content .resets label {
+    font-weight: normal;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tn-main .plate-wrap .contenter .article-content .resets label:hover {
+    color: #f7726b;
+}
+
+.tn-main .plate-wrap .contenter .article-content .resets label:not(:first-child) {
+    margin-left: 6px;
+}
+
+.tn-main .plate-wrap .contenter .article .Recommended ul {
+    padding: 20px 0;
+    display: flex;
+}
+
+.tn-main .plate-wrap .contenter .article .Recommended ul li {
+    flex: 1;
+}
+
+.tn-main .plate-wrap .contenter .article .Recommended ul li:nth-of-type(2) {
+    margin: 0 40px;
+}
+
+.tn-main .plate-wrap .contenter .article .Recommended ul li img {
+    width: 100%;
+}
+
+.tn-main .plate-wrap .contenter .article .Recommended ul li .desc {
+    margin: 7px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li {
+    padding: 12px 0;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .title {
+    font-weight: bold;
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li:not(:last-child) {
+    position: relative;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li:not(:last-child)::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 1px;
+    background: #020d1c;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details {
+    display: flex;
+    align-items: center;
+    margin: 12px 0;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details img {
+    width: 125px;
+    margin-right: 12px;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details .desc {
+    flex: 1;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    position: relative;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details .desc .more {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    display: block;
+    padding-right: 112px;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details .desc .more label {
+    cursor: pointer;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details .desc .more label:hover {
+    opacity: 0.8;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details .desc label {
+    color: #f7726b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .details .desc label:hover {
+    opacity: 0.8;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .resets {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tn-main .plate-wrap .contenter .article .discuss ul li .resets .time {
+    margin-right: 20px;
+}
+
+.tn-main .plate-wrap .contenter .article .Experience ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.tn-main .plate-wrap .contenter .article .Experience ul li {
+    width: 48%;
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.tn-main .plate-wrap .contenter .article .Experience ul li img {
+    width: 70px;
+    height: 70px;
+    margin-right: 12px;
+}
+
+.tn-main .plate-wrap .contenter .article .Experience ul li .details {
+    flex: 1;
+}
+
+.tn-main .plate-wrap .contenter .article .Experience ul li .details .title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tn-main .plate-wrap .contenter .article .Experience ul li .details .desc {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    margin: 8px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.tn-main .plate-wrap .contenter .article .Experience ul li .details .resets .time {
+    margin-right: 20px;
+}
+
+.tn-main .plate-wrap .contenter .article .light {
+    padding: 20px 0;
+}
+
+.tn-main .plate-wrap .contenter .article .light-box {
+    display: flex;
+}
+
+.tn-main .plate-wrap .contenter .article .light-box li {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tn-main .plate-wrap .contenter .article .light-box li:nth-child(even) {
+    flex-direction: column-reverse;
+}
+
+.tn-main .plate-wrap .contenter .article .light-box .content {
+    padding: 10px;
+    max-height: 110px;
+    background: #e1edff;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.tn-main .plate-wrap .contenter .article .light-box .content .title {
+    width: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    word-wrap: break-word;
+    /*英文的时候需要加上这句，自动换行*/
+    word-break: break-all;
+    margin: 0 15px 0 10px;
+}
+
+.tn-main .plate-wrap .contenter .article .light-box .content .desc {
+    font-weight: normal;
+    writing-mode: vertical-rl;
+    /*从左向右 从右向左是 writing-mode: vertical-rl;*/
+    writing-mode: tb-rl;
+    /*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/
+    overflow: hidden;
+    text-align: justify;
+    text-indent: 2em;
+}
+
+.tn-main .plate-wrap .contenter .article .activeUser {
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.tn-main .plate-wrap .contenter .article .activeUser ul {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.tn-main .plate-wrap .contenter .article .activeUser ul li {
+    width: 14%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 40px 40px 0px;
+    cursor: pointer;
+}
+
+.tn-main .plate-wrap .contenter .article .activeUser ul li img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.tn-main .plate-wrap .contenter .article .activeUser ul li span {
+    color: #333333;
+    margin-top: 5px;
+}
+
+.tn-main .plate-wrap .side {
+    width: 300px;
+    background: #fff;
+}
+
+.tn-main .plate-wrap .side-content {
+    height: 100%;
+}

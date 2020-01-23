@@ -1,0 +1,90 @@
+.tn-register .signup {
+  max-width: 560px;
+  padding: 40px 10px;
+  margin: 0 auto;
+}
+
+.tn-register .signup h2 {
+  text-align: center;
+  margin-bottom: 65px;
+  font-size: 32px;
+}
+
+.tn-register .signup label {
+  min-width: 70px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.tn-register .signup-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tn-register .signup-group .item {
+  width: 45%;
+}
+
+.tn-register .signup-group .item-big {
+  width: 100%;
+}
+
+.tn-register .signup-footer {
+  text-align: center;
+}
+
+.tn-register .signup-footer .signup_btn {
+  width: 40%;
+  margin-top: 40px;
+  height: 45px;
+  display: inline-block;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  background: #f7726b;
+  border-radius: 3px;
+  box-shadow: 0 5px 30px #f3aba7;
+  transition: all 0.15s ease;
+}
+
+.tn-register .signup-footer .signup_btn a {
+  color: #fff;
+  display: block;
+}
+
+.tn-register .signup-footer .signup_btn--cancel {
+  margin-right: 5%;
+  background: #bfbece;
+  box-shadow: 0 5px 30px #bfbece;
+}
+
+.tn-register .signup-footer .signup_btn:hover {
+  opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .tn-register .signup {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .tn-register .signup {
+    padding-top: 80px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .tn-register .signup {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .tn-register .signup {
+    padding-top: 120px;
+  }
+}

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>测评网-个人信息</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/animate/animate.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/personal.css" />
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="tn-header">
+        <div class="tn-header-wrap">
+            <b>
+          <a href="../index.html" title="测谈网">测谈网</a>
+        </b>
+            <nav>
+                <div class="select"><a href="../index.html">首页</a></div>
+                <div class="select select-menu1">
+                    测试教程
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="test_tutorial.html">测试教程</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="select select-menu2">
+                    交流讨论
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+
+                        <li><a href="question.html">交流讨论</a></li>
+                        <li><a href="experience.html">文章心得</a></li>
+                        <li><a href="inspiration.html">灵光一闪</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 带选择的搜索 -->
+            <div class="search">
+                <select name="" id="">
+            <option value="">全局</option>
+            <option value="">文章</option>
+            <option value="">评论</option>
+          </select>
+                <div class="input-box">
+                    <input type="text" placeholder="输入你想知道的" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+            </div>
+
+            <div class="utils-box logged" id="logined">
+                <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
+                </a>
+                <a href="javascript:void(0)" onclick="user_logout()">
+                    <span class="glyphicon glyphicon-cog" onclick="user_logout()"></span>
+                </a>
+                <a href="" id="personal">
+                    <img src="" id="headpic1" alt="" />
+                </a>
+            </div>
+            <div class="utils-box notLog" id="unlogin">
+                <div class="operating login">
+                    <a href="login.html">登录</a>
+                </div>
+                <div class="operating registered">
+                    <a href="register.html">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap personal">
+        <div class="personal-header" id="personal-header">
+            <div class="info">
+                <div class="info-item">
+                    <div class="info-item-item" onclick="javascript:alert('暂未开放 ')" style="cursor:pointer;">
+                        <span class="name">人气</span>
+                        <span class="num">1233</span>
+                    </div>
+                    <div class="info-item-item" style="cursor:pointer;">
+                        <span class="name">粉丝</span>
+                        <span class="num" id="fensi"></span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-item" style="cursor:pointer;">
+                        <span class="name">关注</span>
+                        <span class="num" id="guanzhu"></span>
+                    </div>
+
+                    <div class="info-item-item" onclick="javascript:alert('暂未开放 ')" style="cursor:pointer;">
+                        <span class="name">积分</span>
+                        <span class="num">1233</span>
+                    </div>
+                </div>
+            </div>
+            <div class="img-box avatar">
+                <img src="" id="headpic" alt="" />
+            </div>
+            <p class="username" id="username"></p>
+            <input type="hidden" id="uid" value="">
+            <p class="job" id="userinfo"></p>
+            <a target="_blank" href="personal_info.html" class="btn" id="update_user_info">编辑个人资料</a>
+        </div>
+        <div class="main personal-body">
+            <div class="main-left personal-body-left">
+                <div id="meaus" class="meaus">
+                    <div class="meaus-item" id="get_user_dt">动态<span class="num" id="dt_num"></span></div>
+                    <!-- <div class="meaus-item">回答 <span class="num">(233)</span></div> -->
+                    <div class="meaus-item meaus-item-active" id="get_questsion">提问<span class="num" id="question_num"></span></div>
+                    <div class="meaus-item" id="get_articles">文章<span class="num" id="article_num"></span></div>
+                    <div class="meaus-item" id="get_inspiration">灵感<span class="num" id="inspiration_num"></span></div>
+                </div>
+                <div id="list" class="list">
+
+                    <!-- 关注 -->
+                    <!-- <div class="list-item">
+                        <div class="title">
+                            <span>关注了问题</span>
+                            <span>五天前</span>
+                        </div>
+                        <p class="desc">
+                            在国外资深的软件测试人员大多数是手动测试，他们厉害之处在于测试用例的设计，但在国内，很多测试人员都把自动化测试当成很厉害的资本，为什么？
+                        </p>
+                    </div> -->
+                    <!-- 提问 -->
+                    <!-- <div class="list-item">
+            <div class="title">
+                <span>回答了问题</span>
+                <span>五天前</span>
+            </div>
+            <p class="desc">
+                在国外资深的软件测试人员大多数是手动测试，他们厉害之处在于测试用例的设计，但在国内，很多测试人员都把自动化测试当成很厉害的资本，为什么？
+            </p>
+            <div class="apply">
+                <div class="user-box">
+                    <div class="img-box avatar">
+                        <img src="../assets/imgs/avatar.jpg" alt="" />
+                    </div>
+                    <div class="info">
+                        <p class="name">用户名是什么</p>
+                        <p class="job">
+                            <span>成都</span> | <span>测试工程师</span> |
+                            <span>测试开发</span> | <span>18281615567</span>
+                        </p>
+                    </div>
+                </div>
+                <div class=" apply-word">
+                    <div class="desc">
+                        <p class="desc-word">
+                            在国外资软件测试人员大多数是手动测试，软件测试人员大多数是手动测试，软件测试人员大多数是手动测试，深的软件测试人员大多数是手动测试，他们厉害之处在于测试用例的设计，但在国内，很多测试人员都把自动化测试当成很厉害的资本，为什么
+                        </p>
+                        <div data-status="0" class="more">
+                            <span>...</span><span class="cf7"> 查看更多</span
+                      ><span
+                        class="glyphicon glyphicon-triangle-bottom cf7"
+                      ></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+                    <!-- 回答 -->
+                    <!-- <div class="list-item">
+            <div class="title">
+                <span>回答了问题</span>
+                <span>五天前</span>
+            </div>
+            <p class="desc">
+                在国外资深的软件测试人员大多数是手动测试，他们厉害之处在于测试用例的设计，但在国内，很多测试人员都把自动化测试当成很厉害的资本，为什么？
+            </p>
+            <div class="apply">
+                <div class="user-box">
+                    <div class="img-box avatar">
+                        <img src="../assets/imgs/avatar.jpg" alt="" />
+                    </div>
+                    <div class="info">
+                        <p class="name">用户名是什么</p>
+                        <p class="job">
+                            <span>成都</span> | <span>测试工程师</span> |
+                            <span>测试开发</span> | <span>18281615567</span>
+                        </p>
+                    </div>
+                </div>
+                <div class=" apply-word">
+                    <div class="desc">
+                        <p class="desc-word">
+                            在国外资软件测试人员大多数是手动测试，软件测试人员大多数是手动测试，软件测试人员大多数是手动测试，深的软件测试人员大多数是手动测试，他们厉害之处在于测试用例的设计，但在国内，很多测试人员都把自动化测试当成很厉害的资本，为什么
+                        </p>
+                        <div data-status="0" class="more">
+                            <span>...</span><span class="cf7"> 查看更多</span
+                      ><span
+                        class="glyphicon glyphicon-triangle-bottom cf7"
+                      ></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+                </div>
+                <!-- 分页组件 -->
+                <div class="page-navigation">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a id="pre" href="javascript:void(0)" aria-label="Previous">
+                                    <span aria-hidden="true">上一页</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="javascript:void(0)" id="current">第1页/共1页</a>
+                            </li>
+                            <li>
+                                <a id="next" href="#" aria-label="Next">
+                                    <span aria-hidden="true">下一页</span>
+                                </a>
+                            </li>
+                            <input id="total" type="hidden" value="">
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="main-right">
+                <div class="editTool">
+                    <div class="editTool-item" onclick="go_write_article()">
+                        <img src="../assets/imgs/e1.png" alt="" />
+                        <span>写文章</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_inspiration()">
+                        <img src="../assets/imgs/e2.png" alt="" />
+                        <span>写灵感</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_question()">
+                        <img src="../assets/imgs/e3.png" alt="" />
+                        <span>写疑惑</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_learn()">
+                        <img src="../assets/imgs/e4.png" alt="" />
+                        <span>学习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_answering()">
+                        <img src="../assets/imgs/e5.png" alt="" />
+                        <span>练习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_actual_combat_project()">
+                        <img src="../assets/imgs/e6.png" alt="" />
+                        <span>实战</span>
+                    </div>
+                </div>
+                <div class="right-title">
+                    <img src="../assets/imgs/cup.png" alt="" />
+                    <span>答题成绩排行榜</span>
+                </div>
+
+                <div class="ranking">
+                    <div class="ranking-head">
+                        <div class="sort">
+                            排名
+                        </div>
+                        <div class="user">
+                            用户
+                        </div>
+                        <div class="result">答题成绩</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            <img src="../assets/imgs/Medal1.png" alt="" />
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>uffbfbh</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            <img src="../assets/imgs/Medal2.png" alt="" />
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>ufbh</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            <img src="../assets/imgs/Medal3.png" alt="" />
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>X小姨妈</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            4
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>ufbh</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                    <div class="ranking-item">
+                        <div class="sort">
+                            5
+                        </div>
+                        <div class="user">
+                            <div class="img-box">
+                                <img src="../assets/imgs/avatar.jpg" alt="" />
+                            </div>
+                            <span>X小姨妈</span>
+                        </div>
+                        <div class="result">22</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部 -->
+    <div class="tn-footer">
+        <div class="tn-footer-wrap">
+            <div class="intro">
+                <div class="about">
+                    <li>
+                        <span><a href="">企业合作</a></span>
+                        <i></i>
+                        <span><a href="">人才招聘</a></span>
+                        <i></i>
+                        <span><a href="">联系我们</a></span>
+                        <i></i>
+                        <span><a href="">关于我们</a></span>
+                        <i></i>
+                        <span><a href="">帮助中心</a></span>
+                    </li>
+                    <li>
+                        <span><a href="">意见反馈</a></span>
+                        <i></i>
+                        <span><a href="">友情链接</a></span>
+                    </li>
+                </div>
+                <div class="chat">
+                    <div class="QR QR-qq">
+                        <img src="../assets/imgs/qrcode.png" alt="QQ群" />
+                        <span>QQ群</span>
+                    </div>
+                    <div class="QR QR-weixin">
+                        <img src="../assets/imgs/qrcode.png" alt="微信" />
+                        <span>微信</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            2020 All rights reserved 浪晋科技, Powered by 流云.
+        </div>
+    </div>
+    <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/personal.js"></script>
+    <script>
+        // 导航栏切换
+        $("#meaus .meaus-item").on("click", function() {
+            $("#meaus .meaus-item").removeClass("meaus-item-active");
+            $(this).addClass("meaus-item-active");
+        });
+        // 点击查看更多
+        $("#list .list-item .apply .more").on("click", function() {
+            let status = $(this).data("status");
+            let html = "";
+            if (status == "0") {
+                $(this)
+                    .parent(".desc")
+                    .css("height", "auto");
+                $(this)
+                    .data("status", "1")
+                    .css("padding-right", 0);
+                html = `<span class="cf7"> 收起更多</span
+                      ><span
+                        class="glyphicon glyphicon-triangle-top cf7"
+                      ></span>`;
+            } else {
+                $(this)
+                    .parent(".desc")
+                    .css("height", "40px");
+                $(this)
+                    .data("status", "0")
+                    .css("padding-right", "300px");
+                html = `<span>...</span><span class="cf7"> 查看更多</span
+                      ><span
+                        class="glyphicon glyphicon-triangle-bottom cf7"
+                      ></span>`;
+            }
+            $(this).html(html);
+            //   .data("status", "1");
+        });
+    </script>
+</body>
+
+</html>

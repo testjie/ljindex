@@ -1,0 +1,38 @@
+﻿首页：index.html
+
+登录: html/login.html
+注册：html/register.html
+
+测试教程: html/test_tutorial.html
+测试教程详情: html/test_tutorial_detail.html
+
+实战项目：html/actual_combat_project.html
+实战项目详情：html/actual_combat_project_detail.html
+
+心得体会：html/experience.html
+心得体会详情：html/experience_detail.html
+
+热门讨论（问题）: html/question.html
+问题详情: html/question_detail.html
+
+灵感一闪: html/inspiration.html
+
+面试经验：html/interview_experience.html
+面试经验详情：html/interview_experience_detail.html
+
+答题练习: html/answer.html
+答题: html/answering.html
+
+个人中心: html/personal.html  导航栏点击
+修改个人信息: html/modify_personal_Info.html
+
+行业动态: html/news.html
+
+关于我们: html/about.html
+
+招聘信息: html/recruitment_Information.html
+
+提问: html/put_question.html
+
+写文章: html/write_article.html
+

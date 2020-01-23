@@ -1,0 +1,727 @@
+@charset "UTF-8";
+.cf7 {
+    color: #f7726b;
+}
+
+.fw {
+    font-weight: bold;
+}
+
+.wrap {
+    width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.wrap .main {
+    width: 1120px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px 0 10px;
+}
+
+.wrap .main-left {
+    flex: 1;
+    margin-right: 20px;
+    width: 800px;
+}
+
+.wrap .main-right {
+    width: 300px;
+}
+
+.wrap .main-body {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.img-box {
+    overflow: hidden;
+    width: 100%;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+}
+
+.img-box img {
+    width: 100%;
+}
+
+.btn {
+    background: #f7726b;
+    border-radius: 3px;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: #fff;
+    background: rgba(247, 114, 107, 0.9);
+}
+
+.btn input {
+    cursor: pointer;
+}
+
+.btn-grey {
+    display: block;
+    border-radius: 3px;
+    border: 1px solid #f7726b;
+    background: transparent;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+    color: #f7726b;
+    width: 70px;
+    height: 25px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-grey:hover {
+    background: #f7726b;
+    color: #fff;
+}
+
+
+/*下拉框样式*/
+
+select {
+    cursor: pointer;
+    font-size: 12px;
+    padding-right: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /*去掉下拉箭头*/
+    background: url("../assets/imgs/down.png") no-repeat scroll right center transparent;
+    background-size: 15px;
+    border: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:last-child {
+    margin-right: 0px;
+}
+
+select option {
+    padding: 10px;
+    min-height: 30px !important;
+}
+
+select option:hover {
+    background-color: #f7726b;
+    background: #f7726b;
+}
+
+
+/*页面顶部banner标题通用样式*/
+
+.banner-title {
+    overflow: hidden;
+    width: 100%;
+    height: 150px;
+    background: url("../assets/imgs/banner-title.png") no-repeat center;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.banner-title-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 1120px;
+    height: 100%;
+}
+
+.banner-title .title {
+    padding: 5px 20px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #082164;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+
+/*用户信息模块*/
+
+.user-box {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.user-box .img-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-box .info {
+    padding-left: 10px;
+}
+
+.user-box .info .name {
+    color: #333;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.user-box .info .job {
+    color: #999;
+    font-size: 12px;
+}
+
+
+/*评论框*/
+
+.comment-input .message {
+    margin: 10px 0;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    position: relative;
+    color: #555;
+    background: #f5f5f5;
+    border: 1px solid #eeeeee;
+}
+
+.comment-input .message::before {
+    content: "2000";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    color: #949494;
+}
+
+.comment-input .btn-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-end;
+}
+
+.comment-input .btn-box .btn {
+    background: #f7726b;
+    color: #fff;
+    width: 80px;
+    height: 25px;
+    margin: 10px 0;
+}
+
+.comment-input .btn-box .btn:hover {
+    background: rgba(247, 114, 107, 0.9);
+}
+
+
+/*评论列表*/
+
+.comment {
+    margin-top: 20px;
+    border-top: 1px solid #f4f4f4;
+    padding: 20px 0 6px;
+}
+
+.comment-title .num {
+    color: #949494;
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+.comment-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 15px 0;
+}
+
+.comment-item .img-box {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.comment-item .img-box img {
+    width: 50px;
+    height: 50px;
+}
+
+.comment-item-info {
+    flex: 1;
+}
+
+.comment-item-info .info {
+    /*第一个人评论*/
+    /*其他人评论*/
+    /*回复和查看更多*/
+}
+
+.comment-item-info .info .first-comment {
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 15px;
+}
+
+.comment-item-info .info .first-comment .user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.comment-item-info .info .first-comment .user .job {
+    color: #949494;
+    margin-left: 15px;
+}
+
+.comment-item-info .info .first-comment .user .job span {
+    padding: 0 5px;
+}
+
+.comment-item-info .info .first-comment .date {
+    padding-top: 5px;
+    font-size: 12px;
+    color: #969696;
+}
+
+.comment-item-info .info .other-comment {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom: 1px solid #f4f4f4;
+    padding: 15px 0px;
+}
+
+.comment-item-info .info .other-comment .img-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.comment-item-info .info .other-comment-info {
+    flex: 1;
+}
+
+.comment-item-info .info .other-comment-info .user {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.comment-item-info .info .other-comment-info .user .job {
+    color: #949494;
+    margin-left: 15px;
+}
+
+.comment-item-info .info .other-comment-info .user .job span {
+    padding: 0 5px;
+}
+
+.comment-item-info .info .other-comment-info .date {
+    padding-top: 5px;
+    font-size: 12px;
+    color: #969696;
+}
+
+.comment-item-info .info .editandlook {
+    color: #949494;
+    padding: 15px 0;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.comment-item-info .info .editandlook label {
+    font-weight: normal;
+    margin-right: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.comment-item-info .info .editandlook label:hover {
+    color: #f7726b;
+}
+
+.comment-item-info .info .editandlook .lookmore {
+    padding-left: 12px;
+    position: relative;
+}
+
+.comment-item-info .info .editandlook .lookmore::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 200%;
+    background: #bfbece;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+}
+
+.comment-item-info .info .editandlook .lookmore span {
+    cursor: pointer;
+    color: #0681d0;
+}
+
+.comment-item-info .word {
+    padding: 14px 0;
+}
+
+.comment-item-info .info-other {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-between;
+    color: #949494;
+    font-size: 12px;
+}
+
+.comment-item-info .info-other .operate {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-end;
+}
+
+.comment-item-info .info-other .operate label {
+    font-weight: normal;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.comment-item-info .info-other .operate label:hover {
+    color: #f7726b;
+}
+
+.comment-item-info .comment-input {
+    /* display: none; */
+}
+
+.comment .no-more {
+    color: #949494;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 12px;
+}
+
+
+/*右部顶部工具栏*/
+
+.editTool {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.editTool-item {
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 1px 3px rgba(138, 138, 138, 0.14);
+    width: 29.5%;
+    height: 50px;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.editTool-item:nth-child(3n) {
+    margin-right: 0px;
+}
+
+.editTool-item:hover {
+    z-index: 2;
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.editTool-item img {
+    width: 25px;
+    margin-bottom: 4px;
+}
+
+
+/*右部标题*/
+
+.right-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0px 1px 3px rgba(138, 138, 138, 0.14);
+    height: 40px;
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.right-title img {
+    width: 18px;
+    margin-right: 5px;
+}
+
+
+/*热门排行榜通用样式*/
+
+.hot-list {
+    padding: 10px;
+    box-shadow: 0px 1px 3px rgba(138, 138, 138, 0.14);
+    margin: 10px 0;
+}
+
+.hot-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.hot-list-item .img-box {
+    width: 70px;
+    height: 65px;
+    position: relative;
+}
+
+.hot-list-item .tag {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
+    background: #f7726b;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+    width: 15px;
+    height: 12px;
+}
+
+.hot-list-item .info {
+    padding-left: 10px;
+    flex: 1;
+    height: 100%;
+}
+
+.hot-list-item .info .title {
+    font-weight: bold;
+    color: #5f5f5f;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.hot-list-item .info .desc {
+    line-height: 25px;
+    color: #949494;
+    font-size: 12px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.hot-list-item .info .btn {
+    width: 50px;
+    height: 20px;
+    border: 1px solid #f7726b;
+    color: #f7726b;
+    background: #fff;
+    font-size: 10px;
+    border-radius: 3px;
+}
+
+.hot-list-other {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: space-between;
+}
+
+.hot-list-other:last-child {
+    margin-bottom: 0;
+}
+
+.hot-list-other .tag {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+    width: 15px;
+    font-size: 12px;
+    height: 15px;
+    color: #9c9d9f;
+    border: 1px solid #9c9d9f;
+}
+
+.hot-list-other .title,
+.hot-list-other .desc {
+    width: 41%;
+    margin-left: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.hot-list-other .desc {
+    font-size: 12px;
+    color: #949494;
+}
+
+
+/*答题成绩排行榜 */
+
+.ranking {
+    box-shadow: 0px 1px 3px rgba(138, 138, 138, 0.14);
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.ranking-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px 0;
+    border-bottom: 1px solid #fdfbfb;
+}
+
+.ranking-head .sort {
+    width: 30px;
+}
+
+.ranking-head .user {
+    flex: 1;
+    text-align: center;
+}
+
+.ranking-head .result {
+    width: 50px;
+}
+
+.ranking-item {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ranking-item .sort {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.ranking-item .sort img {
+    width: 20px;
+}
+
+.ranking-item .user {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: flex-start;
+    padding-left: 10px;
+    font-size: 12px;
+    color: #666;
+}
+
+.ranking-item .user .img-box {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.ranking-item .result {
+    font-weight: bold;
+    text-align: center;
+    width: 50px;
+    color: #fda457;
+    font-size: 12px;
+}
+
+
+/*分页组件*/
+
+.page-navigation {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    background-color: #f7726b;
+    border-color: #f7726b;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: #f7726b;
+}
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+    color: #f7726b;
+}

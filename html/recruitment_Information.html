@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>测评网-招聘信息</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/animate/animate.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/testTutorial.css" />
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="tn-header">
+        <div class="tn-header-wrap">
+            <b>
+          <a href="../index.html" title="测谈网">测谈网</a>
+        </b>
+            <nav>
+                <div class="select"><a href="../index.html">首页</a></div>
+                <div class="select select-menu1">
+                    测试教程
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="test_tutorial.html">测试教程</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="select select-menu2">
+                    交流讨论
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+
+                        <li><a href="question.html">交流讨论</a></li>
+                        <li><a href="experience.html">文章心得</a></li>
+                        <li><a href="inspiration.html">灵光一闪</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 带选择的搜索 -->
+            <div class="search">
+                <select name="" id="">
+            <option value="">全局</option>
+            <option value="">文章</option>
+            <option value="">评论</option>
+          </select>
+                <div class="input-box">
+                    <input type="text" placeholder="输入你想知道的" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+            </div>
+
+            <div class="utils-box logged log_show">
+                <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
+                <a href="">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <a href="">
+                    <img src="../assets/imgs/avatar.jpg" alt="" />
+                </a>
+            </div>
+            <div class="utils-box notLog log_hide">
+                <div class="operating login">
+                    <a href="login.html">登录</a>
+                </div>
+                <div class="operating registered">
+                    <a href="register.html">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap recruitment_Information">
+        <div class="wrap banner-title">
+            <div class="banner-title-box">
+                <div class="title">测谈招聘</div>
+            </div>
+        </div>
+        <div class="main main-body recruitment_Information-body">
+            <div class="main-left">
+                <div class="filter">
+                    <div class="filter-item">
+                        <div class="filter-item-name">地点：</div>
+                        <div class="filter-item-infos">
+                            <select class="filter-active" name="" id="">
+                  <option value="">成都</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">行政区</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">地铁周边</option>
+                </select>
+                        </div>
+                    </div>
+                    <div class="filter-item">
+                        <div class="filter-item-name">行业：</div>
+                        <div id="" class="filter-item-infos">
+                            <div class="filter-active">不限</div>
+                            <select class="select" name="" id="">
+                  <option value="">互联网/IT/电子/通信</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">房地产</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">金融业</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">建筑业</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">制造业</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">农林牧鱼</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">批发/零售/贸易</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">专业服务</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">文化/体育/娱乐</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">交通运输/仓储/物流</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">能源/环保/矿产</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">教育培训/科研</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">卫生及社会工作</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">公共管理/社会保障</option>
+                </select>
+                            <select class="select" name="" id="">
+                  <option value="">生活服务</option>
+                </select>
+                        </div>
+                    </div>
+                    <div class="filter-item monthly_pay">
+                        <div class="filter-item-name">月薪：</div>
+                        <div id="month-pay" class="filter-item-infos">
+                            <span data-num="" class="filter-active">不限</span>
+                            <span>1K以下</span>
+                            <span>1K-2K</span>
+                            <span>2K-4K</span>
+                            <span>4K-6K</span>
+                            <span>6K-8K</span>
+                            <span>8K-10K</span>
+                            <span>10K-15K</span>
+                            <span>15K-25K</span>
+                            <span>25K-35K</span>
+                            <span>35K-50K</span>
+                            <span>50K-70K</span>
+                            <span>70K-100K</span>
+                            <span>100K以上</span>
+                        </div>
+                    </div>
+                    <div class="filter-item other">
+                        <div class="filter-item-name">其他：</div>
+                        <div class="filter-item-infos">
+                            <select class="other-select" name="" id="">
+                  <option value="">请选择</option>
+                </select>
+                            <select class="other-select" name="" id="">
+                  <option value="">请选择</option>
+                </select>
+                            <select class="other-select" name="" id="">
+                  <option value="">请选择</option>
+                </select>
+                            <select class="other-select" name="" id="">
+                  <option value="">请选择</option>
+                </select>
+                            <select class="other-select" name="" id="">
+                  <option value="">请选择</option>
+                </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="recruitment_Information-list">
+                    <div class="recruitment_Information-list-item">
+                        <div class="rili-item">
+                            <div class="job"><span class="cf7">测试</span>工程师</div>
+                            <div class="company">
+                                <span>四川省换货单号科技有相似</span>
+                                <span class="member">会员</span>
+                            </div>
+                        </div>
+                        <div class="rili-item rili-item-center">
+                            <div class="rili-item-left">
+                                <span class="cf7 money">2K-4K</span>
+                                <div>
+                                    <span class="address">成都</span>
+                                    <span>1-3年</span>
+                                    <span>大专</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span>民营</span>
+                                <span>20人以下</span>
+                            </div>
+                        </div>
+                        <div class="rili-item">
+                            <div class="rili-item-left tag">
+                                <div class="tag-item">求贤若渴</div>
+                                <div class="tag-item">求贤若渴</div>
+                                <div class="tag-item">求贤若渴</div>
+                                <div class="tag-item">求贤若渴</div>
+                            </div>
+                            <div>
+                                <span class="newest">最新</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recruitment_Information-list-item">
+                        <div class="rili-item">
+                            <div class="job">验证<span class="cf7">测试</span>员</div>
+                            <div class="company">
+                                <span>四川省换货单号科技有相似</span>
+                                <span class="member">会员</span>
+                            </div>
+                        </div>
+                        <div class="rili-item rili-item-center">
+                            <div class="rili-item-left">
+                                <span class="cf7 money">2K-4K</span>
+                                <div>
+                                    <span class="address">成都</span>
+                                    <span>1-3年</span>
+                                    <span>大专</span>
+                                </div>
+                            </div>
+                            <div>
+                                <span>民营</span>
+                                <span>20人以下</span>
+                            </div>
+                        </div>
+                        <div class="rili-item">
+                            <div class="rili-item-left tag">
+                                <div class="tag-item">求贤若渴</div>
+                                <div class="tag-item">求贤若渴</div>
+                                <div class="tag-item">求贤若渴</div>
+                                <div class="tag-item">求贤若渴</div>
+                            </div>
+                            <div>
+                                <span class="newest">最新</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 分页组件 -->
+                <div class="page-navigation">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">上一页</span>
+                                </a>
+                            </li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">下一页</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="main-right">
+                <div class="editTool">
+                    <div class="editTool-item" onclick="go_write_article()">
+                        <img src="../assets/imgs/e1.png" alt="" />
+                        <span>写文章</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_inspiration()">
+                        <img src="../assets/imgs/e2.png" alt="" />
+                        <span>写灵感</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_question()">
+                        <img src="../assets/imgs/e3.png" alt="" />
+                        <span>写疑惑</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_learn()">
+                        <img src="../assets/imgs/e4.png" alt="" />
+                        <span>学习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_answering()">
+                        <img src="../assets/imgs/e5.png" alt="" />
+                        <span>练习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_actual_combat_project()">
+                        <img src="../assets/imgs/e6.png" alt="" />
+                        <span>实战</span>
+                    </div>
+                </div>
+                <div class="right-title">
+                    <img src="../assets/imgs/cup.png" alt="" />
+                    <span>热门教程排行榜</span>
+                </div>
+                <div class="hot-list">
+                    <div class="hot-list-item sort">
+                        <div class="img-box">
+                            <div class="tag">1</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">2</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">3</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">4</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">5</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部 -->
+    <div class="tn-footer">
+        <div class="tn-footer-wrap">
+            <div class="intro">
+                <div class="about">
+                    <li>
+                        <span><a href="">企业合作</a></span>
+                        <i></i>
+                        <span><a href="">人才招聘</a></span>
+                        <i></i>
+                        <span><a href="">联系我们</a></span>
+                        <i></i>
+                        <span><a href="">关于我们</a></span>
+                        <i></i>
+                        <span><a href="">帮助中心</a></span>
+                    </li>
+                    <li>
+                        <span><a href="">意见反馈</a></span>
+                        <i></i>
+                        <span><a href="">友情链接</a></span>
+                    </li>
+                </div>
+                <div class="chat">
+                    <div class="QR QR-qq">
+                        <img src="../assets/imgs/qrcode.png" alt="QQ群" />
+                        <span>QQ群</span>
+                    </div>
+                    <div class="QR QR-weixin">
+                        <img src="../assets/imgs/qrcode.png" alt="微信" />
+                        <span>微信</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            2020 All rights reserved 浪晋科技, Powered by 流云.
+        </div>
+    </div>
+    <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script>
+        $("#month-pay span").click(function() {
+            let txt = $(this).text();
+            alert(txt);
+        });
+    </script>
+</body>
+
+</html>

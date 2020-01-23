@@ -1,0 +1,111 @@
+.tn-modify .modify {
+  max-width: 560px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.tn-modify .modify label {
+  min-width: 70px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.tn-modify .modify-avatar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tn-modify .modify-avatar img {
+  margin-right: 20px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #bfbece;
+}
+
+.tn-modify .modify-avatar .edit-avatar {
+  position: relative;
+  width: 100px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  background: #f7726b;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.tn-modify .modify-avatar .edit-avatar:hover {
+  opacity: 0.8;
+}
+
+.tn-modify .modify-avatar .edit-avatar input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+}
+
+.tn-modify .modify-textarea textarea {
+  padding: 6px 12px;
+  width: 100%;
+  color: #555;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.tn-modify .modify-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tn-modify .modify-group .item {
+  width: 45%;
+}
+
+.tn-modify .modify-group .item-big {
+  width: 100%;
+}
+
+.tn-modify .modify-group .item .dropdown select {
+  width: 100%;
+}
+
+.tn-modify .modify-footer {
+  text-align: center;
+}
+
+.tn-modify .modify-footer .modify_btn {
+  width: 35%;
+  margin-top: 20px;
+  height: 40px;
+  display: inline-block;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  background: #f7726b;
+  border-radius: 3px;
+  box-shadow: 0 5px 30px #f3dfde;
+  transition: all 0.15s ease;
+}
+
+.tn-modify .modify-footer .modify_btn a {
+  color: #fff;
+  display: block;
+}
+
+.tn-modify .modify-footer .modify_btn--cancel {
+  margin-right: 5%;
+  background: #bfbece;
+  box-shadow: 0 5px 30px #bfbece;
+}
+
+.tn-modify .modify-footer .modify_btn:hover {
+  opacity: 0.8;
+}

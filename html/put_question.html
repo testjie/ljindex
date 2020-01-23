@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>测评网-提问</title>
+    <link rel="stylesheet" href="../lib/editormd/css/editormd.min.css" />
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/animate/animate.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/testTutorial.css" />
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="tn-header">
+        <div class="tn-header-wrap">
+            <b>
+          <a href="../index.html" title="测谈网">测谈网</a>
+        </b>
+            <nav>
+                <div class="select"><a href="../index.html">首页</a></div>
+                <div class="select select-menu1">
+                    测试教程
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="test_tutorial.html">测试教程</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="select select-menu2">
+                    交流讨论
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+
+                        <li><a href="question.html">交流讨论</a></li>
+                        <li><a href="experience.html">文章心得</a></li>
+                        <li><a href="inspiration.html">灵光一闪</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 带选择的搜索 -->
+            <div class="search">
+                <select name="" id="">
+            <option value="">全局</option>
+            <option value="">文章</option>
+            <option value="">评论</option>
+          </select>
+                <div class="input-box">
+                    <input type="text" placeholder="输入你想知道的" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+            </div>
+            <div class="utils-box logged log_show">
+                <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
+                <a href="">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <a href="">
+                    <img src="../assets/imgs/avatar.jpg" alt="" />
+                </a>
+            </div>
+            <div class="utils-box notLog log_hide">
+                <div class="operating login">
+                    <a href="login.html">登录</a>
+                </div>
+                <div class="operating registered">
+                    <a href="register.html">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap write_article">
+        <div class="wrap banner-title">
+            <div class="banner-title-box">
+                <div class="title">测谈答题练习</div>
+            </div>
+        </div>
+        <div class="main main-body write_article-body">
+            <div class="main-left">
+                <form class="write_article-form" action="">
+                    <div class="input-box">
+                        <div class="name">标 题:</div>
+                        <input type="text" placeholder="输入文章标题" />
+                    </div>
+                    <div class="input-box">
+                        <div class="name">内 容:</div>
+                        <!-- MarkDown形式 -->
+                        <div class="content">
+                            <div class="edit-avatar">
+                                <span>上传图片</span>
+                                <input name="avatar" type="file" />
+                            </div>
+                            <div id="test-editor">
+                                <textarea style="display:none;">
+                    ### 关于 Editor.md
+                    **Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。
+                  </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="name">
+                            <!-- <span class="glyphicon glyphicon-tag"></span> -->
+                            <span>标 签:</span>
+                        </div>
+                        <input type="text" placeholder="输入文章标签" />
+                    </div>
+                    <div class="submit">
+                        <button class="btn" type="submit">提 交</button>
+                    </div>
+                </form>
+            </div>
+            <div class="main-right">
+                <div class="editTool">
+                    <div class="editTool-item" onclick="go_write_article()">
+                        <img src="../assets/imgs/e1.png" alt="" />
+                        <span>写文章</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_inspiration()">
+                        <img src="../assets/imgs/e2.png" alt="" />
+                        <span>写灵感</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_question()">
+                        <img src="../assets/imgs/e3.png" alt="" />
+                        <span>写疑惑</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_learn()">
+                        <img src="../assets/imgs/e4.png" alt="" />
+                        <span>学习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_answering()">
+                        <img src="../assets/imgs/e5.png" alt="" />
+                        <span>练习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_actual_combat_project()">
+                        <img src="../assets/imgs/e6.png" alt="" />
+                        <span>实战</span>
+                    </div>
+                </div>
+                <div class="right-title">
+                    <img src="../assets/imgs/cup.png" alt="" />
+                    <span>热门灵感排行榜</span>
+                </div>
+                <div class="hot-list">
+                    <div class="hot-list-item sort">
+                        <div class="img-box">
+                            <div class="tag">1</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">2</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">3</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">4</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">5</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部 -->
+    <div class="tn-footer">
+        <div class="tn-footer-wrap">
+            <div class="intro">
+                <div class="about">
+                    <li>
+                        <span><a href="">企业合作</a></span>
+                        <i></i>
+                        <span><a href="">人才招聘</a></span>
+                        <i></i>
+                        <span><a href="">联系我们</a></span>
+                        <i></i>
+                        <span><a href="">关于我们</a></span>
+                        <i></i>
+                        <span><a href="">帮助中心</a></span>
+                    </li>
+                    <li>
+                        <span><a href="">意见反馈</a></span>
+                        <i></i>
+                        <span><a href="">友情链接</a></span>
+                    </li>
+                </div>
+                <div class="chat">
+                    <div class="QR QR-qq">
+                        <img src="../assets/imgs/qrcode.png" alt="QQ群" />
+                        <span>QQ群</span>
+                    </div>
+                    <div class="QR QR-weixin">
+                        <img src="../assets/imgs/qrcode.png" alt="微信" />
+                        <span>微信</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            2020 All rights reserved 浪晋科技, Powered by 流云.
+        </div>
+    </div>
+
+    <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../lib/editormd/editormd.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script>
+        $(function() {
+            var editor = editormd("test-editor", {
+                // width  : "100%",
+                // height : "100%",
+                path: "../lib/editormd/lib/"
+            });
+        });
+    </script>
+</body>
+
+</html>

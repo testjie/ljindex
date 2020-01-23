@@ -1,0 +1,163 @@
+.about-body {
+  width: 1120px;
+}
+
+.about-introduction {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 305px;
+  box-shadow: 0px 1px 3px rgba(138, 138, 138, 0.14);
+}
+
+.about-introduction .img-box {
+  height: 100%;
+  width: 50%;
+}
+
+.about-introduction .info {
+  text-align: left;
+  padding: 40px;
+  height: 100%;
+  width: 50%;
+}
+
+.about-introduction .info .title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.about-introduction .info .title::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 65px;
+  height: 2px;
+  background: #f7726b;
+  bottom: -10px;
+  left: 0px;
+}
+
+.about-introduction .info .title .name {
+  font-weight: 900;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.about-introduction .info .title .sub {
+  font-size: 12px;
+}
+
+.about-introduction .info .desc {
+  line-height: 25px;
+  color: #5f5f5f;
+}
+
+.about-special {
+  margin: 80px 0;
+}
+
+.about-special .title {
+  position: relative;
+  text-align: center;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.about-special .title::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -120px;
+  content: "";
+  width: 50px;
+  height: 2px;
+  display: block;
+  background: #f7726b;
+}
+
+.about-special .title::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: 73px;
+  content: "";
+  width: 50px;
+  height: 2px;
+  display: block;
+  background: #f7726b;
+}
+
+.about-special .sub {
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 0;
+  color: #949494;
+}
+
+.about-special .list {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.about-special .list-item {
+  width: 45%;
+  margin-bottom: 50px;
+}
+
+.about-special .list-item .name {
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+  font-weight: 900;
+}
+
+.about-special .list-item .name .tag {
+  width: 20px;
+  height: 15px;
+  background: #f7726b;
+  transform: skewX(-25deg);
+  margin-right: 10px;
+}
+
+.about-special .list-item .desc {
+  line-height: 20px;
+  color: #5f5f5f;
+}
+
+.about-special .list-item .line {
+  margin-top: 30px;
+  border-bottom: 2px solid #f7726b;
+  color: #fff;
+  font-size: 10px;
+  position: relative;
+}
+
+.about-special .list-item .line .num {
+  position: absolute;
+  bottom: -2px;
+  right: -6px;
+  width: 30px;
+  background: #f7726b;
+  height: 20px;
+  line-height: 20px;
+  transform: skewX(-30deg);
+  text-align: center;
+}
+
+.about-special .list-item .line .num div {
+  transform: skewX(30deg);
+}

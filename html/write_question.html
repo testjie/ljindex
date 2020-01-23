@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>测评网-写文章</title>
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../lib/animate/animate.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/testTutorial.css" />
+    <link rel="stylesheet" type="text/css" href="../lib/webuploader/webuploader.css">
+    <style type="text/css">
+        .w-e-text-container {
+            height: 500px !important;
+            /*!important是重点，因为原div是行内样式设置的高度300px*/
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="tn-header">
+        <div class="tn-header-wrap">
+            <b>
+          <a href="../index.html" title="测谈网">测谈网</a>
+        </b>
+            <nav>
+                <div class="select"><a href="../index.html">首页</a></div>
+                <div class="select select-menu1">
+                    测试教程
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="test_tutorial.html">测试教程</a></li>
+
+
+                    </ul>
+                </div>
+                <div class="select select-menu2">
+                    交流讨论
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+
+                        <li><a href="question.html">交流讨论</a></li>
+                        <li><a href="experience.html">文章心得</a></li>
+                        <li><a href="inspiration.html">灵光一闪</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 带选择的搜索 -->
+            <div class="search">
+                <select name="" id="">
+            <option value="">全局</option>
+            <option value="">文章</option>
+            <option value="">评论</option>
+          </select>
+                <div class="input-box">
+                    <input type="text" placeholder="输入你想知道的" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+            </div>
+            <div class="utils-box logged" id="logined">
+                <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
+                </a>
+                <a href="javascript:void(0)" onclick="user_logout()">
+                    <span class="glyphicon glyphicon-cog" onclick="user_logout()"></span>
+                </a>
+                <a href="" id="personal">
+                    <img src="" id="headpic" alt="" />
+                </a>
+            </div>
+            <div class="utils-box notLog" id="unlogin">
+                <div class="operating login">
+                    <a href="login.html">登录</a>
+                </div>
+                <div class="operating registered">
+                    <a href="register.html">注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap write_article">
+        <div class="wrap banner-title">
+            <div class="banner-title-box">
+                <div class="title">写疑惑</div>
+            </div>
+        </div>
+        <div class="main main-body write_article-body">
+            <div class="main-left">
+                <div class="write_article-form">
+                    <div class="input-box">
+                        <div class="name">标 题:</div>
+                        <input type="text" id="user_article_title" placeholder="输入文章标题" style="width: 100%;" />
+                    </div>
+                    <!-- <div class="input-box">
+                        <div class="name">封 面:</div>
+                        <img src="" id="fengmian" hidden style="width: 25px; height:25px;">
+                        <div class="content" style="" id="content">
+                            <form class="edit-avatar" id="uploadForm" enctype="multipart/form-data">
+                                <span>选择图片</span>
+                                <input type="file" name="file" id="file" />
+                            </form>
+                        </div>
+                        <input type="button" class="btn btn-primary" value="上传" id="acommit" style="float: left; width:80px; height: 28px;">
+                    </div> -->
+
+                    <div class="input-box">
+                        <div class="name">内 容:</div>
+                        <!-- MarkDown形式 -->
+                        <div class="content">
+                            <div id="editor">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="name">封 面:</div>
+
+                        <div id="uploader-demo" class="content">
+                            <div id="fileList" class="uploader-list"></div>
+                            <div id="filePicker">选择图片</div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="name">
+                            <!-- <span class="glyphicon glyphicon-tag"></span> -->
+                            <span>简 介:</span>
+                        </div>
+                        <input type="text" id="user_article_breif" placeholder="输入文章简介" style="width: 100%;" />
+                    </div>
+                    <div class="input-box">
+                        <div class="name">
+                            <!-- <span class="glyphicon glyphicon-tag"></span> -->
+                            <span>标 签:</span>
+                        </div>
+                        <input type="text" id="user_article_tag" placeholder="输入文章标签" style="width: 100%;" />
+                    </div>
+
+                    <div class="submit">
+                        <button class="btn-grey" type="button" id="allcommit">提 交</button>
+                    </div>
+                </div>
+            </div>
+            <div class="main-right">
+                <div class="editTool">
+                    <div class="editTool-item" onclick="go_write_article()">
+                        <img src="../assets/imgs/e1.png" alt="" />
+                        <span>写文章</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_inspiration()">
+                        <img src="../assets/imgs/e2.png" alt="" />
+                        <span>写灵感</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_write_question()">
+                        <img src="../assets/imgs/e3.png" alt="" />
+                        <span>写疑惑</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_learn()">
+                        <img src="../assets/imgs/e4.png" alt="" />
+                        <span>学习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_student_answering()">
+                        <img src="../assets/imgs/e5.png" alt="" />
+                        <span>练习</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_actual_combat_project()">
+                        <img src="../assets/imgs/e6.png" alt="" />
+                        <span>实战</span>
+                    </div>
+                </div>
+                <div class="right-title">
+                    <img src="../assets/imgs/cup.png" alt="" />
+                    <span>热门教程排行榜</span>
+                </div>
+                <div class="hot-list">
+                    <div class="hot-list-item sort">
+                        <div class="img-box">
+                            <div class="tag">1</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">2</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">3</div>
+                            <img src="../assets/imgs/z.png" alt="" />
+                        </div>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
+                        </div>
+                    </div>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">4</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">5</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 尾部 -->
+    <div class="tn-footer">
+        <div class="tn-footer-wrap">
+            <div class="intro">
+                <div class="about">
+                    <li>
+                        <span><a href="">企业合作</a></span>
+                        <i></i>
+                        <span><a href="">人才招聘</a></span>
+                        <i></i>
+                        <span><a href="">联系我们</a></span>
+                        <i></i>
+                        <span><a href="">关于我们</a></span>
+                        <i></i>
+                        <span><a href="">帮助中心</a></span>
+                    </li>
+                    <li>
+                        <span><a href="">意见反馈</a></span>
+                        <i></i>
+                        <span><a href="">友情链接</a></span>
+                    </li>
+                </div>
+                <div class="chat">
+                    <div class="QR QR-qq">
+                        <img src="../assets/imgs/qrcode.png" alt="QQ群" />
+                        <span>QQ群</span>
+                    </div>
+                    <div class="QR QR-weixin">
+                        <img src="../assets/imgs/qrcode.png" alt="微信" />
+                        <span>微信</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            2020 All rights reserved 浪晋科技, Powered by 流云.
+        </div>
+    </div>
+
+    <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/write_question.js"></script>
+    <script src="../lib/wangeditor/release/wangEditor.js"></script>
+    <script type="text/javascript" src="../lib/webuploader/webuploader.js"></script>
+
+</body>
+
+</html>
