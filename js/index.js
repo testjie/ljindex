@@ -139,7 +139,7 @@ function get_questions_list() {
                     var createtime = "2019.12.12"
 
                     c = '<li onclick="go_questsions_details(' + qid + ')" style="cursor:pointer;">' +
-                        '<p class="title">' + title + '</p>' +
+                        '<p class="title" style="word-break:break-all;">' + title + '</p>' +
                         '<section class="details">' +
                         '<img src="' + img_url + '" alt="" sytle="width:125px; height:125px"/>' +
                         '<div class="desc">' + brief + '<div class="more">' +
@@ -198,7 +198,7 @@ function get_experiences_list() {
                     c = '<li onclick="go_experience_details(' + aid + ')" style="cursor:pointer;">' +
                         '<img src="' + img_url + '" alt=""  style="width:80px; height:80px;"/>' +
                         '<div class="details">' +
-                        '<div class="title">' + title + '</div>' +
+                        '<div class="title" style="word-break:break-all;">' + title + '</div>' +
                         '<div class="desc">' + brief + '</div>' +
                         '<div class="resets">' +
                         '<div class="time">' + createtime + '</div>' +

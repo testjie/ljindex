@@ -35,12 +35,12 @@ $(document).ready(function() {
     });
 
     // 点赞
-    $("#user_like").click(function() {
-        alert("不知道使用何种手段了解该用户是否已点赞")
-        return
-        var inspiration_comments_ctt = $('#inspiration_comments_ctt').val();
-        alert(inspiration_comments_ctt)
-        var datas = get_json({ 'goodtype': 'article', 'status': inspiration_comments_ctt, 'fid': inspiration_id })
+    $("#user_likes").click(function() {
+        var user_like_status = 1; // 0点赞，1取消
+        if ($("#user_likes").attr("style") != "color:#f7726b") {
+            user_like_status = 0;
+        }
+        var datas = get_json({ 'ctype': 3, 'status': user_like_status, 'gid': inspiration_id })
         $.ajax({
             type: 'post',
             url: get_url("/userfellgoods"),
@@ -51,11 +51,19 @@ $(document).ready(function() {
             success: function(str) { //返回json结果
                 if (str.status == 200) {
                     // 评论成功, 局部刷新评论内容
+                    // 点赞成功
+                    if (user_like_status == 0) {
+                        $("#user_likes").attr("style", "color:#f7726b");
+                        $('#inspiration_likes').text(Number($('#inspiration_likes').text()) + 1);
+                        // 点赞失败
+                    } else {
+                        $("#user_likes").attr("style", "");
+                        $('#inspiration_likes').text(Number($('#inspiration_likes').text()) - 1);
+                    }
 
                 } else {
                     alert(str.msg);
-                    remove_user_login_status(str.msg)
-
+                    remove_user_login_status(str.msg);
                 }
 
             },
@@ -68,28 +76,27 @@ $(document).ready(function() {
 
     // 收藏
     $("#user_collectons").click(function() {
-        alert("不知道使用何种手段了解该用户是否已收藏教程")
-        return
-        var inspiration_comments_ctt = $('#inspiration_comments_ctt').val();
-        alert(inspiration_comments_ctt)
-        var datas = get_json({ 'goodtype': 'article', 'status': inspiration_comments_ctt, 'fid': inspiration_id })
+        var user_like_status = 1; // 0点赞，1取消
+        if ($("#user_collectons").attr("style") != "color:#f7726b") {
+            user_like_status = 0; // 未点赞
+        }
+        var datas = get_json({ 'ctype': 3, 'status': user_like_status, 'cid': inspiration_id })
         $.ajax({
             type: 'post',
-            url: get_url("/userfellgoods"),
+            url: get_url("/usercollections"),
             headers: get_headers(),
             data: datas,
             xhrFields: { withCredentials: true },
             crossDomain: true,
             success: function(str) { //返回json结果
-                if (str.status == 200) {
-                    // 评论成功, 局部刷新评论内容
-
+                if (user_like_status == "0") {
+                    $("#user_collectons").attr("style", "color:#f7726b");
+                    $('#inspiration_collectons').text(Number($('#inspiration_collectons').text()) + 1);
+                    // 点赞失败
                 } else {
-                    alert(str.msg);
-                    remove_user_login_status(str.msg)
-
+                    $("#user_collectons").attr("style", "");
+                    $('#inspiration_collectons').text(Number($('#inspiration_collectons').text()) - 1);
                 }
-
             },
             fail: function(err, status) {
                 alert(err.data);

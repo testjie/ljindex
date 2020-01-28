@@ -137,7 +137,7 @@ function get_inspirations_list(nums) {
                         '</div>' +
                         '</div>' +
                         '</div>' +
-                        '<p class="desc"  onclick="go_inspiration_details(' + inspiration_id + ')" style="cursor:pointer;">' + inspiration_content + '</p>' +
+                        '<p class="desc" style="word-break:break-all;" onclick="go_inspiration_details(' + inspiration_id + ')" style="cursor:pointer;">' + inspiration_content + '</p>' +
                         '<div class="list-item-imgs" onclick="go_inspiration_details(' + inspiration_id + ')" style="cursor:pointer;">';
 
                     // 遍历图片
