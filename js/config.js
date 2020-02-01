@@ -209,10 +209,10 @@ function go_personal_details(id, is_index = false) {
 // 跳转到写文章页面
 function go_write_article(is_index = false) {
     var login_url = "login.html"
-    var write_article_url = "write_article.html"
+    var write_article_url = "experience_new.html"
     if (is_index == true) {
         login_url = "html/login.html"
-        write_article_url = "html/write_article.html"
+        write_article_url = "html/experience_new.html"
     }
     if (get_user_login_status() == false) {
         alert("请先登录")
@@ -242,10 +242,10 @@ function go_write_inspiration(is_index = false) {
 // 跳转到写疑惑页面
 function go_write_question(is_index = false) {
     var login_url = "login.html"
-    var put_question_url = "write_question.html"
+    var put_question_url = "question_new.html"
     if (is_index == true) {
         login_url = "html/login.html"
-        put_question_url = "html/write_question.html"
+        put_question_url = "html/question_new.html"
     }
     if (get_user_login_status() == false) {
         alert("请先登录")
@@ -327,7 +327,7 @@ function compute_pagenum(id, method, cid = -1000) {
 }
 
 
-// 用户计算页面
+// 分页计算
 function user_compute_pagenum(id, method, uid, cid = -1000) {
     var total = $('#total').val();
     var last = Math.ceil(total / 10);
@@ -341,17 +341,15 @@ function user_compute_pagenum(id, method, uid, cid = -1000) {
     }
 
     if (cid == -10000) {
-        $("#pre").attr("href", "javascript:" + method + "(" + pres + "," + uid + "," + cid + ")")
-        $("#next").attr("href", "javascript:" + method + "(" + next + "," + uid + "," + cid + ")")
-        $("#current").text("第" + id + "页/共" + last + "页")
+        $("#pre").attr("href", "javascript:" + method + "(" + pres + "," + uid + "," + cid + ")");
+        $("#next").attr("href", "javascript:" + method + "(" + next + "," + uid + "," + cid + ")");
+        $("#current").text("第" + id + "页/共" + last + "页");
     } else {
-        $("#pre").attr("href", "javascript:" + method + "(" + cid + "," + uid + "," + pres + ")")
-        $("#next").attr("href", "javascript:" + method + "(" + cid + "," + uid + "," + next + ")")
-        $("#current").text("第" + id + "页/共" + last + "页")
+        $("#pre").attr("href", "javascript:" + method + "(" + cid + "," + uid + "," + pres + ")");
+        $("#next").attr("href", "javascript:" + method + "(" + cid + "," + uid + "," + next + ")");
+        $("#current").text("第" + id + "页/共" + last + "页");
     }
-
 }
-
 
 function get_user4_status(ctype, fid) {
     // ctype: 0教程1提问2灵感3心得体会
@@ -433,7 +431,7 @@ function go_tutorial_details(id, is_index = false) {
 }
 
 // 跳转到个人中心
-function go_personal_info(uid, is_index = false) {
+function go_personal_info(id, is_index = false) {
     var url = "html/personal_info.html?aid=" + id;
     if (is_index == false) {
         url = "personal_info.html?aid=" + id;
@@ -441,11 +439,31 @@ function go_personal_info(uid, is_index = false) {
     window.location.href = url;
 }
 
-//获取页面跳转的用户id
-function get_id() {
-    return window.location.href.split('=')[1].replace('#', '');
+// 跳转到粉丝列表
+function go_personal_fans(id, type, is_index = false) {
+    // type: 0:粉丝列表; 1:关注列表
+    var url = "html/personal_fans.html?id=" + id + "&type=" + type;
+    if (is_index == false) {
+        url = "personal_fans.html?id=" + id + "&type=" + type;
+    }
+    window.location.href = url;
 }
 
+
+//获取页面跳转的用户id
+function get_id() {
+    var id = window.location.href.split('=')[1].replace('#', '');
+    if (id.search("&") != -1) {
+        return id.split("&")[0];
+    } else {
+        return id;
+    }
+}
+
+//获取第二个参数
+function get_sec_params() {
+    return window.location.href.split('=')[2].replace('#', '');;
+}
 
 // 手机号正则表达式
 function is_mobile(s) {

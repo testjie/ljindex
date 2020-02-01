@@ -82,15 +82,15 @@
                         <span class="name">人气</span>
                         <span class="num">1233</span>
                     </div>
-                    <div class="info-item-item" style="cursor:pointer;">
+                    <div class="info-item-item" id="fanslist" style="cursor:pointer;">
                         <span class="name">粉丝</span>
-                        <span class="num" id="fensi"></span>
+                        <span class="num" id="fans"></span>
                     </div>
                 </div>
                 <div class="info-item">
-                    <div class="info-item-item" style="cursor:pointer;">
+                    <div class="info-item-item" id="followslist" style="cursor:pointer;">
                         <span class="name">关注</span>
-                        <span class="num" id="guanzhu"></span>
+                        <span class="num" id="follows"></span>
                     </div>
 
                     <div class="info-item-item" onclick="javascript:alert('暂未开放 ')" style="cursor:pointer;">
@@ -105,15 +105,15 @@
             <p class="username" id="username"></p>
             <input type="hidden" id="uid" value="">
             <p class="job" id="userinfo"></p>
-            <a target="_blank" href="./personal_info.html" class="btn">编辑个人资料</a>
+            <a target="_blank" href="personal_info.html" class="btn" id="update_user_info">编辑个人资料</a>
         </div>
         <div class="main personal-body">
             <div class="main-left personal-body-left">
                 <div id="meaus" class="meaus">
                     <!-- <div class="meaus-item">动态</div> -->
                     <!-- <div class="meaus-item">回答 <span class="num">(233)</span></div> -->
-                    <div class="meaus-item meaus-item-active" id="get_fans">关注他的人<span class="num" id="num"></span></div>
-                    <div class="meaus-item" id="get_articles">他关注的人<span class="num" id="article_num"></span></div>
+                    <div class="meaus-item meaus-item-active" id="get_fans">关注他的人<span class="num" id="fan_nums"></span></div>
+                    <div class="meaus-item" id="get_follows">他关注的人<span class="num" id="follow_nums"></span></div>
                 </div>
                 <div id="list" class="list">
                     <div style="display:block;box-shadow: 0px 1px 3px rgba(138, 138, 138, 0.14); height: 50px;;"></div>

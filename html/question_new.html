@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/testTutorial.css" />
     <link rel="stylesheet" type="text/css" href="../lib/webuploader/webuploader.css">
-
     <style type="text/css">
         .w-e-text-container {
             height: 500px !important;
@@ -66,8 +65,9 @@
             </div>
             <div class="utils-box logged" id="logined">
                 <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
-                <a href="javascript:user_logout();">
-                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <a href="javascript:void(0)" onclick="user_logout()">
+                    <span class="glyphicon glyphicon-cog" onclick="user_logout()"></span>
                 </a>
                 <a href="" id="personal">
                     <img src="" id="headpic" alt="" />
@@ -87,7 +87,7 @@
     <div class="wrap write_article">
         <div class="wrap banner-title">
             <div class="banner-title-box">
-                <div class="title">写文章</div>
+                <div class="title">写疑惑</div>
             </div>
         </div>
         <div class="main main-body write_article-body">
@@ -97,6 +97,17 @@
                         <div class="name">标 题:</div>
                         <input type="text" id="user_article_title" placeholder="输入文章标题" style="width: 100%;" />
                     </div>
+                    <!-- <div class="input-box">
+                        <div class="name">封 面:</div>
+                        <img src="" id="fengmian" hidden style="width: 25px; height:25px;">
+                        <div class="content" style="" id="content">
+                            <form class="edit-avatar" id="uploadForm" enctype="multipart/form-data">
+                                <span>选择图片</span>
+                                <input type="file" name="file" id="file" />
+                            </form>
+                        </div>
+                        <input type="button" class="btn btn-primary" value="上传" id="acommit" style="float: left; width:80px; height: 28px;">
+                    </div> -->
 
                     <div class="input-box">
                         <div class="name">内 容:</div>
@@ -109,6 +120,7 @@
 
                     <div class="input-box">
                         <div class="name">封 面:</div>
+
                         <div id="uploader-demo" class="content">
                             <div id="fileList" class="uploader-list"></div>
                             <div id="filePicker">选择图片</div>
@@ -127,7 +139,7 @@
                             <!-- <span class="glyphicon glyphicon-tag"></span> -->
                             <span>标 签:</span>
                         </div>
-                        <input type="text" id="user_article_title" placeholder="输入文章标签" style="width: 100%;" />
+                        <input type="text" id="user_article_tag" placeholder="输入文章标签" style="width: 100%;" />
                     </div>
 
                     <div class="submit">
@@ -257,7 +269,7 @@
     <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/config.js"></script>
-    <script src="../js/write_article.js"></script>
+    <script src="../js/question_new.js"></script>
     <script src="../lib/wangeditor/release/wangEditor.js"></script>
     <script type="text/javascript" src="../lib/webuploader/webuploader.js"></script>
 

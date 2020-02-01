@@ -74,8 +74,8 @@ function get_user_infos(uid) {
                 var nickname = str.data.userinfo[0].nickname
                 var headpic = get_img_url(str.data.userinfo[0].headpic)
                 var titlepic = get_img_url(str.data.userinfo[0].titlepic)
-                var fensi = str.data.fens;
-                var guanzhu = str.data.follows;
+                var fans = str.data.fens;
+                var follows = str.data.follows;
 
                 // 头像
                 $('#headpic1').attr("src", headpic);
@@ -104,8 +104,12 @@ function get_user_infos(uid) {
                 // 用户信息
                 $('#username').text(nickname);
                 $('#userinfo').text(userinfo);
-                $('#fensi').text(fensi);
-                $('#guanzhu').text(guanzhu);
+                $('#fans').text(fans);
+                $('#fanslist').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 0 + ")");
+
+                $('#follows').text(follows);
+                $('#followslist').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 1 + ")");
+
 
                 return str.data;
             } else {
@@ -139,6 +143,7 @@ function get_user_dt_list(nums) {
     $.ajax({
         type: 'get',
         url: get_url("/get/userinfo?uid=" + uid),
+        async: false,
         success: function(str) { //返回json结果
             if (str.status == 200) {
                 // 获取成功
