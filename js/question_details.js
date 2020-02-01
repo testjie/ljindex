@@ -1,6 +1,6 @@
 $(document).ready(function() {
     initialize_page();
-    var question_id = get_question_id();
+    var question_id = get_id();
     get_question_detail(question_id);
     get_questions_comment_paging(question_id, 1) // 评论分页
 
@@ -184,11 +184,6 @@ function get_question_detail(id) {
     });
 }
 
-function get_question_id() {
-    return window.location.href.split('=')[1].replace('#', '');
-}
-
-
 // 教程分页内容
 function get_questions_comment_paging(id, pagenum) {
     var fid = id; // 文章id
@@ -266,10 +261,4 @@ function get_questions_comment_paging(id, pagenum) {
             console.log(err);
         }
     });
-}
-
-
-// 跳转到教程详情页面
-function go_questions_details(aid) {
-    window.location.href = "question_details.html?aid=" + aid;
 }

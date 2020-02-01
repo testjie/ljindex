@@ -1,7 +1,7 @@
 $(document).ready(function() {
     initialize_page();
 
-    var id = get_inspiration_id();
+    var id = get_id();
     var editor = init_editor();
     get_inspiration_detail(id, editor);
 
@@ -170,11 +170,6 @@ function get_inspiration_detail(id, editor) {
     });
 }
 
-function get_inspiration_id() {
+function get_id() {
     return window.location.href.split('=')[1].replace('#', '');
-}
-
-// 跳转到教程详情页面
-function go_inspiration_details(aid) {
-    window.location.href = "inspiration_detail.html?aid=" + aid;
 }

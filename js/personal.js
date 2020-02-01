@@ -1,9 +1,9 @@
 $(document).ready(function() {
     initialize_page();
-    $('#uid').attr("value", get_user_id());
-    get_user_infos(get_user_id());
+    $('#uid').attr("value", get_id());
+    get_user_infos(get_id());
     get_user_dt_list(1);
-    // get_questions_list(1);
+
 
     // 提问
     $("#get_articles").click(function() {
@@ -30,6 +30,39 @@ $(document).ready(function() {
 
 });
 
+// 关注
+function follow_user(uid) {
+    alert("这是关注" + uid);
+}
+
+// 取消
+function unfollow_user(uid) {
+    alert("这是取消关注" + uid);
+}
+
+// 判断是否是当前用户的粉丝
+function get_user_is_fans(uid) {
+    return false;
+
+    // $.ajax({
+    //     type: 'get',
+    //     url: get_url("/get/userinfo?uid=" + uid),
+    //     success: function(str) { //返回json结果
+    //         if (str.status == 200) {
+    //             return true;
+    //         } else {
+    //             alert("数据获取失败！");
+    //             remove_user_login_status(str.msg)
+    //         }
+
+    //     },
+    //     fail: function(err, status) {
+    //         alert("数据获取失败！");
+    //         console.log(err);
+    //     }
+    // });
+}
+
 function get_user_infos(uid) {
     $.ajax({
         type: 'get',
@@ -51,7 +84,22 @@ function get_user_infos(uid) {
 
                 // 背景图
                 $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:cover; cursor:pointer;');
-                $('#update_user_info').attr("href", 'personal_info.html?uid=' + $('#uid').val());
+                // 自己是编辑个人资料，其他人是关于，其中关注显示已关注和取消关注
+                if (get_user_info("user_userid") == uid) {
+                    $('#update_user_info').attr("href", 'personal_info.html?uid=' + $('#uid').val());
+                } else {
+
+                    // 是粉丝显示取消关注，不是显示关注
+                    if (get_user_is_fans(uid) == true) {
+                        $('#update_user_info').text("取消关注");
+                        $('#update_user_info').removeAttr("target");
+                        $('#update_user_info').attr("href", 'javascript:unfollow_user(' + $('#uid').val() + ');');
+                    } else {
+                        $('#update_user_info').text("关注");
+                        $('#update_user_info').removeAttr("target");
+                        $('#update_user_info').attr("href", 'javascript:follow_user(' + $('#uid').val() + ');');
+                    }
+                }
 
                 // 用户信息
                 $('#username').text(nickname);
@@ -61,13 +109,13 @@ function get_user_infos(uid) {
 
                 return str.data;
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
@@ -87,7 +135,6 @@ function get_user_dt_list(nums) {
     $("#get_user_dt").attr("style", "color:#f7726b");
     $("#dt_num").attr("style", "color:#f7726b");
 
-
     //获取用户信息
     $.ajax({
         type: 'get',
@@ -97,13 +144,13 @@ function get_user_dt_list(nums) {
                 // 获取成功
                 user_infos = str.data;
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
@@ -130,14 +177,14 @@ function get_user_dt_list(nums) {
                     var title = datas[i].title;
                     // 教程
                     if (ctype == 0) {
-                        t = 'go_tutorials_details';
+                        t = 'go_tutorial_details';
                         imgs = '<div class="img-box1" style="overflow: hidden;width: 256px;display: flex;align-items: center;justify-content: flex-start;justify-content: center;">' +
                             '<img src="' + get_img_url(ximg) + '" style="background-size:cover; overflow: hidden;width:256px; height:162px;display: flex;align-items: center;justify-content: flex-start;justify-content: center;" alt="">' +
                             '</div>';
                     }
                     // 问题
                     if (ctype == 1) {
-                        t = 'go_questions_details';
+                        t = 'go_question_details';
                         imgs = '<div class="img-box1" style="overflow: hidden;width: 256px;display: flex;align-items: center;justify-content: flex-start;justify-content: center;">' +
                             '<img src="' + get_img_url(ximg) + '" style="background-size:cover; overflow: hidden;width: 256px; height:162px;display: flex;align-items: center;justify-content: flex-start;justify-content: center;" alt="">' +
                             '</div>';
@@ -194,14 +241,14 @@ function get_user_dt_list(nums) {
                 user_compute_pagenum(nums, "get_user_dt_list", uid, -10000)
 
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
 
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
@@ -246,7 +293,7 @@ function get_questions_list(nums) {
                     var experience_creattime = datas[i].times; // 创建时间
                     var experience_imag_url = get_img_url(datas[i].ximg); // 文章图片
 
-                    // c = '<div class="list-item" onclick="go_questions_details(' + experience_id + ')"  style="cursor:pointer;">' +
+                    // c = '<div class="list-item" onclick="go_question_details(' + experience_id + ')"  style="cursor:pointer;">' +
                     //     '<div class="title">' +
                     //     '<span>发起了问题</span>' +
                     //     '<span>' + experience_creattime + '</span>' +
@@ -278,7 +325,7 @@ function get_questions_list(nums) {
                         '<div class="user-box">' + '<div class="img-box"><img src="' + author_headpic + '" alt="这是头像"></div>' +
                         '<div class="info"><p class="name">' + author_name + '</p><div class="info-other">' +
                         '<p class="job">' + author_infomation + '</p></div></div></div>' +
-                        '<div style="cursor:pointer;" onclick="go_questions_details(' + experience_id + ')"><p style="padding-top:10px;">' + experience_title + '</p>' +
+                        '<div style="cursor:pointer;" onclick="go_question_details(' + experience_id + ')"><p style="padding-top:10px;">' + experience_title + '</p>' +
                         '<div style="padding-top: 10px; display: flex;justify-content: flex-start;justify-content: space-between;">' +
                         '<div class="img-box1" style="overflow: hidden;width: 256px;display: flex;align-items: center;justify-content: flex-start;justify-content: center;">' +
                         '<img src="' + experience_imag_url + '" style="background-size:cover; overflow: hidden;width: 256px; height:162px;display: flex;align-items: center;justify-content: flex-start;justify-content: center;" alt="">' +
@@ -296,14 +343,14 @@ function get_questions_list(nums) {
                 user_compute_pagenum(nums, "get_questions_list", uid, -10000)
 
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
 
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
@@ -396,14 +443,14 @@ function get_articles_list(nums) {
                 user_compute_pagenum(nums, "get_articles_list", uid, -10000)
 
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
 
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
@@ -500,39 +547,19 @@ function get_inspirations_list(nums) {
                 user_compute_pagenum(nums, "get_inspirations_list", uid, -10000)
 
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
 
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
 }
 
-
-// 跳转到心得体会（文章）
-function go_experience_details(aid) {
-    window.location.href = "experience_detail.html?aid=" + aid;
-}
-
-// 跳转到提问列表
-function go_questions_details(aid) {
-    window.location.href = "question_detail.html?aid=" + aid;
-}
-
-// 跳转到灵感列表
-function go_inspiration_details(id) {
-    window.location.href = "inspiration_detail.html?id=" + id;
-}
-
-
-function get_user_id() {
-    return window.location.href.split('=')[1].replace('#', '');
-}
 
 // 是否显示回复框
 function show_repeat_div(id) {
@@ -575,19 +602,6 @@ function repeat_experience(id) {
     });
 }
 
-// 跳转到教程详情页面
-function go_tutorials_details(aid) {
-    window.location.href = "test_tutorial_detail.html?aid=" + aid;
-}
-
-// 跳转到问题详情页面
-function go_question_details(aid) {
-    window.location.href = "question_detail.html?aid=" + aid;
-}
-
-function go_inspiration_details(aid) {
-    window.location.href = "inspiration_detail.html?aid=" + aid;
-}
 
 // 跳转到个人中心
 function go_personal_backgroud(uid) {

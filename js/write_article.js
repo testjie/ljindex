@@ -109,11 +109,3 @@ function init_editor() {
 
     return editor
 }
-
-
-
-
-// 跳转到教程详情页面
-function go_experience_details(aid) {
-    window.location.href = "experience_detail.html?aid=" + aid;
-}

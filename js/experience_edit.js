@@ -1,7 +1,7 @@
 $(document).ready(function() {
     initialize_page();
 
-    var id = get_experience_id();
+    var id = get_id();
     var editor = init_editor();
     get_experience_detail(id, editor);
 
@@ -171,13 +171,4 @@ function get_experience_detail(id, editor) {
             console.log(err);
         }
     });
-}
-
-function get_experience_id() {
-    return window.location.href.split('=')[1].replace('#', '');
-}
-
-// 跳转到教程详情页面
-function go_experience_details(aid) {
-    window.location.href = "experience_detail.html?aid=" + aid;
 }

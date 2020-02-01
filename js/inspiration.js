@@ -178,23 +178,19 @@ function get_inspirations_list(nums) {
 
 
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
 
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
 }
 
-// 跳转到教程详情页面
-function go_inspiration_details(aid) {
-    window.location.href = "inspiration_detail.html?aid=" + aid;
-}
 
 // 是否显示回复框
 function show_repeat_div(id) {

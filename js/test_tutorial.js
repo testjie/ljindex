@@ -31,7 +31,7 @@ function get_tutorials_list(nums) {
                     var tutorial_creattime = datas[i].times; // 创建时间
                     var tutorial_imag_url = get_img_url(datas[i].ximg); // 文章图片
 
-                    var c = '<div class="list-item" onclick="go_tutorials_details(' + tutorial_id + ')" style="cursor:pointer;">' +
+                    var c = '<div class="list-item" onclick="go_tutorial_details(' + tutorial_id + ')" style="cursor:pointer;">' +
                         '<p class="list-item-title">' + tutorial_title + '</p>' +
                         '<div class="user-box">' +
                         '<div class="img-box">' +
@@ -85,19 +85,14 @@ function get_tutorials_list(nums) {
                 compute_pagenum(nums, "get_tutorials_list", -10000)
 
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
-}
-
-// 跳转到教程详情页面
-function go_tutorials_details(aid) {
-    window.location.href = "test_tutorial_detail.html?aid=" + aid;
 }

@@ -83,7 +83,7 @@ function get_tutorials_list() {
                     var title = str.data[i].title;
                     var img_url = get_img_url(str.data[i].ximg);
 
-                    c = '<li onclick="go_tutorials_details(' + cid + ')" style="cursor:pointer;">' +
+                    c = '<li onclick="go_tutorial_details(' + cid + ', true)" style="cursor:pointer;">' +
                         '<img src="' + img_url + '" alt="" style="width:240px; height:150px;" />' +
                         '<div class="details">' +
                         '<div class="desc">' + title + '</div>' +
@@ -103,14 +103,14 @@ function get_tutorials_list() {
                 }
                 $('#articles').append(content);
             } else {
-                alert("推荐教程获取失败！");
+                alert("数据获取失败！");
                 remove_user_login_status(str.msg)
 
             }
 
         },
         fail: function(err, status) {
-            alert("推荐教程获取失败！");
+            alert("数据获取失败！");
             console.log(err);
         }
     });
@@ -138,7 +138,7 @@ function get_questions_list() {
                     var likes = str.data[i].goods;
                     var createtime = "2019.12.12"
 
-                    c = '<li onclick="go_questsions_details(' + qid + ')" style="cursor:pointer;">' +
+                    c = '<li onclick="go_question_details(' + qid + ', true)" style="cursor:pointer;">' +
                         '<p class="title" style="word-break:break-all;">' + title + '</p>' +
                         '<section class="details">' +
                         '<img src="' + img_url + '" alt="" sytle="width:125px; height:125px"/>' +
@@ -195,7 +195,7 @@ function get_experiences_list() {
                     var reading = str.data[i].collections;
                     var likes = str.data[i].goods;
 
-                    c = '<li onclick="go_experience_details(' + aid + ')" style="cursor:pointer;">' +
+                    c = '<li onclick="go_experience_details(' + aid + ', true)" style="cursor:pointer;">' +
                         '<img src="' + img_url + '" alt=""  style="width:80px; height:80px;"/>' +
                         '<div class="details">' +
                         '<div class="title" style="word-break:break-all;">' + title + '</div>' +
@@ -243,7 +243,7 @@ function get_inspirer_list() {
                     var img_url = get_img_url(str.data[i].ximg.split(",")[0]);
                     var icontent = str.data[i].content;
 
-                    c = '<li onclick="go_inspiration_details(' + id + ')" style="cursor:pointer;">' +
+                    c = '<li onclick="go_inspiration_details(' + id + ', true)" style="cursor:pointer;">' +
                         '<img src="' + img_url + '" alt="" style="width:200px; height:150px;"/>' +
                         '<div class="content">' +
                         '<div class="title">灵光乍现</div>' +
@@ -303,29 +303,4 @@ function get_hotuser_list() {
             console.log(err);
         }
     });
-}
-
-// 跳转到推荐教程(教程)
-function go_tutorials_details(aid) {
-    window.location.href = "html/test_tutorial_detail.html?aid=" + aid;
-}
-
-// 跳转到问题详情(问题)
-function go_questsions_details(id) {
-    window.location.href = "html/question_detail.html?qid=" + id;
-}
-
-// 跳转到心得体会
-function go_experience_details(aid) {
-    window.location.href = "html/experience_detail.html?aid=" + aid;
-}
-
-// 跳转到灵感详情
-function go_inspiration_details(aid) {
-    window.location.href = "html/inspiration_detail.html?aid=" + aid;
-}
-
-// 跳转到心得体会详情(用户文章)
-function go_inspirer_details(id) {
-    window.location.href = "html/experience_detail.html?iid=" + id;
 }

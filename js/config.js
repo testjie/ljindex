@@ -395,3 +395,69 @@ function get_user4_status(ctype, fid) {
     });
     return user_like;
 }
+
+// 跳转到心得体会（文章）
+function go_experience_details(id, is_index = false) {
+    var url = "html/experience_detail.html?aid=" + id;
+    if (is_index == false) {
+        url = "experience_detail.html?aid=" + id;
+    }
+    window.location.href = url;
+}
+
+// 跳转到提问详情
+function go_question_details(id, is_index = false) {
+    var url = "html/question_detail.html?aid=" + id;
+    if (is_index == false) {
+        url = "question_detail.html?aid=" + id;
+    }
+    window.location.href = url;
+}
+
+// 跳转到灵感列表
+function go_inspiration_details(id, is_index = false) {
+    var url = "html/inspiration_detail.html?aid=" + id;
+    if (is_index == false) {
+        url = "inspiration_detail.html?aid=" + id;
+    }
+    window.location.href = url;
+}
+
+// 跳转到教程详情页面
+function go_tutorial_details(id, is_index = false) {
+    var url = "html/test_tutorial_detail.html?aid=" + id;
+    if (is_index == false) {
+        url = "test_tutorial_detail.html?aid=" + id;
+    }
+    window.location.href = url;
+}
+
+// 跳转到个人中心
+function go_personal_info(uid, is_index = false) {
+    var url = "html/personal_info.html?aid=" + id;
+    if (is_index == false) {
+        url = "personal_info.html?aid=" + id;
+    }
+    window.location.href = url;
+}
+
+//获取页面跳转的用户id
+function get_id() {
+    return window.location.href.split('=')[1].replace('#', '');
+}
+
+
+// 手机号正则表达式
+function is_mobile(s) {
+    var patrn = /^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$/;
+    if (!patrn.exec(s)) return false
+    return true
+}
+
+
+// 邮箱正则表达式
+function is_email(s) {
+    var patrn = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+    if (!patrn.exec(s)) return false
+    return true
+}

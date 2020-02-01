@@ -1,6 +1,6 @@
 $(document).ready(function() {
     initialize_page();
-    var experience_id = get_experience_id();
+    var experience_id = get_id();
     get_experience_detail(experience_id);
     get_experiences_comment_paging(experience_id, 1) // 评论分页
 
@@ -180,9 +180,7 @@ function get_experience_detail(id) {
     });
 }
 
-function get_experience_id() {
-    return window.location.href.split('=')[1].replace('#', '');
-}
+
 
 
 // 教程分页内容
@@ -264,10 +262,4 @@ function get_experiences_comment_paging(id, pagenum) {
             console.log(err);
         }
     });
-}
-
-
-// 跳转到教程详情页面
-function go_experiences_details(aid) {
-    window.location.href = "test_experience_detail.html?aid=" + aid;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     initialize_page()
-    var inspiration_id = get_inspiration_id()
+    var inspiration_id = get_id()
     get_inspiration_detail(inspiration_id);
     get_inspirations_comment_paging(inspiration_id, 1) // 评论分页
 
@@ -175,9 +175,6 @@ function get_inspiration_detail(id) {
     });
 }
 
-function get_inspiration_id() {
-    return window.location.href.split('=')[1].replace('#', '');
-}
 
 
 // 教程分页内容
@@ -257,10 +254,4 @@ function get_inspirations_comment_paging(id, pagenum) {
             console.log(err);
         }
     });
-}
-
-
-// 跳转到教程详情页面
-function go_inspirations_details(aid) {
-    window.location.href = "inspiration_details.html?aid=" + aid;
 }

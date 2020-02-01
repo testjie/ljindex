@@ -110,11 +110,3 @@ function init_editor() {
 
     return editor
 }
-
-
-
-
-// 跳转到心得体会页面
-function go_question_details(aid) {
-    window.location.href = "question_detail.html?aid=" + aid;
-}

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     // initialize_page();
-    $('#uid').attr("value", get_user_id());
-    get_user_infos(get_user_id());
+    $('#uid').attr("value", get_id());
+    get_user_infos(get_id());
 
     // webloader初始化
     var uploader = WebUploader.create({
@@ -134,9 +134,4 @@ function get_user_infos(uid) {
             console.log(err);
         }
     });
-}
-
-
-function get_user_id() {
-    return window.location.href.split('=')[1].replace('#', '');
 }

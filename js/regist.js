@@ -10,10 +10,20 @@ $(document).ready(function() {
 
         if (password != confirpw) {
             alert("密码不一致！")
-            return
+            return;
         }
 
-        var datas = get_json({ 'username': username, 'password': password, 'phone': phonenum, 'email': emailnum })
+        if (is_mobile(phonenum) != true) {
+            alert("手机号格式不正确!");
+            return;
+        }
+
+        if (is_email(emailnum) != true) {
+            alert("邮箱格式不正确!");
+            return;
+        }
+
+        var datas = get_json({ 'username': username, 'password': password, 'phone': phonenum, 'email': emailnum });
         $.ajax({
             type: 'post',
             url: get_url("/regist"),
@@ -27,7 +37,7 @@ $(document).ready(function() {
                     window.location.href = "login.html";
                 } else {
                     alert(str.msg);
-                    remove_user_login_status(str.msg)
+                    remove_user_login_status(str.msg);
 
                 }
             },

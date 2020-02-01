@@ -1,7 +1,7 @@
 $(document).ready(function() {
     initialize_page();
 
-    var id = get_question_id();
+    var id = get_id();
     var editor = init_editor();
     get_question_detail(id, editor);
 
@@ -170,14 +170,4 @@ function get_question_detail(id, editor) {
             console.log(err);
         }
     });
-}
-
-
-function get_question_id() {
-    return window.location.href.split('=')[1].replace('#', '');
-}
-
-// 跳转到教程详情页面
-function go_question_details(aid) {
-    window.location.href = "question_detail.html?aid=" + aid;
 }
