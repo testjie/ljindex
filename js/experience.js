@@ -50,7 +50,7 @@ function get_experiences_list(nums) {
                         '<img src="' + experience_imag_url + '" alt="" />' +
                         '</div>' +
                         '<div class="desc">' +
-                        '<p class="desc-word">' + experience_content + '</p>' +
+                        '<p class="desc-word" >' + experience_content + '</p>' +
                         '<a href="javascript:go_experience_details(' + experience_id + ')" class="more">' +
                         '<label class="cf7">[...查看详情]</label>' +
                         '</a>' +

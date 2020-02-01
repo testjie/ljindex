@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    initialize_page()
-    var inspiration_id = get_id()
+    initialize_page();
+    var inspiration_id = get_id();
     get_inspiration_detail(inspiration_id);
     get_inspirations_comment_paging(inspiration_id, 1) // 评论分页
 
