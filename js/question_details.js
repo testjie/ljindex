@@ -229,7 +229,7 @@ function get_questions_comment_paging(id, pagenum) {
                         '<p class="job" onclick="go_personal_center(' + author_id + ')" style="cursor:pointer;">' + author_infomation + '</p>' +
                         '</div>' +
                         '<div class="date">' + question_creattime + '</div>' +
-                        '<p class="word">' + question_comment + '</p>' +
+                        '<p class="word" style="word-break:break-all;">' + question_comment + '</p>' +
                         '<div class="info-other">' +
                         '<div class="operate">' +
                         '<label id="first_comment"><span title=" 评论" class="glyphicon glyphicon-comment"></span> 评论</label id="first_comment" >' +

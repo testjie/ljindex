@@ -222,7 +222,7 @@ function get_inspirations_comment_paging(id, pagenum) {
                         '<p class="job">' + author_infomation + '</p>' +
                         '</div>' +
                         '<div class="date">' + inspiration_creattime + '</div>' +
-                        '<p class="word">' + inspiration_comment + '</p>' +
+                        '<p class="word" style="word-break:break-all;">' + inspiration_comment + '</p>' +
                         '<div class="info-other">' +
                         '<div class="operate">' +
                         '<label id="first_comment"><span title=" 评论" class="glyphicon glyphicon-comment"></span> 评论</label id="first_comment" >' +
