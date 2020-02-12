@@ -65,6 +65,11 @@ $(document).ready(function() {
             img_names = img_names + $(this).attr("value") + ",";
         });
 
+        if (message == '') {
+            alert('信息不能为空！');
+            return;
+        }
+
         var datas = get_json({ 'content': message, 'ximg': img_names, 'iid': id })
         $.ajax({
             type: 'post',

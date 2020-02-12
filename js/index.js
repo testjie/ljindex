@@ -91,9 +91,9 @@ function get_tutorials_list() {
                         '<div class="time">' + time + '</div>' +
                         '<div class="peoplelove">' +
                         '<label>' +
-                        '<span class="glyphicon glyphicon-user"></span>' + shoucang + '</label>' +
+                        '<span class="glyphicon glyphicon-user"></span>收藏' + shoucang + '</label>' +
                         '<label>' +
-                        '<span class="glyphicon glyphicon-heart"></span>' + likes + '</label>' +
+                        '<span class="glyphicon glyphicon-heart"></span>点赞' + likes + '</label>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +
@@ -150,10 +150,10 @@ function get_questions_list() {
                         '<div class="resets">' +
                         '<div class="time">' + createtime + '</div>' +
                         '<div class="peoplelove">' +
-                        '<label><span class="glyphicon glyphicon-comment"></span>' + comments + '</label>' +
-                        '<label><span class="glyphicon glyphicon-open"></span>' + reading + '</label>' +
-                        '<label><span class="glyphicon glyphicon-user"></span>' + collections + '</label>' +
-                        '<label><span class="glyphicon glyphicon-heart"></span>' + likes + '</label>' +
+                        '<label style="padding-left:3px;"><span class="glyphicon glyphicon-comment"></span>评论' + comments + '</label>' +
+                        '<label style="padding-left:3px;"><span class="glyphicon glyphicon-open"></span>阅读' + reading + '</label>' +
+                        '<label style="padding-left:3px;"><span class="glyphicon glyphicon-user"></span>收藏' + collections + '</label>' +
+                        '<label style="padding-left:3px;"><span class="glyphicon glyphicon-heart"></span>点赞' + likes + '</label>' +
                         '</div>' +
                         '</div>' +
                         '</li>'
@@ -203,8 +203,8 @@ function get_experiences_list() {
                         '<div class="resets">' +
                         '<div class="time">' + createtime + '</div>' +
                         '<div class="peoplelove">' +
-                        '<label><span class="glyphicon glyphicon-user"></span>' + reading + '</label>' +
-                        '<label><span class="glyphicon glyphicon-heart"></span>' + likes + '</label>' +
+                        '<label><span class="glyphicon glyphicon-user"></span>收藏' + reading + '</label>' +
+                        '<label><span class="glyphicon glyphicon-heart"></span>点赞' + likes + '</label>' +
                         '</div>' +
                         '</div>' +
                         '</div>' +

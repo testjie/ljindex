@@ -37,6 +37,10 @@ $(document).ready(function() {
 
     // 点赞
     $("#user_likes").click(function() {
+        if (get_user_login_status() == false) {
+            alert("请先登录后在操作!");
+            return;
+        }
         var user_like_status = 1; // 0点赞，1取消
         if ($("#user_likes").attr("style") != "color:#f7726b") {
             user_like_status = 0;
@@ -77,10 +81,16 @@ $(document).ready(function() {
 
     // 收藏
     $("#user_collectons").click(function() {
+        if (get_user_login_status() == false) {
+            alert("请先登录后在操作!");
+            return;
+        }
+
         var user_like_status = 1; // 0点赞，1取消
         if ($("#user_collectons").attr("style") != "color:#f7726b") {
             user_like_status = 0; // 未点赞
         }
+
         var datas = get_json({ 'ctype': 1, 'status': user_like_status, 'cid': question_id })
         $.ajax({
             type: 'post',

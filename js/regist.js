@@ -33,12 +33,11 @@ $(document).ready(function() {
             crossDomain: true,
             success: function(str) { //返回json结果
                 if (str.status == 200) {
-                    alert("注册成功！")
+                    alert("注册成功！");
                     window.location.href = "login.html";
                 } else {
                     alert(str.msg);
                     remove_user_login_status(str.msg);
-
                 }
             },
             fail: function(err, status) {

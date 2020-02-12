@@ -35,7 +35,7 @@ function get_questions_list(nums) {
                     var question_imag_url = get_img_url(datas[i].ximg); // 文章图片
 
                     c = '<div class="question-list-item"  style="cursor:pointer;">' +
-                        '<p class="fw title">' + question_title + '</p>' +
+                        '<p class="fw title" style="word-break:break-all;">' + question_title + '</p>' +
                         '<div class="user-box" onclick="go_question_details(' + question_id + ')">' +
                         '<div class="img-box">' +
                         '<img src="' + author_headpic + '" onclick="go_personal_center(' + author_id + ')" style="cursor:pointer;">' +
@@ -45,25 +45,25 @@ function get_questions_list(nums) {
                         '<p class="job">' + author_infomation + '</p>' +
                         '</div>' +
                         '</div>' +
-                        '<p class="word">' + question_content + '</p>' +
+                        '<p class="word" style="word-break:break-all;">' + question_content + '</p>' +
                         '<div class="question-list-item-other">' +
                         '<div class="other">' +
                         '<span class="other-item date">' + question_creattime + '</span>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-comment"></span>' +
-                        '<span>' + question_comments + '</span>' +
+                        '<span>评论' + question_comments + '</span>' +
                         '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-open"></span>' +
-                        '<span>' + question_reading + '</span>' +
+                        '<span>阅读' + question_reading + '</span>' +
                         '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-user"></span>' +
-                        '<span>' + question_collectons + '</span>' +
+                        '<span>收藏' + question_collectons + '</span>' +
                         '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-heart"></span>' +
-                        '<span>' + question_likes + '</span>' +
+                        '<span>点赞' + question_likes + '</span>' +
                         '</div>' +
                         '</div>' +
                         '<div data-id="q' + i + '" class="aplly-btn btn-grey" style="" onclick="show_repeat_div(' + i + ')" ">立即回答</div>' +

@@ -35,7 +35,7 @@ function get_experiences_list(nums) {
                     var experience_imag_url = get_img_url(datas[i].ximg); // 文章图片
 
                     c = '<div class="list-item" onclick="go_experience_details(' + experience_id + ')"   style="cursor:pointer;">' +
-                        '<p class="list-item-title">' + experience_title + '</p>' +
+                        '<p class="list-item-title" style="word-break:break-all;">' + experience_title + '</p>' +
                         '<div class="user-box">' +
                         '<div class="img-box">' +
                         '<img src="' + author_headpic + '" alt="" onclick="go_personal_center(' + author_id + ')" style="cursor:pointer;"/>' +
@@ -49,8 +49,8 @@ function get_experiences_list(nums) {
                         '<div class="img-box">' +
                         '<img src="' + experience_imag_url + '" alt="" />' +
                         '</div>' +
-                        '<div class="desc">' +
-                        '<p class="desc-word" >' + experience_content + '</p>' +
+                        '<div class="desc" >' +
+                        '<p class="desc-word" style="word-break:break-all;">' + experience_content + '</p>' +
                         '<a href="javascript:go_experience_details(' + experience_id + ')" class="more">' +
                         '<label class="cf7">[...查看详情]</label>' +
                         '</a>' +
@@ -60,19 +60,19 @@ function get_experiences_list(nums) {
                         '<span class="other-item date">' + experience_creattime + '</span>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-comment"></span>' +
-                        '<span>' + experience_comments + '</span>' +
+                        '<span>评论' + experience_comments + '</span>' +
                         '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-open"></span>' +
-                        '<span>' + experience_reading + '</span>' +
+                        '<span>阅读' + experience_reading + '</span>' +
                         '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-user"></span>' +
-                        '<span>' + experience_likes + '</span>' +
+                        '<span>点赞' + experience_likes + '</span>' +
                         '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-heart"></span>' +
-                        '<span>' + experience_collectons + '</span>' +
+                        '<span>收藏' + experience_collectons + '</span>' +
                         '</div>' +
                         '</div>' +
                         '</div>'

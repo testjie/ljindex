@@ -55,7 +55,12 @@ $(document).ready(function() {
         var user_article_title = $("#user_article_title").val()
         var user_article_breif = $("#user_article_breif").val()
         var user_article_content = editor.txt.html();
-        var user_article_fenmian = $("#fengmian").val()
+        var user_article_fenmian = $("#fengmian").val();
+
+        if (user_article_tag == "" || user_article_title == "" || user_article_breif == "" || user_article_content == "" || user_article_fenmian == "") {
+            alert("输入的参数存在空值!");
+            return;
+        }
         var datas = get_json({ "title": user_article_title, "content": user_article_content, "brief": user_article_breif, "tags": user_article_tag, "ximg": user_article_fenmian })
         $.ajax({
             url: get_url(iurl),

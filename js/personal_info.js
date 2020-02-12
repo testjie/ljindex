@@ -67,6 +67,23 @@ $(document).ready(function() {
         var userinfo = $("#qianming").val();
         var phone = $("#phone").val();
         var sex = $("#sex").val();
+
+        // 判断为空
+        if (nickname == '' || job == '' || qq == '' || addr == '' || weixin == '' ||
+            email == '' || userinfo == '' || phone == '' || sex == '') {
+            alert("输入的信息不能为空!");
+            return;
+        }
+
+        if (is_email(email) == false) {
+            alert("邮箱不合法")
+            return;
+        }
+        if (is_mobile(phone) == false) {
+            alert("手机号不合法")
+            return;
+        }
+
         var iurl = "/updateuserinfo";
         var datas = get_json({ "nickname": nickname, "job": job, "email": email, "qq": qq, "weixin": weixin, "address": addr, "phone": phone, "sex": sex, "userinfo": userinfo });
         $.ajax({
