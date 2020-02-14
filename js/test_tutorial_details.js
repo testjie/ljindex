@@ -138,10 +138,10 @@ function get_tutorial_detail(id) {
                 $('#author_headpic').attr("src", author_headpic); //头像
 
                 // 个人中心跳转
-                $('#author_name').attr("onclick", "go_personal_center(" + author_id + ")"); //头像
-                $('#author_name').attr("style", "cursor:pointer;"); //头像
-                $('#author_headpic').attr("onclick", "go_personal_center(" + author_id + ")"); //头像
-                $('#author_headpic').attr("style", "cursor:pointer;"); //头像
+                // $('#author_name').attr("onclick", "go_personal_center(" + author_id + ")"); //头像
+                // $('#author_name').attr("style", "cursor:pointer;"); //头像
+                // $('#author_headpic').attr("onclick", "go_personal_center(" + author_id + ")"); //头像
+                // $('#author_headpic').attr("style", "cursor:pointer;"); //头像
 
                 $('#tutorial_title').text(tutorial_title); // 文章标题
                 $('#tutorial_id').attr("value", tutorial_id); // 文章id

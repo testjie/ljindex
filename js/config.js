@@ -257,11 +257,13 @@ function go_write_question(is_index = false) {
 
 // 跳转到学习页面
 function go_student_learn(is_index = false) {
-    alert("暂未开放")
+    alert("暂未开放!");
 }
 
 // 跳转到练习页面
 function go_student_answering(is_index = false) {
+    alert("暂未开放!");
+    return;
     var login_url = "login.html"
     var answer_url = "answer.html"
     if (is_index == true) {
@@ -278,6 +280,8 @@ function go_student_answering(is_index = false) {
 
 // 跳转到实战页面
 function go_actual_combat_project(is_index = false) {
+    alert("暂未开放!");
+    return;
     var login_url = "login.html"
     var actual_combat_project = "actual_combat_project.html"
     if (is_index == true) {
@@ -423,6 +427,8 @@ function go_inspiration_details(id, is_index = false) {
 
 // 跳转到教程详情页面
 function go_tutorial_details(id, is_index = false) {
+    alert("暂未开放!");
+    return;
     var url = "html/test_tutorial_detail.html?aid=" + id;
     if (is_index == false) {
         url = "test_tutorial_detail.html?aid=" + id;
