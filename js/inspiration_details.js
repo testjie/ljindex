@@ -17,7 +17,7 @@ $(document).ready(function() {
             crossDomain: true,
             success: function(str) { //返回json结果
                 if (str.status == 200) {
-                    // 评论成功, 局部刷新评论内容，待做
+                    $('#inspiration_comments_ctt').val('');
                     get_inspirations_comment_paging($('#inspiration_id').val(), 1)
 
                 } else {
@@ -46,7 +46,7 @@ $(document).ready(function() {
         if ($("#user_likes").attr("style") != "color:#f7726b") {
             user_like_status = 0;
         }
-        var datas = get_json({ 'ctype': 3, 'status': user_like_status, 'gid': inspiration_id })
+        var datas = get_json({ 'ctype': 2, 'status': user_like_status, 'gid': inspiration_id })
         $.ajax({
             type: 'post',
             url: get_url("/userfellgoods"),
@@ -91,7 +91,7 @@ $(document).ready(function() {
         if ($("#user_collectons").attr("style") != "color:#f7726b") {
             user_like_status = 0; // 未点赞
         }
-        var datas = get_json({ 'ctype': 3, 'status': user_like_status, 'cid': inspiration_id })
+        var datas = get_json({ 'ctype': 2, 'status': user_like_status, 'cid': inspiration_id })
         $.ajax({
             type: 'post',
             url: get_url("/usercollections"),

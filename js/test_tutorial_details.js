@@ -17,7 +17,7 @@ $(document).ready(function() {
             crossDomain: true,
             success: function(str) { //返回json结果
                 if (str.status == 200) {
-                    // 评论成功, 局部刷新评论内容，待做
+                    $('#tutorial_comments_ctt').val('');
                     get_tutorials_comment_paging($('#tutorial_id').val(), 1)
                 } else {
                     alert(str.msg);
