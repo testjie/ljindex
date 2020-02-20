@@ -55,7 +55,7 @@ function get_user_infos(uid) {
 
                 // 背景相关
                 $("#backgroud").attr("onclick", "go_personal_backgroud(" + uid + ")");
-                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:100% 100%; cursor:pointer;');
+                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:100% 100%; cursor:pointer;height:500px;');
 
                 // 用户信息
                 $('#username').text(nickname);

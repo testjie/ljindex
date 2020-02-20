@@ -1,9 +1,5 @@
 $(document).ready(function() {
-    if (get_user_login_status() == false) {
-        alert("请先登录后再操作！");
-        go_pre_page();
-        return;
-    }
+
 
     initialize_page();
     $('#uid').attr("value", get_id());

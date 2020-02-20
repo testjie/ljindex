@@ -25,7 +25,8 @@ $(document).ready(function() {
             crossDomain: true,
             success: function(str) { //返回json结果
                 if (str.status == 200) {
-                    alert("修改成功，下次登录请用新密码登录!");
+                    alert("修改成功，请重新登录！");
+                    remove_user_login_status("token无效，请重新登录");
                     go_pre_page();
                 } else {
                     alert(str.msg);

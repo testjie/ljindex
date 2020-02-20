@@ -572,6 +572,10 @@ function go_tutorial_details(id, is_index = false) {
 
 // 去密保页面
 function go_set_mb(is_index = false) {
+    if (get_user_login_status() == false) {
+        alert("请先登录后再操作！");
+        return;
+    }
     var url = "html/set_mb.html";
     if (is_index == false) {
         url = "set_mb.html";
@@ -590,12 +594,20 @@ function go_personal_info(id, is_index = false) {
 
 // 跳转到个人中心
 function go_personal_backgroud(uid) {
+    if (get_user_login_status() == false) {
+        alert("请先登录后再操作！");
+        return;
+    }
     window.location.href = "personal_backgroud.html?uid=" + uid;
 }
 
 // 跳转到修改密码页面
 function go_update_password(uid) {
-    window.location.href = "forgot_password_logined.html?uid=" + uid;
+    if (get_user_login_status() == false) {
+        alert("请先登录后再操作！");
+        return;
+    }
+    window.location.href = "update_password_logined.html?uid=" + uid;
 }
 
 
