@@ -43,7 +43,7 @@ function get_user_infos(uid) {
                 var follows = str.data.follows;
 
                 // 头像
-                $('#headpic1').attr("src", headpic);
+                // $('#headpic1').attr("src", headpic);
                 $('#headpic').attr("style", " no-repeat center top;background-size:cover; cursor:pointer;");
                 $('#headpic').attr("src", headpic);
 
@@ -107,8 +107,8 @@ function get_fans_list(nums, type) {
     }
     // 页面跳转
     $('#get_fans').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 0 + ")");
-    $('#get_follows').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 1 + ")");
     $('#fanslist').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 0 + ")");
+    $('#get_follows').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 1 + ")");
     $('#followslist').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 1 + ")");
 
     $.ajax({
@@ -129,10 +129,10 @@ function get_fans_list(nums, type) {
                     var fans_nickname = datas[i].nickname;
                     var fans_userinfo = datas[i].userinfo;
                     users = '<div class="apply list-item">' +
-                        '<div class="user-box"><div class="img-box avatar">' +
-                        '<img src="' + get_img_url(fans_headpic) + '" alt="">' +
-                        '</div><div class="info"><p class="name">' + fans_nickname + '</p>' +
-                        '<p class="job">' + fans_userinfo + '</p></div></div><div class=" apply-word"></div></div>'
+                        '<div class="user-box" style="cursor:pointer;"  onclick="go_personal_center(' + fans_id + ')"><div class="img-box avatar">' +
+                        '<img src="' + get_img_url(fans_headpic) + '" alt="" onclick="go_personal_center(' + fans_id + ')"> ' +
+                        '</div><div class="info" onclick="go_personal_center(' + fans_id + ')"><p class="name">' + fans_nickname + '</p>' +
+                        '<p class="job" onclick="go_personal_center(' + fans_id + ')">' + fans_userinfo + '</p></div></div><div class=" apply-word"></div></div>'
 
                     content = content + users;
                 }
@@ -147,7 +147,7 @@ function get_fans_list(nums, type) {
                 // 分页相关
                 $('#total').val(counts);
                 $('#num').text("(" + counts + ")");
-                user_compute_pagenum(nums, "get_fans_list", uid, type);
+                user_compute_pagenum(nums, "get_fans_list", type);
 
             } else {
                 alert("数据获取失败！");

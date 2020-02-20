@@ -125,7 +125,7 @@ function set_user_navigation(dispaly, is_index = false) {
     if (dispaly == true) {
         var pid = get_user_info("user_userid")
         var headpic = get_img_url(get_user_info("user_headpic"))
-        $('#headpic').attr("src", headpic) // 用户头像
+        $('#headpic_nav').attr("src", headpic) // 用户头像
         $('#personal').attr("href", personal_url + "?pid=" + pid) // 用户跳转链接
         $('#unlogin').attr("class", "utils-box logged log_hide")
         $('#logined').attr("class", "utils-box logged log_show")
@@ -337,7 +337,7 @@ function compute_pagenum(id, method, cid = -1000) {
 
 
 // 分页计算
-function user_compute_pagenum(id, method, uid, cid = -1000) {
+function user_compute_pagenum(id, method, uid, cid = -10000) {
     var total = $('#total').val();
     var last = Math.ceil(total / 10);
     var next = id + 1;

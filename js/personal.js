@@ -49,7 +49,7 @@ function get_user_infos(uid) {
                 $('#find_password2').attr("onclick", "go_update_password(" + uid + ")")
 
                 // 头像
-                $('#headpic1').attr("src", headpic);
+                // $('#headpic1').attr("src", headpic);
                 $('#headpic').attr("style", " no-repeat center top;background-size:cover; cursor:pointer;");
                 $('#headpic').attr("src", headpic);
 

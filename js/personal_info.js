@@ -39,6 +39,8 @@ $(document).ready(function() {
                 if (str.status == 200) {
                     $("#headpic").attr("src", get_img_url(response.data));
                     $("#headpic").attr("value", response.data);
+                    remove_user_info("user_headpic");
+                    save_user_info("user_headpic", response.data);
                     alert("修改成功！");
                 } else {
                     alert(str.msg)
