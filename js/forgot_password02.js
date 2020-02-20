@@ -33,8 +33,8 @@ $(document).ready(function() {
             crossDomain: true,
             success: function(str) { //返回json结果
                 if (str.status == 200) {
-                    alert("注册成功，请到个人中心设置密保问题，如不填写，你可能无法找回密码！");
-                    go_next_page("login.html");
+                    alert("注册成功！");
+                    window.location.href = "login.html";
                 } else {
                     alert(str.msg);
                     remove_user_login_status(str.msg);

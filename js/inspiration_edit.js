@@ -33,7 +33,7 @@ $(document).ready(function() {
         $("img.test").each(function() {
             img_names = img_names + $(this).attr("value") + ",";
         });
-        var img_id = parseInt(img_names.split(",").length) + 1
+        var img_id = parseInt(img_names.split(",").length) + 1;
 
         var $li = $(
                 '<div id="WU_FILE_' + img_id + '" name="' + file.name + '" class="file-item thumbnail" style="width:100px;height:100px; display: inline-block;">' +

@@ -19,7 +19,7 @@ $(document).ready(function() {
                     save_user_info("user_userid", str.data.userinfo.uid);
                     save_user_info("user_headpic", str.data.userinfo.headpic);
                     save_user_info("user_nickname", str.data.userinfo.nickname);
-                    window.location.href = "../index.html";
+                    go_pre_page();
                 } else {
                     alert(str.msg);
                 }

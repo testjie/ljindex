@@ -48,6 +48,11 @@ function reload_current_page() {
     window.location.reload();
 }
 
+// 返回上一个页面
+function go_pre_page() {
+    window.history.back(-1);
+}
+
 // 替换字符串
 function replace_null(data) {
     if (data == null) {
@@ -361,7 +366,7 @@ function get_user4_status(ctype, fid) {
 
     // 查询用户是否登录
     if (get_user_login_status() == false) {
-        return "1,1,1"
+        return "1,1,1";
     }
 
     var user_like = "";
@@ -398,6 +403,137 @@ function get_user4_status(ctype, fid) {
     return user_like;
 }
 
+
+// 关注
+function follow_user(fid) {
+
+    // 游客滚粗
+    if (get_user_login_status() == false) {
+        alert("请登录后操作！");
+        return;
+    }
+
+    // 开始关注/取消关注
+    $.ajax({
+        type: 'get',
+        url: get_url("/userfuser?fid=" + fid),
+        async: false,
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                // 获取成功
+                // 1.未关注; 0.已关注
+                // 0已关注，现在就要去取消关注
+                if ($('#update_user_info').attr("name") == "关注") {
+                    $('#update_user_info').text("取消关注");
+                    $('#update_user_info').attr("name", "取消关注"); //0已关注
+                    $('#update_user_info').removeAttr("target");
+                    $('#update_user_info').attr("href", 'javascript:follow_user(' + $('#uid').val() + ');');
+                    var fans = Number($('#fans').text())
+                    fans = fans + 1
+                    $('#fans').text(fans);
+                } else { // 现在去关注
+                    $('#update_user_info').text("关注");
+                    $('#update_user_info').attr("name", "关注"); //0已关注
+                    $('#update_user_info').removeAttr("target");
+                    $('#update_user_info').attr("href", 'javascript:follow_user(' + $('#uid').val() + ');');
+                    var fans = Number($('#fans').text())
+                    fans = fans - 1
+                    $('#fans').text(fans);
+                }
+                alert(str.msg);
+            } else {
+                alert("数据获取失败！");
+                remove_user_login_status(str.msg)
+            }
+
+        },
+        fail: function(err, status) {
+            alert("数据获取失败！");
+            console.log(err);
+        }
+    });
+
+
+}
+
+//获取是不是当前用的粉丝
+function get_user_is_fans(fid) {
+    var fans_status = "未关注";
+    if (get_user_login_status() == false) {
+        return fans_status;
+    }
+
+    $.ajax({
+        type: 'get',
+        url: get_url("/getuserfstatus?fid=" + fid),
+        async: false,
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                // 获取成功
+                // 1.未关注; 0.已关注
+                if (str.data == "0") {
+                    fans_status = "已关注"
+                }
+            } else {
+                alert("数据获取失败！");
+                remove_user_login_status(str.msg)
+            }
+
+        },
+        fail: function(err, status) {
+            alert("数据获取失败！");
+            console.log(err);
+        }
+    });
+
+    return fans_status;
+}
+
+
+
+// 获取密保问题
+function get_mb_list() {
+    $.ajax({
+        type: 'get',
+        url: get_url("/getmblist"),
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                var id1 = str.data[0].id;
+                var qs1 = str.data[0].question;
+                var id2 = str.data[1].id;
+                var qs2 = str.data[1].question;
+                var id3 = str.data[2].id;
+                var qs3 = str.data[2].question;
+
+                $("#q1").text(qs1);
+                $("#q1").attr("name", id1);
+                $("#q2").text(qs2);
+                $("#q2").attr("name", id2);
+                $("#q3").text(qs3);
+                $("#q3").attr("name", id3);
+
+            } else {
+                alert(str.msg);
+                remove_user_login_status(str.msg);
+            }
+        },
+        fail: function(err, status) {
+            alert(err.data);
+            console.log(err);
+        }
+    });
+}
+
+
 // 跳转到心得体会（文章）
 function go_experience_details(id, is_index = false) {
     var url = "html/experience_detail.html?aid=" + id;
@@ -427,11 +563,18 @@ function go_inspiration_details(id, is_index = false) {
 
 // 跳转到教程详情页面
 function go_tutorial_details(id, is_index = false) {
-    alert("暂未开放!");
-    return;
     var url = "html/test_tutorial_detail.html?aid=" + id;
     if (is_index == false) {
         url = "test_tutorial_detail.html?aid=" + id;
+    }
+    window.location.href = url;
+}
+
+// 去密保页面
+function go_set_mb(is_index = false) {
+    var url = "html/set_mb.html";
+    if (is_index == false) {
+        url = "set_mb.html";
     }
     window.location.href = url;
 }
@@ -444,6 +587,17 @@ function go_personal_info(id, is_index = false) {
     }
     window.location.href = url;
 }
+
+// 跳转到个人中心
+function go_personal_backgroud(uid) {
+    window.location.href = "personal_backgroud.html?uid=" + uid;
+}
+
+// 跳转到修改密码页面
+function go_update_password(uid) {
+    window.location.href = "forgot_password_logined.html?uid=" + uid;
+}
+
 
 // 跳转到粉丝列表
 function go_personal_fans(id, type, is_index = false) {

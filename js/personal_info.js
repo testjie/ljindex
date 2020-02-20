@@ -39,14 +39,14 @@ $(document).ready(function() {
                 if (str.status == 200) {
                     $("#headpic").attr("src", get_img_url(response.data));
                     $("#headpic").attr("value", response.data);
-                    alert("上传成功！");
+                    alert("修改成功！");
                 } else {
                     alert(str.msg)
                     remove_user_login_status(str.msg)
                 }
             },
             error: function(str) {
-                alert("上传失败！")
+                alert("修改失败！")
             }
         });
     });

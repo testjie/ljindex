@@ -132,6 +132,9 @@ function get_tutorial_detail(id) {
                 var tutorial_content = datas.content; // 简介
                 var tutorial_imag_url = get_img_url(datas.ximg); // 文章图片
 
+                // $('#fengmianimg').attr("style", "background:url(" + tutorial_imag_url + ")  no-repeat center top;background-size:cover; ");
+                $('#fengmianimg').attr("src", tutorial_imag_url);
+
                 // 判断是否可以修改
                 $('#author_name').text(author_name); // 作者名
                 $('#author_infomation').text(author_infomation); // 个性签名

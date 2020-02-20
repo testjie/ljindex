@@ -57,7 +57,11 @@
             </div>
 
             <div class="utils-box logged" id="logined">
-                <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
+                <!-- <a href="">
+                    <span class="glyphicon glyphicon-bell"></span>
+                </a> -->
+                <a href="javascript:void(0)" id="find_password1" onclick="">
+                    <span class="glyphicon glyphicon-cog" id="find_password2" onclick=""></span>
                 </a>
                 <a href="javascript:void(0)" onclick="user_logout()">
                     <span class="glyphicon glyphicon-off" onclick="user_logout()"></span>
@@ -256,6 +260,24 @@
                         <img src="../assets/imgs/e6.png" alt="" />
                         <span>实战</span>
                     </div>
+                    <!-- </div>
+                <div class="editTool"> -->
+                    <div class="editTool-item" onclick="go_set_mb()">
+                        <img src="../assets/imgs/e6.png" alt="">
+                        <span>密保</span>
+                    </div>
+                    <div class="editTool-item" onclick="go_update_password()">
+                        <img src="../assets/imgs/e4.png" alt="">
+                        <span>密码</span>
+                    </div>
+                    <div class="editTool-item" id="backgroud" onclick="go_personal_backgroud()">
+                        <img src="../assets/imgs/e3.png" alt="">
+                        <span>个性化</span>
+                    </div>
+                    <!-- <div class="editTool-item" onclick="go_update_password()">
+                        <img src="../assets/imgs/e6.png" alt="">
+                        <span>密码</span>
+                    </div> -->
                 </div>
                 <div class="right-title">
                     <img src="../assets/imgs/cup.png" alt="" />

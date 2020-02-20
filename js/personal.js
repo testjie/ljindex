@@ -30,38 +30,6 @@ $(document).ready(function() {
 
 });
 
-// 关注
-function follow_user(uid) {
-    alert("这是关注" + uid);
-}
-
-// 取消
-function unfollow_user(uid) {
-    alert("这是取消关注" + uid);
-}
-
-// 判断是否是当前用户的粉丝
-function get_user_is_fans(uid) {
-    return false;
-
-    // $.ajax({
-    //     type: 'get',
-    //     url: get_url("/get/userinfo?uid=" + uid),
-    //     success: function(str) { //返回json结果
-    //         if (str.status == 200) {
-    //             return true;
-    //         } else {
-    //             alert("数据获取失败！");
-    //             remove_user_login_status(str.msg)
-    //         }
-
-    //     },
-    //     fail: function(err, status) {
-    //         alert("数据获取失败！");
-    //         console.log(err);
-    //     }
-    // });
-}
 
 function get_user_infos(uid) {
     $.ajax({
@@ -77,29 +45,17 @@ function get_user_infos(uid) {
                 var fans = str.data.fens;
                 var follows = str.data.follows;
 
+                $('#find_password1').attr("onclick", "go_update_password(" + uid + ")")
+                $('#find_password2').attr("onclick", "go_update_password(" + uid + ")")
+
                 // 头像
                 $('#headpic1').attr("src", headpic);
                 $('#headpic').attr("style", " no-repeat center top;background-size:cover; cursor:pointer;");
                 $('#headpic').attr("src", headpic);
 
-                // 背景图
-                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:cover; cursor:pointer;');
-                // 自己是编辑个人资料，其他人是关于，其中关注显示已关注和取消关注
-                if (get_user_info("user_userid") == uid) {
-                    $('#update_user_info').attr("href", 'personal_info.html?uid=' + $('#uid').val());
-                } else {
-
-                    // 是粉丝显示取消关注，不是显示关注
-                    if (get_user_is_fans(uid) == true) {
-                        $('#update_user_info').text("取消关注");
-                        $('#update_user_info').removeAttr("target");
-                        $('#update_user_info').attr("href", 'javascript:unfollow_user(' + $('#uid').val() + ');');
-                    } else {
-                        $('#update_user_info').text("关注");
-                        $('#update_user_info').removeAttr("target");
-                        $('#update_user_info').attr("href", 'javascript:follow_user(' + $('#uid').val() + ');');
-                    }
-                }
+                // 背景相关
+                $("#backgroud").attr("onclick", "go_personal_backgroud(" + uid + ")");
+                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:100% 100%; cursor:pointer;');
 
                 // 用户信息
                 $('#username').text(nickname);
@@ -109,6 +65,25 @@ function get_user_infos(uid) {
 
                 $('#follows').text(follows);
                 $('#followslist').attr("onclick", "go_personal_fans(" + $('#uid').val() + "," + 1 + ")");
+
+                // 自己是编辑个人资料，其他人是关于，其中关注显示已关注和取消关注
+                if (get_user_info("user_userid") == uid) {
+                    $('#update_user_info').attr("href", 'personal_info.html?uid=' + $('#uid').val());
+                } else {
+
+                    // 是粉丝显示取消关注，不是显示关注
+                    if (get_user_is_fans(uid) == "已关注") {
+                        $('#update_user_info').text("取消关注");
+                        $('#update_user_info').attr("name", "取消关注"); //接下来就是取消关注
+                        $('#update_user_info').removeAttr("target");
+                        $('#update_user_info').attr("href", 'javascript:follow_user(' + $('#uid').val() + ');');
+                    } else {
+                        $('#update_user_info').text("关注");
+                        $('#update_user_info').attr("name", "关注"); //1已关注
+                        $('#update_user_info').removeAttr("target");
+                        $('#update_user_info').attr("href", 'javascript:follow_user(' + $('#uid').val() + ');');
+                    }
+                }
 
 
                 return str.data;
@@ -124,6 +99,7 @@ function get_user_infos(uid) {
         }
     });
 }
+
 
 // 获取动态列表
 function get_user_dt_list(nums) {
@@ -605,10 +581,4 @@ function repeat_experience(id) {
             console.log(err);
         }
     });
-}
-
-
-// 跳转到个人中心
-function go_personal_backgroud(uid) {
-    window.location.href = "personal_info.html?uid=" + uid;
 }

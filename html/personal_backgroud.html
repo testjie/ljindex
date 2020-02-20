@@ -5,53 +5,177 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>测评网-个人信息</title>
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../lib/animate/animate.css" />
-    <link rel="stylesheet" href="../css/botreset.css" />
     <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/modify.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/personal.css" />
+    <link rel="stylesheet" href="../css/botreset.css" />
+    <link rel="stylesheet" href="../css/register.css" />
     <link rel="stylesheet" type="text/css" href="../lib/webuploader/webuploader.css">
 
-    <title>修改个人信息</title>
 </head>
 
 <body>
-    <div class="tn-modify">
-        <div class="container">
-            <div class="modify">
-                <!-- <h2>修改个人信息</h2> -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="modify-avatar">
-                            <img src="" alt="" id="headpic" />
-                            <input type="hidden" value="" id="uid" />
-                            <div class="" style="position: relative;width: 100px;line-height: 30px;text-align: center;/* background: #f7726b; */border-radius: 3px;transition: all 0.2s ease;">
-                                <div id="uploader-demo" class="">
-                                    <div id="filePicker">修改头像</div>
-                                </div>
-                            </div>
-                        </div>
+    <!-- 头部 -->
+    <div class="tn-header">
+        <div class="tn-header-wrap">
+            <b>
+          <a href="../index.html" title="测谈网">测谈网</a>
+        </b>
+            <nav>
+                <div class="select"><a href="../index.html">首页</a></div>
+                <div class="select select-menu1">
+                    测试教程
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
+                        <li><a href="test_tutorial.html">测试教程</a></li>
 
-                    </div>
+
+                    </ul>
                 </div>
+                <div class="select select-menu2">
+                    交流讨论
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <ul class="menu animated fadeInUp">
 
-                <div class="row ">
-                    <div class="col-sm-12 ">
-                        <div class="modify-footer ">
-                            <button class="modify_btn modify_btn--cancel " title="返回首页 " id="back_personal"><a href="./personal.html">返回首页</a></button>
-                            <button class="modify_btn modify_btn--register " id="acommit1" title="确认修改 ">确认修改</button>
-                        </div>
-                    </div>
+                        <li><a href="question.html">交流讨论</a></li>
+                        <li><a href="experience.html">文章心得</a></li>
+                        <li><a href="inspiration.html">灵光一闪</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 带选择的搜索 -->
+            <div class="search">
+                <select name="" id="">
+            <option value="">全局</option>
+            <option value="">文章</option>
+            <option value="">评论</option>
+          </select>
+                <div class="input-box">
+                    <input type="text" placeholder="输入你想知道的" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+            </div>
+
+            <div class="utils-box logged" id="logined">
+                <!-- <a href="">
+                    <span class="glyphicon glyphicon-bell"></span>
+                </a> -->
+                <a href="javascript:void(0)" id="find_password1" onclick="">
+                    <span class="glyphicon glyphicon-cog" id="find_password2" onclick=""></span>
+                </a>
+                <a href="javascript:void(0)" onclick="user_logout()">
+                    <span class="glyphicon glyphicon-off" onclick="user_logout()"></span>
+                </a>
+                <a href="" id="personal">
+                    <img src="" id="headpic1" alt="" />
+                </a>
+            </div>
+            <div class="utils-box notLog" id="unlogin">
+                <div class="operating login">
+                    <a href="login.html">登录</a>
+                </div>
+                <div class="operating registered">
+                    <a href="register.html">注册</a>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../lib/jquery/jquery-3.4.1.min.js "></script>
-    <script src="../lib/bootstrap/js/bootstrap.min.js "></script>
-    <script src="../js/config.js "></script>
-    <script src="../js/personal_info.js "></script>
-    <script type="text/javascript " src="../lib/webuploader/webuploader.js "></script>
 
+    <div class="wrap personal">
+        <div class="personal-header" id="personal-header">
+            <div class="info">
+                <div class="info-item">
+                    <div class="info-item-item" onclick="javascript:alert('暂未开放 ')" style="cursor:pointer;">
+                        <span class="name">人气</span>
+                        <span class="num">1233</span>
+                    </div>
+                    <div class="info-item-item" id="fanslist" style="cursor:pointer;">
+                        <span class="name">粉丝</span>
+                        <span class="num" id="fans"></span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-item-item" id="followslist" style="cursor:pointer;">
+                        <span class="name">关注</span>
+                        <span class="num" id="follows"></span>
+                    </div>
+
+                    <div class="info-item-item" onclick="javascript:alert('暂未开放 ')" style="cursor:pointer;">
+                        <span class="name">积分</span>
+                        <span class="num">1233</span>
+                    </div>
+                </div>
+            </div>
+            <div class="img-box avatar">
+                <img src="" id="headpic" alt="" />
+            </div>
+            <p class="username" id="username"></p>
+            <input type="hidden" id="uid" value="">
+            <p class="job" id="userinfo"></p>
+
+
+            <div id="uploader-demo" class="" style=" color: #f7726b;">
+                <div id="filePicker">修改背景图片</div>
+            </div>
+            <a href="javascript:void(0)" onclick="go_pre_page()" class="btn" style="width: 114px; height: 40px;">返回到上一页</a>
+            <!-- <button class="signup_btn signup_btn--cancel" title="取消" style="width: 114px; height: 40px; float: left;">
+                <a href="javascript:void(0)" onclick="go_pre_page()" style="">返回上一页</a>
+            </button> -->
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/personal_backgroud.js"></script>
+    <script type="text/javascript " src="../lib/webuploader/webuploader.js "></script>
+    <script>
+        // 导航栏切换
+        $("#meaus .meaus-item").on("click", function() {
+            $("#meaus .meaus-item").removeClass("meaus-item-active");
+            $(this).addClass("meaus-item-active");
+        });
+        // 点击查看更多
+        $("#list .list-item .apply .more").on("click", function() {
+            let status = $(this).data("status");
+            let html = "";
+            if (status == "0") {
+                $(this)
+                    .parent(".desc")
+                    .css("height", "auto");
+                $(this)
+                    .data("status", "1")
+                    .css("padding-right", 0);
+                html = `<span class="cf7"> 收起更多</span
+                      ><span
+                        class="glyphicon glyphicon-triangle-top cf7"
+                      ></span>`;
+            } else {
+                $(this)
+                    .parent(".desc")
+                    .css("height", "40px");
+                $(this)
+                    .data("status", "0")
+                    .css("padding-right", "300px");
+                html = `<span>...</span><span class="cf7"> 查看更多</span
+                      ><span
+                        class="glyphicon glyphicon-triangle-bottom cf7"
+                      ></span>`;
+            }
+            $(this).html(html);
+            //   .data("status", "1");
+        });
+    </script>
 </body>
 
 </html>

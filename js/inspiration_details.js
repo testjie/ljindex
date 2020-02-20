@@ -170,7 +170,14 @@ function get_inspiration_detail(id) {
                 $('#inspiration_comments').text(inspiration_comments); // 评论数
                 $('#inspiration_collectons').text(inspiration_collectons); // 评论数
                 $('#inspiration_creattime').text(inspiration_creattime); // 创建时间
-
+                // 已点赞和已收藏的用户显示红色点赞和红色收藏按钮
+                var user4_status = get_user4_status(2, id);
+                if (user4_status.split(",")[0] == "0") {
+                    $("#user_likes").attr("style", "color:#f7726b");
+                }
+                if (user4_status.split(",")[2] == "0") {
+                    $("#user_collectons").attr("style", "color:#f7726b");
+                }
                 // 已点赞和已收藏的用户显示红色点赞和红色收藏按钮，待做
 
             } else {

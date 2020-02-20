@@ -62,6 +62,11 @@ $(document).ready(function() {
         var user_article_breif = $("#user_article_breif").val();
         var user_article_content = editor.txt.html();
         var user_article_fenmian = $("#fengmian").val();
+        if (editor.txt.text().lenght > 50) {
+            alert("文章字数超过50字!");
+            return;
+        }
+
         if (user_article_tag == "" || user_article_title == "" || user_article_breif == "" || user_article_content == "" || user_article_fenmian == "") {
             alert("输入的参数存在空值!");
             return;
