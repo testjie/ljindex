@@ -27,7 +27,7 @@
                     测试教程
                     <span class="glyphicon glyphicon-chevron-down"></span>
                     <ul class="menu animated fadeInUp">
-                        <li><a href="test_tutorial.html">测试教程</a></li>
+                        <li><a href="javascript:void(0)" onclick="go_tutorial_list()">测试教程</a></li>
                     </ul>
                 </div>
                 <div class="select select-menu2">
@@ -113,9 +113,7 @@
                         <span class="glyphicon glyphicon-heart"></span>点赞
                         <span id="inspiration_likes"></span>
                     </div>
-                    <div class="other-item other-icon">
-                        <a hidden id="edit" style="color: #f7726b;font-size: 15px;" href="">编辑灵感</a>
-                    </div>
+
                 </div>
                 <div class="comment-input">
                     <textarea placeholder="说点什么" class="message" name="" id="inspiration_comments_ctt"></textarea>
@@ -299,6 +297,7 @@
             </div>
         </div>
     </div>
+    <label id="comment_tmp" hidden></label>
 
     <!-- 尾部 -->
     <div class="tn-footer ">

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    is_need_login();
 
 
     initialize_page();
@@ -91,7 +92,7 @@ function get_user_infos(uid) {
                 $('#headpic').attr("src", headpic);
 
                 // 背景图
-                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:100% 100%; cursor:pointer;');
+                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:cover; cursor:pointer; height:500px;');
                 $('#personal-header').attr("onclick", '');
                 $('#update_user_info').attr("href", 'personal_info.html?uid=' + $('#uid').val());
                 // $('#headpic').attr("onclick", go_personal_info($('#uid').val()));

@@ -2,7 +2,7 @@ $(document).ready(function() {
     initialize_page();
     var question_id = get_id();
     get_question_detail(question_id);
-    get_questions_comment_paging(question_id, 1) // 评论分页
+    get_comments_paging(question_id, 1) // 评论分页
 
     // 评论文章
     $("#question_comments_btn").click(function() {
@@ -18,7 +18,7 @@ $(document).ready(function() {
             success: function(str) { //返回json结果
                 if (str.status == 200) {
                     $('#question_comments_ctt').val('');
-                    get_questions_comment_paging($('#question_id').val(), 1)
+                    get_comments_paging($('#question_id').val(), 1)
 
                 } else {
                     alert(str.msg);
@@ -37,10 +37,8 @@ $(document).ready(function() {
 
     // 点赞
     $("#user_likes").click(function() {
-        if (get_user_login_status() == false) {
-            alert("请先登录后在操作!");
-            return;
-        }
+        is_need_login();
+
         var user_like_status = 1; // 0点赞，1取消
         if ($("#user_likes").attr("style") != "color:#f7726b") {
             user_like_status = 0;
@@ -81,10 +79,7 @@ $(document).ready(function() {
 
     // 收藏
     $("#user_collectons").click(function() {
-        if (get_user_login_status() == false) {
-            alert("请先登录后在操作!");
-            return;
-        }
+        is_need_login();
 
         var user_like_status = 1; // 0点赞，1取消
         if ($("#user_collectons").attr("style") != "color:#f7726b") {
@@ -162,9 +157,8 @@ function get_question_detail(id) {
 
                 // 判断是否为该作者，如果是就有修改的权限，如果不是则不显示
                 if (author_id == get_user_info("user_userid")) {
-                    $("#edit").attr("href", "question_edit.html?id=" + question_id);
-                    $("#edit").show();
-
+                    $(".other").append('<div class="other-item other-icon"><a style="color: #f7726b;font-size: 15px;" href="question_edit.html?id=' + question_id + '">修改</a></div>')
+                    $(".other").append('<div class="other-item other-icon"><a style="color: #f7726b;font-size: 15px;" href="javascript:void(0);" onclick="delete_questsion(' + question_id + ')">删除</a></div>')
                 }
                 $('#question_likes').text(question_likes); // 评论数
                 $('#question_reading').text(question_reading); // 评论数
@@ -195,7 +189,7 @@ function get_question_detail(id) {
 }
 
 // 教程分页内容
-function get_questions_comment_paging(id, pagenum) {
+function get_comments_paging(id, pagenum) {
     var fid = id; // 文章id
     var ctype = 1; // 0教程 1提问 2灵感 3文章
     var pagenum = pagenum; // 分页数
@@ -258,12 +252,37 @@ function get_questions_comment_paging(id, pagenum) {
                 }
                 $('#comment').html(content);
                 $('#total').attr("value", counts);
-                compute_pagenum(pagenum, "get_questions_comment_paging", $('#question_id').val())
+                compute_pagenum(pagenum, "get_comments_paging", $('#question_id').val())
                     // 已点赞和已收藏的用户显示红色点赞和红色收藏按钮，待做
             } else {
                 alert("获取数据失败！");
                 remove_user_login_status(str.msg)
 
+            }
+        },
+        fail: function(err, status) {
+            alert("获取数据失败！");
+            console.log(err);
+        }
+    });
+}
+
+// 删除灵感
+function delete_questsion(id) {
+    is_need_login();
+    var datas = get_json({ "qid": id });
+    $.ajax({
+        type: 'post',
+        data: datas,
+        url: get_url("/question/delete"),
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                go_next_page("question.html");
+            } else {
+                alert(str.msg);
             }
         },
         fail: function(err, status) {

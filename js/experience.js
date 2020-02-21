@@ -112,8 +112,11 @@ function show_repeat_div(id) {
 
 // 回复问题
 function repeat_experience(id) {
+    is_need_login();
+
     var experience_id = id;
     var repeat_content = $("#q" + experience_id).val();
+    is_content_not_null(repeat_content);
     var datas = get_json({ "ctype": 1, "comment": repeat_content, "fid": experience_id });
     $.ajax({
         type: 'post',

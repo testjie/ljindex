@@ -204,8 +204,10 @@ function show_repeat_div(id) {
 
 // 回复问题
 function repeat_inspiration(id) {
+    is_need_login();
     var inspiration_id = id;
     var repeat_content = $("#q" + inspiration_id).val();
+    is_content_not_null(repeat_content);
     var datas = get_json({ "ctype": 1, "comment": repeat_content, "fid": inspiration_id });
     $.ajax({
         type: 'post',

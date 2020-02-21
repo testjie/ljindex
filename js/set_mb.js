@@ -1,9 +1,5 @@
 $(document).ready(function() {
-    if (get_user_login_status() == false) {
-        alert("请先登录！")
-        go_pre_page();
-        return;
-    }
+    is_need_login();
 
     get_mb_list();
 

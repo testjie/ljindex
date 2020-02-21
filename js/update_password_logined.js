@@ -1,14 +1,12 @@
 $(document).ready(function() {
+    is_need_login();
 
     // 登录请求
     $("#find_password").click(function() {
         var oldpassword = $('#oldpassword').val();
         var newpassword = $('#newpassword').val();
 
-        if (get_user_login_status() == false) {
-            alert("请先登录");
-            return;
-        }
+        is_need_login();
 
         if (oldpassword == "" || newpassword == "") {
             alert("密码不能为空")

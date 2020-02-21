@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    initialize_page()
-    var editor = init_editor()
+    is_need_login();
+    initialize_page();
+    var editor = init_editor();
 
     // webloader初始化
     var uploader = WebUploader.create({
@@ -50,6 +51,8 @@ $(document).ready(function() {
 
     // 提交文章
     $("#allcommit").click(function() {
+        is_need_login();
+
         var iurl = "/question/new";
         var user_article_tag = $("#user_article_tag").val()
         var user_article_title = $("#user_article_title").val()

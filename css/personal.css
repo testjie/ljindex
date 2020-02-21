@@ -55,8 +55,9 @@
 .personal-header .username {
     padding: 10px 0;
     font-weight: bold;
-    color: #444658;
+    /* color: #444658; */
     font-size: 16px;
+    mix-blend-mode: color-burn;
 }
 
 .personal-header .job {
@@ -64,7 +65,8 @@
     align-items: center;
     justify-content: flex-start;
     padding-bottom: 10px;
-    color: #949494;
+    /* color: aqua; */
+    mix-blend-mode: color-burn;
 }
 
 .personal-header .job span {

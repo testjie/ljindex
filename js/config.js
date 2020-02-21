@@ -311,7 +311,10 @@ function go_personal_center(id, is_index = false) {
 }
 
 // 计算页面
-function compute_pagenum(id, method, cid = -1000) {
+function compute_pagenum(id, method, cid = -10000, ctype = -10000) {
+    // id：当前第几页
+    // method:方法名字
+    // cid : 
     var total = $('#total').val();
     var last = Math.ceil(total / 10);
     var next = id + 1;
@@ -324,12 +327,12 @@ function compute_pagenum(id, method, cid = -1000) {
     }
 
     if (cid == -10000) {
-        $("#pre").attr("href", "javascript:" + method + "(" + pres + ", " + cid + ")")
-        $("#next").attr("href", "javascript:" + method + "(" + next + ", " + cid + ")")
+        $("#pre").attr("href", "javascript:" + method + "(" + pres + "," + ctype + "," + cid + ")")
+        $("#next").attr("href", "javascript:" + method + "(" + next + "," + ctype + ", " + cid + ")")
         $("#current").text("第" + id + "页/共" + last + "页")
     } else {
-        $("#pre").attr("href", "javascript:" + method + "(" + cid + ", " + pres + ")")
-        $("#next").attr("href", "javascript:" + method + "(" + cid + "," + next + ")")
+        $("#pre").attr("href", "javascript:" + method + "(" + cid + "," + ctype + " ," + pres + ")")
+        $("#next").attr("href", "javascript:" + method + "(" + cid + "," + ctype + "," + next + ")")
         $("#current").text("第" + id + "页/共" + last + "页")
     }
 
@@ -357,6 +360,14 @@ function user_compute_pagenum(id, method, uid, cid = -10000) {
         $("#pre").attr("href", "javascript:" + method + "(" + cid + "," + uid + "," + pres + ")");
         $("#next").attr("href", "javascript:" + method + "(" + cid + "," + uid + "," + next + ")");
         $("#current").text("第" + id + "页/共" + last + "页");
+    }
+}
+
+// 为空不能提交
+function is_content_not_null(c) {
+    if (c == "") {
+        alert("输入内容不能为空！");
+        throw SyntaxError("输入内容不能为空");
     }
 }
 
@@ -408,10 +419,7 @@ function get_user4_status(ctype, fid) {
 function follow_user(fid) {
 
     // 游客滚粗
-    if (get_user_login_status() == false) {
-        alert("请登录后操作！");
-        return;
-    }
+    is_need_login();
 
     // 开始关注/取消关注
     $.ajax({
@@ -534,6 +542,196 @@ function get_mb_list() {
 }
 
 
+function get_comments_paging(id, ctype, pagenum) {
+    var fid = id; // 文章id
+    var ctype = ctype; // 0教程 1提问 2灵感 3文章
+    var pagenum = pagenum; // 分页数
+
+    var datas = get_json({ "fid": fid, "ctype": ctype, "pagenum": pagenum })
+    $.ajax({
+        type: 'post',
+        data: datas,
+        url: get_url("/getcomments?pagenum=" + pagenum),
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                var counts = str.data.counts;
+                var datas = str.data.contentlist;
+                var content = '<p class="comment-title">' +
+                    '<span>全部评论</span><span class="num">' + counts + '</span>' +
+                    '</p>';
+                for (var i = 0; i < datas.length; i++) {
+                    var author_id = datas[i].uid;
+                    var author_name = datas[i].nickname;
+                    var author_infomation = datas[i].userinfo;
+                    var author_headpic = get_img_url(datas[i].headpic);
+
+                    var tutorial_id = datas[i].id; // 文章id
+                    var tutorial_comment = datas[i].comment; // 简介
+                    var tutorial_creattime = datas[i].times;
+                    var conment_id = datas[i].id;
+
+                    // 判断是否可以修改
+                    var c = '<div class="comment-item">' +
+                        '<div class="img-box">' +
+                        '<img src="' + author_headpic + '" onclick="go_personal_center(' + author_id + ')" style="cursor:pointer;"/>' +
+                        '</div>' +
+                        '<div class="comment-item-info">' +
+                        '<div class="info">' +
+                        '<div class="first-comment">' +
+                        '<div class="user">' +
+                        '<p class="name" onclick="go_personal_center(' + author_id + ')" style="cursor:pointer;">' + author_name + '</p>' +
+                        '<p class="job">' + author_infomation + '</p>' +
+                        '</div>' +
+                        '<div class="date">' + tutorial_creattime + '</div>' +
+                        '<p id="content' + conment_id + '" class="word" style="word-break:break-all;">' + tutorial_comment + '</p>' +
+                        '<div class="info-other">' +
+                        '<div class="operate">' +
+                        '<label id="first_comment"><span title=" 评论" class="glyphicon glyphicon-comment"></span> 评论</label id="first_comment" >' +
+                        '<label><span title=" 点赞" class="glyphicon glyphicon-thumbs-up star"></span> 点赞</label>';
+
+                    if (get_is_author(author_id) == true) {
+                        c = c + '<label style="color: #f7726b;" onclick="show_comments(' + conment_id + ')"><span title=" 编辑" class="glyphicon glyphicon-edit"></span> 编辑</label>' +
+                            '<label style="color: #f7726b;" onclick="delete_comments(' + conment_id + ', ' + id + ',' + ctype + ')"><span title=" 删除" class="glyphicon glyphicon glyphicon-remove-sign"></span> 删除</label>';
+                    }
+                    c = c + '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
+
+                    content = content + c
+                    if (i == 0) {
+                        $("#repeat_cid").attr("value", conment_id);
+                    }
+                }
+                $('#comment').html(content);
+                $('#total').attr("value", counts);
+                if (ctype == 0) {
+                    var cid = $('#tutorial_id').val();
+                }
+                if (ctype == 1) {
+                    var cid = $('#question_id').val();
+                }
+                if (ctype == 2) {
+                    var cid = $('#inspiration_id').val();
+                }
+                if (ctype == 3) {
+                    var cid = $('#experience_id').val();
+                }
+                compute_pagenum(pagenum, "get_comments_paging", cid, ctype)
+                    // 已点赞和已收藏的用户显示红色点赞和红色收藏按钮，待做
+            } else {
+                alert("获取数据失败！");
+                remove_user_login_status(str.msg)
+
+            }
+        },
+        fail: function(err, status) {
+            alert("获取数据失败！");
+            console.log(err);
+        }
+    });
+}
+
+// 删除评论
+function delete_comments(id, fid, ctype) {
+    var datas = get_json({ "cid": id });
+    $.ajax({
+        type: 'post',
+        data: datas,
+        url: get_url("/comment/delete"),
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                get_comments_paging(fid, ctype, 1);
+            } else {
+                alert(str.msg);
+            }
+        },
+        fail: function(err, status) {
+            alert("获取数据失败！");
+            console.log(err);
+        }
+    });
+}
+
+// 修改评论
+function update_comments(id, content) {
+    var content = $("#repeat" + id).val();
+    var datas = get_json({ "cid": id, "comment": content });
+    $.ajax({
+        type: 'post',
+        data: datas,
+        url: get_url("/comment/update"),
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                $("#content" + id).html('');
+                $("#content" + id).text(content);
+            } else {
+                alert(str.msg);
+            }
+        },
+        fail: function(err, status) {
+            alert("获取数据失败！");
+            console.log(err);
+        }
+    });
+}
+
+
+// 显示修改框
+function show_comments(id) {
+    var content = $("#content" + id).text();
+    $('#comment_tmp').text(content);
+    var input = '<div class="comment-input" style="display: block;" id="comment-input-' + id + '">' +
+        '<textarea placeholder="说点什么" class="message" name="" id="repeat' + id + '">' + content + '</textarea>' +
+        '<div class="btn-box">' +
+        '<div class="btn" onclick="update_comments(' + id + ')" style="marggin-right:10px;">提交</div>' +
+        '<div class="btn" onclick="hide_comments(' + id + ')">取消</div>' +
+        '</div>' +
+        '</div>';
+    $("#content" + id).html(input);
+}
+
+// 取消修改
+function hide_comments(id) {
+    $("#content" + id).html('');
+    $("#content" + id).text($('#comment_tmp').text());
+}
+
+
+// 用户操作需要登录
+function is_need_login(is_index = false) {
+    if (get_user_login_status() == false) {
+        alert("请先登录!");
+        if (is_index == true) {
+            go_next_page("html/login.html");
+        } else {
+            go_next_page("login.html");
+        }
+        throw SyntaxError("权限错误，请先登录！");
+    }
+}
+
+// 判断是否为作者本人
+function get_is_author(uid) {
+    if (get_user_info("user_userid") == uid) {
+        return true;
+    }
+
+    return false
+}
+
+
 // 跳转到心得体会（文章）
 function go_experience_details(id, is_index = false) {
     var url = "html/experience_detail.html?aid=" + id;
@@ -563,6 +761,7 @@ function go_inspiration_details(id, is_index = false) {
 
 // 跳转到教程详情页面
 function go_tutorial_details(id, is_index = false) {
+    is_need_login(is_index);
     var url = "html/test_tutorial_detail.html?aid=" + id;
     if (is_index == false) {
         url = "test_tutorial_detail.html?aid=" + id;
@@ -570,12 +769,21 @@ function go_tutorial_details(id, is_index = false) {
     window.location.href = url;
 }
 
+// 跳转到教程列表
+function go_tutorial_list(is_index = false) {
+    is_need_login(is_index);
+    url = "html/test_tutorial.html";
+
+    if (is_index == false) {
+        url = "test_tutorial.html";
+    }
+    window.location.href = url;
+}
+
 // 去密保页面
 function go_set_mb(is_index = false) {
-    if (get_user_login_status() == false) {
-        alert("请先登录后再操作！");
-        return;
-    }
+    is_need_login();
+
     var url = "html/set_mb.html";
     if (is_index == false) {
         url = "set_mb.html";
@@ -594,19 +802,13 @@ function go_personal_info(id, is_index = false) {
 
 // 跳转到个人中心
 function go_personal_backgroud(uid) {
-    if (get_user_login_status() == false) {
-        alert("请先登录后再操作！");
-        return;
-    }
+    is_need_login();
     window.location.href = "personal_backgroud.html?uid=" + uid;
 }
 
 // 跳转到修改密码页面
 function go_update_password(uid) {
-    if (get_user_login_status() == false) {
-        alert("请先登录后再操作！");
-        return;
-    }
+    is_need_login();
     window.location.href = "update_password_logined.html?uid=" + uid;
 }
 

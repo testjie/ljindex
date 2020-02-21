@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     initialize_page();
     var id = get_id();
     var type = get_sec_params();
@@ -48,7 +49,7 @@ function get_user_infos(uid) {
                 $('#headpic').attr("src", headpic);
 
                 // 背景图
-                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:cover; cursor:pointer;');
+                $('#personal-header').attr("style", 'background: url("' + titlepic + '") no-repeat center top;background-size:cover; cursor:pointer; height:500px;');
                 // 用户信息
                 $('#username').text(nickname);
                 $('#userinfo').text(userinfo);
