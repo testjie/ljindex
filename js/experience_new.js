@@ -1,6 +1,8 @@
 $(document).ready(function() {
     is_need_login();
     initialize_page()
+    set_copyright_version();
+
     var editor = init_editor()
 
     // webloader初始化

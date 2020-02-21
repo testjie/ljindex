@@ -1,5 +1,6 @@
 $(document).ready(function() {
     is_need_login();
+    set_copyright_version();
 
     get_mb_list();
 

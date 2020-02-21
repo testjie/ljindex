@@ -1,8 +1,9 @@
 $(document).ready(function() {
     is_need_login();
 
-
     initialize_page();
+    set_copyright_version();
+
     $('#uid').attr("value", get_id());
     get_user_infos(get_id());
 

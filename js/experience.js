@@ -1,6 +1,7 @@
 $(document).ready(function() {
     initialize_page();
     get_experiences_list(1);
+    set_copyright_version();
 
 });
 

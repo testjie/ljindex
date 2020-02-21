@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    set_copyright_version();
+
     if (get_user_login_status() == true) {
         alert("请到个人中心直接去回密码！")
         return;

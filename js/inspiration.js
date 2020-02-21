@@ -1,6 +1,7 @@
 $(document).ready(function() {
-    initialize_page()
+    initialize_page();
     get_inspirations_list(1);
+    set_copyright_version();
 
     // webloader初始化
     var uploader = WebUploader.create({

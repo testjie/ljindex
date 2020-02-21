@@ -1,6 +1,7 @@
 $(document).ready(function() {
     initialize_page()
     get_questions_list(1);
+    set_copyright_version();
 
 });
 

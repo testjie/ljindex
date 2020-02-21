@@ -3,6 +3,7 @@ $(document).ready(function() {
     var inspiration_id = get_id();
     get_inspiration_detail(inspiration_id);
     get_comments_paging(inspiration_id, 2, 1) // 评论分页
+    set_copyright_version();
 
     // 评论文章
     $("#inspiration_comments_btn").click(function() {

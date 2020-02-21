@@ -1,5 +1,7 @@
 $(document).ready(function() {
     initialize_page();
+    set_copyright_version();
+
     var question_id = get_id();
     get_question_detail(question_id);
     get_comments_paging(question_id, 1) // 评论分页

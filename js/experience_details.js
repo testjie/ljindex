@@ -1,5 +1,7 @@
 $(document).ready(function() {
+
     initialize_page();
+    set_copyright_version();
     var experience_id = get_id();
     get_experience_detail(experience_id);
     get_comments_paging(experience_id, 3, 1) // 评论分页

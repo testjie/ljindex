@@ -2,6 +2,8 @@ $(document).ready(function() {
 
     is_need_login();
     initialize_page();
+    set_copyright_version();
+
     var tutorial_id = get_id();
     get_tutorial_detail(tutorial_id);
     get_comments_paging(tutorial_id, 0, 1) // 评论分页

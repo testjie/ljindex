@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    set_copyright_version();
 
     // 登录请求
     $("#userRegist").click(function() {

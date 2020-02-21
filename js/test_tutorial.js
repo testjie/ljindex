@@ -2,6 +2,8 @@ $(document).ready(function() {
     is_need_login();
     initialize_page()
     get_tutorials_list(1);
+    set_copyright_version();
+
 });
 
 

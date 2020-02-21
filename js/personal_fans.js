@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
     initialize_page();
+    set_copyright_version();
+
     var id = get_id();
     var type = get_sec_params();
 

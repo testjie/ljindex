@@ -7,6 +7,7 @@ const baseurl = "http://192.144.148.91:2333";
 
 const upload_url = baseurl + "/uploadedit"
 
+const __version__ = "1.0.9"
 
 // 获取全局的地址
 function get_url(url) {
@@ -189,14 +190,19 @@ $(".select-menu2").click(function() {
 // 首页初始化方法
 function initialize_page(is_index = false) {
     is_index = is_index;
-    var is_logined = false
-    var token = get_user_info("user_token")
+    var is_logined = false;
+    var token = get_user_info("user_token");
     if (token != null) {
         // 显示用户信息
-        is_logined = true
+        is_logined = true;
     }
-    set_user_navigation(is_logined, is_index)
+    set_user_navigation(is_logined, is_index);
 };
+
+// 设置版本号和版权
+function set_copyright_version() {
+    $(".copyright").html("Copyright @ 2019-2020 All rights reserved 浪晋科技. Powered by 流云. 当前版本: " + __version__);
+}
 
 
 

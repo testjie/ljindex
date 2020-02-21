@@ -1,5 +1,7 @@
 $(document).ready(function() {
     is_need_login();
+    set_copyright_version();
+
 
     // 登录请求
     $("#find_password").click(function() {

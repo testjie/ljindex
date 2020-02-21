@@ -7,6 +7,7 @@ $(document).ready(function() {
     get_experiences_list() // 心得体会
     get_inspirer_list() // 灵光一闪
     get_hotuser_list() // 获取热门用户
+    set_copyright_version();
 
 });
 
