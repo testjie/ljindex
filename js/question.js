@@ -50,14 +50,14 @@ function get_questions_list(nums) {
                         '<div class="question-list-item-other">' +
                         '<div class="other">' +
                         '<span class="other-item date">' + question_creattime + '</span>' +
-                        '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-comment"></span>' +
-                        '<span>评论' + question_comments + '</span>' +
-                        '</div>' +
-                        '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-open"></span>' +
-                        '<span>阅读' + question_reading + '</span>' +
-                        '</div>' +
+                        // '<div class="other-item other-icon">' +
+                        // '<span class="glyphicon glyphicon-comment"></span>' +
+                        // '<span>评论' + question_comments + '</span>' +
+                        // '</div>' +
+                        // '<div class="other-item other-icon">' +
+                        // '<span class="glyphicon glyphicon-open"></span>' +
+                        // '<span>阅读' + question_reading + '</span>' +
+                        // '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-user"></span>' +
                         '<span>收藏' + question_collectons + '</span>' +

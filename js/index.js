@@ -151,8 +151,8 @@ function get_questions_list() {
                         '<div class="resets">' +
                         '<div class="time">' + createtime + '</div>' +
                         '<div class="peoplelove">' +
-                        '<label style="padding-left:3px;"><span class="glyphicon glyphicon-comment"></span>评论' + comments + '</label>' +
-                        '<label style="padding-left:3px;"><span class="glyphicon glyphicon-open"></span>阅读' + reading + '</label>' +
+                        // '<label style="padding-left:3px;"><span class="glyphicon glyphicon-comment"></span>评论' + comments + '</label>' +
+                        // '<label style="padding-left:3px;"><span class="glyphicon glyphicon-open"></span>阅读' + reading + '</label>' +
                         '<label style="padding-left:3px;"><span class="glyphicon glyphicon-user"></span>收藏' + collections + '</label>' +
                         '<label style="padding-left:3px;"><span class="glyphicon glyphicon-heart"></span>点赞' + likes + '</label>' +
                         '</div>' +
@@ -286,7 +286,7 @@ function get_hotuser_list() {
                     // var nickname = str.data[i].nickname;
                     var headpic = get_img_url(str.data[i].headpic);
                     var c = '<li onclick="go_personal_details(' + uid + ', true)" style="cursor:pointer;">' +
-                        '<img class="avatar" src="' + headpic + '" alt="" />' +
+                        '<img class="avatar" src="' + headpic + '" alt=""  />' +
                         '<span>' + nickname + '</span>' +
                         '</li>'
                     content = content + c;

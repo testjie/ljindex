@@ -18,6 +18,7 @@ $(document).ready(function() {
         $("#answering_list").html('');
         get_user_dt_list(1);
     });
+
     // 提问
     $("#get_questsion").click(function() {
         $("#answering_list").html('');
@@ -480,35 +481,9 @@ function get_inspirations_list(nums) {
                     var experience_creattime = datas[i].times; // 创建时间
                     var experience_imag_url = datas[i].ximg; // 文章图片
 
-                    // c = '<div class="list-item" onclick="go_inspiration_details(' + experience_id + ')"  style="cursor:pointer;">' +
-                    //     '<div class="title">' +
-                    //     '<span>发表了灵感</span>' +
-                    //     '<span>' + experience_creattime + '</span>' +
-                    //     '</div>' +
-                    //     // '<p class="desc">' + experience_title + '</p>' +
-                    //     '<div class="apply">' +
-                    //     '<div class="user-box">' +
-                    //     '<div class="img-box avatar">' +
-                    //     '<img src="' + author_headpic + '" alt="" />' +
-                    //     '</div>' +
-                    //     '<div class="info">' +
-                    //     '<p class="name">' + author_name + '</p>' +
-                    //     '<p class="job">' + author_infomation + '</span></p>' +
-                    //     '</div>' +
-                    //     '</div>' +
-                    //     '<div class=" apply-word">' +
-                    //     '<div class="desc">' +
-                    //     '<p class="desc-word">' + experience_content + '</p>' +
-                    //     '<div data-status="0" class="more">' +
-                    //     // '<span>...</span><span class="cf7"> 查看更多</span><span class="glyphicon glyphicon-triangle-bottom cf7"></span>' +
-                    //     '</div>' +
-                    //     '</div>' +
-                    //     '</div>' +
-                    //     '</div>' +
-                    //     '</div>'
                     c = '<div class="list-item"><div class="title"><span>发表了灵感</span><span>' + experience_creattime + '</span></div><div class="user-box"><div class="img-box">' +
                         '<img src="' + author_headpic + '" alt="这是头像"></div><div class="info"><p class="name">' + author_name + '</p><div class="info-other">' +
-                        '<p class="job">' + author_infomation + '</p></div></div></div><div style="cursor:pointer;" onclick="go_inspiration_details(823)">' +
+                        '<p class="job">' + author_infomation + '</p></div></div></div><div style="cursor:pointer;" onclick="go_inspiration_details(' + experience_id + ')">' +
                         '<p style="padding-top:10px;">' + experience_content + '</p><p><br></p><p></p>' +
                         '<div style="padding-top: 10px; display: flex;justify-content: flex-start;justify-content: space-between;">';
                     var imgs_str = experience_imag_url.split(",");

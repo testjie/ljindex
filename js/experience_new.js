@@ -58,7 +58,12 @@ $(document).ready(function() {
         var user_article_breif = $("#user_article_breif").val()
         var user_article_content = editor.txt.html();
         var user_article_fenmian = $("#fengmian").val();
-        if (editor.txt.text().lenght > 50) {
+        var content = editor.txt.text();
+        if (content.lenght < 1) {
+            alert("文章内容不能为空!");
+            return;
+        }
+        if (content.lenght > 50) {
             alert("文章字数超过50字!");
             return;
         }

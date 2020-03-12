@@ -408,8 +408,8 @@ function get_user4_status(ctype, fid) {
                     user_like = str.data[0].gstatus + "," + str.data[0].fstatus + "," + str.data[0].cstatus;
                 }
             } else {
-                alert(str.msg);
-                remove_user_login_status(str.msg)
+                // alert(str.msg);
+                // remove_user_login_status(str.msg)
             }
         },
         fail: function(err, status) {
@@ -595,8 +595,9 @@ function get_comments_paging(id, ctype, pagenum) {
                         '<p id="content' + conment_id + '" class="word" style="word-break:break-all;">' + tutorial_comment + '</p>' +
                         '<div class="info-other">' +
                         '<div class="operate">' +
-                        '<label id="first_comment"><span title=" 评论" class="glyphicon glyphicon-comment"></span> 评论</label id="first_comment" >' +
-                        '<label><span title=" 点赞" class="glyphicon glyphicon-thumbs-up star"></span> 点赞</label>';
+                        '<label id="first_comment">';
+                    // '<span title=" 评论" class="glyphicon glyphicon-comment"></span> 评论</label id="first_comment" >' +
+                    // '<label><span title=" 点赞" class="glyphicon glyphicon-thumbs-up star"></span> 点赞</label>';
 
                     if (get_is_author(author_id) == true) {
                         c = c + '<label style="color: #f7726b;" onclick="show_comments(' + conment_id + ')"><span title=" 编辑" class="glyphicon glyphicon-edit"></span> 编辑</label>' +
@@ -847,14 +848,16 @@ function get_sec_params() {
 
 // 手机号正则表达式
 function is_mobile(s) {
-    let reg = /^1(3[0-9]|4[5,7]|5[0,1,2,3,5,6,7,8,9]|6[2,5,6,7]|7[0,1,7,8]|8[0-9]|9[1,8,9])\d{8}$/;
+    let reg = /^1(3[0-9]|4[0-9]|5[0-9]|6[2,5,6,7]|7[0-9]|8[0-9]|9[1-9])\d{8}$/;
     return reg.test(s);
 }
 
 
 // 邮箱正则表达式
 function is_email(s) {
-    var patrn = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-    if (!patrn.exec(s)) return false
-    return true
+    var reg1 = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    if (!reg1.test(s)) {
+        return false;
+    }
+    return true;
 }

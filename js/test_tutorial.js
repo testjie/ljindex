@@ -60,14 +60,14 @@ function get_tutorials_list(nums) {
                         '</div>' +
                         '<div class="other">' +
                         '<span class="other-item date">' + tutorial_creattime + '</span>' +
-                        '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-comment"></span>' +
-                        '<span>评论' + tutorial_comments + '</span>' +
-                        '</div>' +
-                        '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-open"></span>' +
-                        '<span>阅读' + tutorial_reading + '</span>' +
-                        '</div>' +
+                        // '<div class="other-item other-icon">' +
+                        // '<span class="glyphicon glyphicon-comment"></span>' +
+                        // '<span>评论' + tutorial_comments + '</span>' +
+                        // '</div>' +
+                        // '<div class="other-item other-icon">' +
+                        // '<span class="glyphicon glyphicon-open"></span>' +
+                        // '<span>阅读' + tutorial_reading + '</span>' +
+                        // '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-user"></span>' +
                         '<span>收藏' + tutorial_collectons + '</span>' +

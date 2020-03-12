@@ -327,7 +327,7 @@
 .tn-main .plate-wrap .contenter .article .activeUser ul {
     display: flex;
     flex-wrap: wrap;
-    max-height: 250px;
+    max-height: 300px;
     overflow-y: auto;
     margin-bottom: 20px;
 }

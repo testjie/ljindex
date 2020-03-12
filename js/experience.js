@@ -59,14 +59,14 @@ function get_experiences_list(nums) {
                         '</div>' +
                         '<div class="other">' +
                         '<span class="other-item date">' + experience_creattime + '</span>' +
-                        '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-comment"></span>' +
-                        '<span>评论' + experience_comments + '</span>' +
-                        '</div>' +
-                        '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-open"></span>' +
-                        '<span>阅读' + experience_reading + '</span>' +
-                        '</div>' +
+                        // '<div class="other-item other-icon">' +
+                        // '<span class="glyphicon glyphicon-comment"></span>' +
+                        // '<span>评论' + experience_comments + '</span>' +
+                        // '</div>' +
+                        // '<div class="other-item other-icon">' +
+                        // '<span class="glyphicon glyphicon-open"></span>' +
+                        // '<span>阅读' + experience_reading + '</span>' +
+                        // '</div>' +
                         '<div class="other-item other-icon">' +
                         '<span class="glyphicon glyphicon-user"></span>' +
                         '<span>点赞' + experience_likes + '</span>' +
