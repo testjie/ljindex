@@ -144,11 +144,11 @@ function get_questions_list() {
                         '<section class="details">' +
                         '<img src="' + img_url + '" alt="" sytle="width:125px; height:125px"/>' +
                         '<div class="desc">' + brief + '<div class="more">' +
-                        '<label>[阅读全文]</label>' +
+                        // '<label>[阅读全文]</label>' +
                         '</div>' +
                         '</div>' +
                         ' </section>' +
-                        '<div class="resets">' +
+                        '<div class="resets" style="float:right;">' +
                         '<div class="time">' + createtime + '</div>' +
                         '<div class="peoplelove">' +
                         // '<label style="padding-left:3px;"><span class="glyphicon glyphicon-comment"></span>评论' + comments + '</label>' +

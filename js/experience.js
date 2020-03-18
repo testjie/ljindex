@@ -3,6 +3,81 @@ $(document).ready(function() {
     get_experiences_list(1);
     set_copyright_version();
 
+    // 点赞
+    $("#user_likes").click(function() {
+        is_need_login();
+
+        var user_like_status = 1; // 0点赞，1取消
+        if ($("#user_likes").attr("style") != "color:#f7726b") {
+            user_like_status = 0;
+        }
+        var datas = get_json({ 'ctype': 3, 'status': user_like_status, 'gid': experience_id })
+        $.ajax({
+            type: 'post',
+            url: get_url("/userfellgoods"),
+            headers: get_headers(),
+            data: datas,
+            xhrFields: { withCredentials: true },
+            crossDomain: true,
+            success: function(str) { //返回json结果
+                if (str.status == 200) {
+                    // 评论成功, 局部刷新评论内容
+                    // 点赞成功
+                    if (user_like_status == 0) {
+                        $("#user_likes").attr("style", "color:#f7726b");
+                        $('#experience_likes').text(Number($('#experience_likes').text()) + 1);
+                        // 点赞失败
+                    } else {
+                        $("#user_likes").attr("style", "");
+                        $('#experience_likes').text(Number($('#experience_likes').text()) - 1);
+                    }
+
+                } else {
+                    alert(str.msg);
+                    remove_user_login_status(str.msg);
+                }
+
+            },
+            fail: function(err, status) {
+                alert(err.data);
+                console.log(err);
+            }
+        });
+    });
+
+    // 收藏
+    $("#user_collectons").click(function() {
+        is_need_login();
+
+        var user_like_status = 1; // 0点赞，1取消
+        if ($("#user_collectons").attr("style") != "color:#f7726b") {
+            user_like_status = 0; // 未点赞
+        }
+        var datas = get_json({ 'ctype': 3, 'status': user_like_status, 'cid': experience_id })
+        $.ajax({
+            type: 'post',
+            url: get_url("/usercollections"),
+            headers: get_headers(),
+            data: datas,
+            xhrFields: { withCredentials: true },
+            crossDomain: true,
+            success: function(str) { //返回json结果
+                if (user_like_status == 0) {
+                    $("#user_collectons").attr("style", "color:#f7726b");
+                    $('#experience_collectons').text(Number($('#experience_collectons').text()) + 1);
+                    // 点赞失败
+                } else {
+                    $("#user_collectons").attr("style", "");
+                    $('#experience_collectons').text(Number($('#experience_collectons').text()) - 1);
+                }
+            },
+            fail: function(err, status) {
+                alert(err.data);
+                console.log(err);
+            }
+        });
+    });
+
 });
 
 
@@ -53,7 +128,7 @@ function get_experiences_list(nums) {
                         '<div class="desc" >' +
                         '<p class="desc-word" style="word-break:break-all;">' + experience_content + '</p>' +
                         '<a href="javascript:go_experience_details(' + experience_id + ')" class="more">' +
-                        '<label class="cf7">[...查看详情]</label>' +
+                        // '<label class="cf7">[...查看详情]</label>' +
                         '</a>' +
                         '</div>' +
                         '</div>' +
@@ -68,11 +143,11 @@ function get_experiences_list(nums) {
                         // '<span>阅读' + experience_reading + '</span>' +
                         // '</div>' +
                         '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-user"></span>' +
+                        '<span class="glyphicon glyphicon-user" id="user_likes"></span>' +
                         '<span>点赞' + experience_likes + '</span>' +
                         '</div>' +
                         '<div class="other-item other-icon">' +
-                        '<span class="glyphicon glyphicon-heart"></span>' +
+                        '<span class="glyphicon glyphicon-heart" id="user_collectons"></span>' +
                         '<span>收藏' + experience_collectons + '</span>' +
                         '</div>' +
                         '</div>' +

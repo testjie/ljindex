@@ -10,16 +10,22 @@ $(document).ready(function() {
         var qs1 = $('#a1').val();
         var qs2 = $('#a2').val();
         var qs3 = $('#a3').val();
-        var id1 = $('#qs1').attr("name");
-        var id2 = $('#qs2').attr("name");
-        var id3 = $('#qs3').attr("name");
+        var id1 = $('#q1').attr("name");
+        var id2 = $('#q2').attr("name");
+        var id3 = $('#q3').attr("name");
 
         if (password == "" || qs1 == "" || qs2 == "" || qs3 == "") {
             alert("输入项不能有空值");
             return;
         }
-
-        var datas = get_json({ "password": password, "mb": { id1: qs1, id2: qs2, id3: qs3 } });
+        var datas = get_json({
+            "password": password,
+            "mb": {
+                [id1]: qs1,
+                [id2]: qs2,
+                [id3]: qs3
+            }
+        });
         $.ajax({
             type: 'post',
             url: get_url("/usersertmb"),

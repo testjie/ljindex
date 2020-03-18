@@ -142,6 +142,8 @@ function get_inspiration_detail(id) {
                 var inspiration_imag_url = get_img_url(datas.ximg); // 文章图片
 
                 // 判断是否可以修改
+                $('#fengmianimg').attr("src", inspiration_imag_url);
+
                 $('#author_name').text(author_name); // 作者名
                 $('#author_infomation').text(author_infomation); // 个性签名
                 $('#author_headpic').attr("src", author_headpic); //头像

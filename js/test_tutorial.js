@@ -3,7 +3,6 @@ $(document).ready(function() {
     initialize_page()
     get_tutorials_list(1);
     set_copyright_version();
-
 });
 
 
@@ -54,7 +53,7 @@ function get_tutorials_list(nums) {
                         '<div class="desc">' +
                         '<p class="desc-word">' + tutorial_content + '</p class="desc-word">' +
                         '<a href="./test_tutorial_detail.html?aid=' + tutorial_id + '" class="more">' +
-                        '<label class="cf7">[...阅读全文]</label>' +
+                        // '<label class="cf7">[...阅读全文]</label>' +
                         '</a>' +
                         '</div>' +
                         '</div>' +

@@ -55,8 +55,6 @@ $(document).ready(function() {
         alert("上传失败，请检查服务器！")
     });
 
-
-
     // 登录请求
     $("#commit").click(function() {
         var img_names = "";
@@ -153,18 +151,22 @@ function get_inspirations_list(nums) {
 
                     c = c + '</div>' +
                         '<div class="list-item-tool">' +
-                        '<div class="item item-icon">' +
-                        '<span class="glyphicon glyphicon-open"></span>' +
-                        '<span>转发(' + inspiration_reading + ')</span>' +
-                        '</div>' +
+                        // '<div class="item item-icon">' +
+                        // '<span class="glyphicon glyphicon-open"></span>' +
+                        // '<span>转发(' + inspiration_reading + ')</span>' +
+                        // '</div>' +
 
-                        '<div class="item item-icon">' +
-                        '<span class="glyphicon glyphicon-comment"></span>' +
-                        '<span>评论(' + inspiration_comments + ')</span>' +
-                        '</div>' +
-                        '<div class="item item-icon">' +
+                        // '<div class="item item-icon">' +
+                        // '<span class="glyphicon glyphicon-comment"></span>' +
+                        // '<span>评论(' + inspiration_comments + ')</span>' +
+                        // '</div>' +
+                        '<div class="item item-icon" id="user_likes">' +
                         '<span class="glyphicon glyphicon-thumbs-up"></span>' +
                         '<span>点赞(' + inspiration_likes + ')</span>' +
+                        '</div>' +
+                        '<div class="item item-icon" id="user_collectons">' +
+                        '<span class="glyphicon glyphicon-thumbs-up"></span>' +
+                        '<span>收藏(' + inspiration_collectons + ')</span>' +
                         '</div>' +
                         '</div>' +
                         '</div>';
