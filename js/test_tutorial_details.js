@@ -3,6 +3,11 @@ $(document).ready(function() {
     is_need_login();
     initialize_page();
     set_copyright_version();
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
 
     var tutorial_id = get_id();
     get_tutorial_detail(tutorial_id);

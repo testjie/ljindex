@@ -5,13 +5,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>答题练习</title>
+    <title>测评网-写文章</title>
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../lib/animate/animate.css" />
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/reset.css" />
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/testTutorial.css" />
+    <link rel="stylesheet" type="text/css" href="../lib/webuploader/webuploader.css">
+    <style type="text/css">
+        .w-e-text-container {
+            height: 500px !important;
+            /*!important是重点，因为原div是行内样式设置的高度300px*/
+        }
+    </style>
+
 </head>
 
 <body>
@@ -27,7 +35,7 @@
                     测试教程
                     <span class="glyphicon glyphicon-chevron-down"></span>
                     <ul class="menu animated fadeInUp">
-                        <li><a href="javascript:void(0)" onclick="go_tutorial_list()">测试教程</a></li>
+                        <li><a href="test_tutorial.html">测试教程</a></li>
 
 
                     </ul>
@@ -55,16 +63,17 @@
                     <span class="glyphicon glyphicon-search" onclick='all_search()' style="cursor:pointer;"></span>
                 </div>
             </div>
-            <div class="utils-box logged log_show">
+            <div class="utils-box logged" id="logined">
                 <a href=""> <span class="glyphicon glyphicon-bell"></span></a>
-                <a href="">
-                    <span class="glyphicon glyphicon-off"></span>
                 </a>
-                <a href="">
-                    <img src="../assets/imgs/avatar.jpg" alt="" />
+                <a href="javascript:void(0)" onclick="user_logout()">
+                    <span class="glyphicon glyphicon-cog" onclick="user_logout()"></span>
+                </a>
+                <a href="" id="personal">
+                    <img src="" id="headpic" alt="" />
                 </a>
             </div>
-            <div class="utils-box notLog log_hide">
+            <div class="utils-box notLog" id="unlogin">
                 <div class="operating login">
                     <a href="login.html">登录</a>
                 </div>
@@ -75,30 +84,67 @@
         </div>
     </div>
 
-    <div class="wrap answer">
+    <div class="wrap write_article">
         <div class="wrap banner-title">
             <div class="banner-title-box">
-                <div class="title">测谈答题练习</div>
+                <div class="title">写疑惑</div>
             </div>
         </div>
-        <div class="main answer-body">
-            <div class="main-left answer-left">
-                <div class="title">
-                    <div class="fw name">关于答题的规则描述</div>
-                    <a target="_blank" href="./answering.html" class="btn">立即答题</a>
-                </div>
-                <img class="" src="../assets/imgs/swiper.png" alt="" />
-                <div class="rule">
-                    <p class="rule-title">1、规则1</p>
-                    <p>
-                        Vue Element+Node.js开发企业通业务系统复杂度不断上升，就要利用接口自动 化测试减少人力成本,提高效率。本步骤全面学习接口自动化测试技能，结合典型 应用场景帮你一步到位。业务系统动化测试减少人力成本,提高效率。本步骤全面 型应用场
-                    </p>
-                </div>
-                <div class="rule">
-                    <p class="rule-title">2、规则2</p>
-                    <p>
-                        Vue Element+Node.js开发企业通业务系统复杂度不断上升，就要利用接口自动 化测试减少人力成本,提高效率。本步骤全面学习接口自动化测试技能，结合典型 应用场景帮你一步到位。业务系统动化测试减少人力成本,提高效率。本步骤全面 型应用场
-                    </p>
+        <div class="main main-body write_article-body">
+            <div class="main-left">
+                <div class="write_article-form">
+                    <div class="input-box">
+                        <div class="name">标 题:</div>
+                        <input type="text" id="user_article_title" placeholder="输入文章标题" style="width: 100%;" />
+                    </div>
+                    <!-- <div class="input-box">
+                        <div class="name">封 面:</div>
+                        <img src="" id="fengmian" hidden style="width: 25px; height:25px;">
+                        <div class="content" style="" id="content">
+                            <form class="edit-avatar" id="uploadForm" enctype="multipart/form-data">
+                                <span>选择图片</span>
+                                <input type="file" name="file" id="file" />
+                            </form>
+                        </div>
+                        <input type="button" class="btn btn-primary" value="上传" id="acommit" style="float: left; width:80px; height: 28px;">
+                    </div> -->
+
+                    <div class="input-box">
+                        <div class="name">内 容:</div>
+                        <!-- MarkDown形式 -->
+                        <div class="content">
+                            <div id="editor">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="name">封 面:</div>
+
+                        <div id="uploader-demo" class="content">
+                            <div id="fileList" class="uploader-list"></div>
+                            <div id="filePicker">选择图片</div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <div class="name">
+                            <!-- <span class="glyphicon glyphicon-tag"></span> -->
+                            <span>简 介:</span>
+                        </div>
+                        <input type="text" id="user_article_breif" placeholder="输入文章简介" style="width: 100%;" />
+                    </div>
+                    <div class="input-box">
+                        <div class="name">
+                            <!-- <span class="glyphicon glyphicon-tag"></span> -->
+                            <span>标 签:</span>
+                        </div>
+                        <input type="text" id="user_article_tag" placeholder="输入文章标签" style="width: 100%;" />
+                    </div>
+
+                    <div class="submit">
+                        <button class="btn-grey" type="button" id="allcommit">提 交</button>
+                    </div>
                 </div>
             </div>
             <div class="main-right">
@@ -130,79 +176,52 @@
                 </div>
                 <div class="right-title">
                     <img src="../assets/imgs/cup.png" alt="" />
-                    <span>答题成绩排行榜</span>
+                    <span>热门教程排行榜</span>
                 </div>
-
-                <div class="ranking">
-                    <div class="ranking-head">
-                        <div class="sort">
-                            排名
+                <div class="hot-list">
+                    <div class="hot-list-item sort">
+                        <div class="img-box">
+                            <div class="tag">1</div>
+                            <img src="../assets/imgs/z.png" alt="" />
                         </div>
-                        <div class="user">
-                            用户
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
                         </div>
-                        <div class="result">答题成绩</div>
                     </div>
-                    <div class="ranking-item">
-                        <div class="sort">
-                            <img src="../assets/imgs/Medal1.png" alt="" />
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">2</div>
+                            <img src="../assets/imgs/z.png" alt="" />
                         </div>
-                        <div class="user">
-                            <div class="img-box">
-                                <img src="../assets/imgs/avatar.jpg" alt="" />
-                            </div>
-                            <span>uffbfbh</span>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
                         </div>
-                        <div class="result">22</div>
                     </div>
-                    <div class="ranking-item">
-                        <div class="sort">
-                            <img src="../assets/imgs/Medal2.png" alt="" />
+                    <div class="hot-list-item">
+                        <div class="img-box">
+                            <div class="tag">3</div>
+                            <img src="../assets/imgs/z.png" alt="" />
                         </div>
-                        <div class="user">
-                            <div class="img-box">
-                                <img src="../assets/imgs/avatar.jpg" alt="" />
-                            </div>
-                            <span>ufbh</span>
+                        <div class="info">
+                            <div class="title">测试工程师技能</div>
+                            <p class="desc">初期的太极系列，都是单人</p>
+                            <button class="btn">查看教程</button>
                         </div>
-                        <div class="result">22</div>
                     </div>
-                    <div class="ranking-item">
-                        <div class="sort">
-                            <img src="../assets/imgs/Medal3.png" alt="" />
-                        </div>
-                        <div class="user">
-                            <div class="img-box">
-                                <img src="../assets/imgs/avatar.jpg" alt="" />
-                            </div>
-                            <span>X小姨妈</span>
-                        </div>
-                        <div class="result">22</div>
-                    </div>
-                    <div class="ranking-item">
-                        <div class="sort">
-                            4
-                        </div>
-                        <div class="user">
-                            <div class="img-box">
-                                <img src="../assets/imgs/avatar.jpg" alt="" />
-                            </div>
-                            <span>ufbh</span>
-                        </div>
-                        <div class="result">22</div>
-                    </div>
-                    <div class="ranking-item">
-                        <div class="sort">
-                            5
-                        </div>
-                        <div class="user">
-                            <div class="img-box">
-                                <img src="../assets/imgs/avatar.jpg" alt="" />
-                            </div>
-                            <span>X小姨妈</span>
-                        </div>
-                        <div class="result">22</div>
-                    </div>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">4</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
+                    <a href="" target="_blank" class="hot-list-other">
+                        <div class="tag">5</div>
+                        <div class="title">测试工程师技能</div>
+                        <p class="desc">初期的太极系列，都是单人</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -249,7 +268,11 @@
 
     <script src="../lib/jquery/jquery-3.4.1.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/write_question.js"></script>
+    <script src="../lib/wangeditor/release/wangEditor.js"></script>
+    <script type="text/javascript" src="../lib/webuploader/webuploader.js"></script>
+
 </body>
 
 </html>

@@ -1,5 +1,11 @@
 $(document).ready(function() {
     set_copyright_version();
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
+
 
     if (get_user_login_status() == true) {
         alert("请到个人中心直接去回密码！")

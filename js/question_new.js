@@ -4,6 +4,12 @@ $(document).ready(function() {
     set_copyright_version();
 
     var editor = init_editor();
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
+
 
     // webloader初始化
     var uploader = WebUploader.create({

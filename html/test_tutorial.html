@@ -45,14 +45,14 @@
             </nav>
             <!-- 带选择的搜索 -->
             <div class="search">
-                <select name="" id="">
-            <option value="">全局</option>
+                <select name="" id="search_type">
+            <option value="">教程</option>
+            <option value="">问题</option>
             <option value="">文章</option>
-            <option value="">评论</option>
           </select>
                 <div class="input-box">
-                    <input type="text" placeholder="输入你想知道的" />
-                    <span class="glyphicon glyphicon-search"></span>
+                    <input type="text" id="all_search" placeholder="按下回车键搜索" />
+                    <span class="glyphicon glyphicon-search" onclick='all_search()' style="cursor:pointer;"></span>
                 </div>
             </div>
             <div class="utils-box logged log_show" id="logined">
@@ -89,25 +89,12 @@
         <div class="main testTutorial-body">
             <div class="main-left testTutorial-body-left">
                 <div id="meaus" class="meaus">
-                    <div class="meaus-item meaus-item-active">全部</div>
+                    <!-- <div class="meaus-item meaus-item-active">全部</div>
                     <div class="meaus-item">全部</div>
-                    <div class="meaus-item">招聘</div>
                     <div class="meaus-item">招聘招聘</div>
-                    <div class="meaus-item">招聘</div>
-                    <div class="meaus-item">招聘招聘</div>
-                    <div class="meaus-item">招聘</div>
-                    <div class="meaus-item">招聘招聘</div>
-                    <div class="meaus-item">招聘招聘</div>
-                    <div class="meaus-item">招聘</div>
-                    <div class="meaus-item">招聘招聘</div>
-                    <div class="meaus-item">招聘</div>
-                    <div class="meaus-item">招聘招聘</div>
-                    <div class="meaus-item">招聘</div>
-                    <div class="meaus-item">招聘招聘</div>
-                    <div class="meaus-item">招聘招聘</div>
-                    <select class="meaus-item" name="" id="">
-              <option value="">更多</option>
-            </select>
+                <select class="meaus-item" name="" id="">
+                <option value="">更多</option>
+                </select> -->
                 </div>
                 <div class="list" id="tutorial_list">
 

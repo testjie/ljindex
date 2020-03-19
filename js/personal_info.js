@@ -6,6 +6,12 @@ $(document).ready(function() {
     $('#uid').attr("value", get_id());
     get_user_infos(get_id());
 
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
+
     // webloader初始化
     var uploader = WebUploader.create({
         // 选完文件后，是否自动上传。

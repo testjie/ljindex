@@ -3,6 +3,12 @@ $(document).ready(function() {
     get_inspirations_list(1);
     set_copyright_version();
 
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
+
     // webloader初始化
     var uploader = WebUploader.create({
         // 选完文件后，是否自动上传。
@@ -54,6 +60,8 @@ $(document).ready(function() {
     uploader.on('uploadError', function(file) {
         alert("上传失败，请检查服务器！")
     });
+
+
 
     // 登录请求
     $("#commit").click(function() {
@@ -160,11 +168,11 @@ function get_inspirations_list(nums) {
                         // '<span class="glyphicon glyphicon-comment"></span>' +
                         // '<span>评论(' + inspiration_comments + ')</span>' +
                         // '</div>' +
-                        '<div class="item item-icon" id="user_likes">' +
+                        '<div class="item item-icon">' +
                         '<span class="glyphicon glyphicon-thumbs-up"></span>' +
                         '<span>点赞(' + inspiration_likes + ')</span>' +
                         '</div>' +
-                        '<div class="item item-icon" id="user_collectons">' +
+                        '<div class="item item-icon">' +
                         '<span class="glyphicon glyphicon-thumbs-up"></span>' +
                         '<span>收藏(' + inspiration_collectons + ')</span>' +
                         '</div>' +

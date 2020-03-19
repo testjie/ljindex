@@ -5,7 +5,11 @@ $(document).ready(function() {
     $('#uid').attr("value", get_id());
     get_user_infos(get_id());
     get_user_dt_list(1);
-
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
 
     // 提问
     $("#get_articles").click(function() {

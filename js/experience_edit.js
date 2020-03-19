@@ -6,7 +6,11 @@ $(document).ready(function() {
     var id = get_id();
     var editor = init_editor();
     get_experience_detail(id, editor);
-
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
     // webloader初始化
     var uploader = WebUploader.create({
         // 选完文件后，是否自动上传。

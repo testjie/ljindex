@@ -7,6 +7,12 @@ $(document).ready(function() {
     $('#uid').attr("value", get_id());
     get_user_infos(get_id());
 
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
+
     // 灵感
     $("#get_inspiration").click(function() {
         $("#answering_list").html('');

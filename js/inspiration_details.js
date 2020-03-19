@@ -5,6 +5,12 @@ $(document).ready(function() {
     get_comments_paging(inspiration_id, 2, 1) // 评论分页
     set_copyright_version();
 
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
+
     // 评论文章
     $("#inspiration_comments_btn").click(function() {
         is_need_login();

@@ -9,6 +9,12 @@ $(document).ready(function() {
     get_hotuser_list() // 获取热门用户
     set_copyright_version();
 
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search(true);
+        }
+    });
+
 });
 
 // 获取首页轮播图 > get_title_img
@@ -137,7 +143,7 @@ function get_questions_list() {
                     var reading = 456;
                     var collections = str.data[i].collections;
                     var likes = str.data[i].goods;
-                    var createtime = "2019.12.12"
+                    var createtime = str.data[i].times
 
                     c = '<li onclick="go_question_details(' + qid + ', true)" style="cursor:pointer;">' +
                         '<p class="title" style="word-break:break-all;">' + title + '</p>' +

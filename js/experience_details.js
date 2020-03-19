@@ -5,7 +5,11 @@ $(document).ready(function() {
     var experience_id = get_id();
     get_experience_detail(experience_id);
     get_comments_paging(experience_id, 3, 1) // 评论分页
-
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search();
+        }
+    });
     // 评论文章
     $("#experience_comments_btn").click(function() {
         is_need_login();

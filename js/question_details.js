@@ -5,6 +5,11 @@ $(document).ready(function() {
     var question_id = get_id();
     get_question_detail(question_id);
     get_comments_paging(question_id, 1, 1) // 评论分页
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
 
     // 评论文章
     $("#question_comments_btn").click(function() {

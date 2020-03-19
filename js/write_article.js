@@ -1,16 +1,11 @@
 $(document).ready(function() {
-    is_need_login();
     initialize_page()
-    set_copyright_version();
-
+    var editor = init_editor()
     $("#all_search").keyup(function(e) {
         if (e.which == 13) {
             all_search()
         }
     });
-
-
-    var editor = init_editor()
 
     // webloader初始化
     var uploader = WebUploader.create({
@@ -64,21 +59,7 @@ $(document).ready(function() {
         var user_article_title = $("#user_article_title").val()
         var user_article_breif = $("#user_article_breif").val()
         var user_article_content = editor.txt.html();
-        var user_article_fenmian = $("#fengmian").val();
-        var content = editor.txt.text();
-        if (content.lenght < 1) {
-            alert("文章内容不能为空!");
-            return;
-        }
-        if (content.lenght > 50) {
-            alert("文章字数超过50字!");
-            return;
-        }
-        if (user_article_tag == "" || user_article_title == "" || user_article_breif == "" || user_article_content == "" || user_article_fenmian == "") {
-            alert("输入的参数存在空值!");
-            return;
-        }
-
+        var user_article_fenmian = $("#fengmian").val()
         var datas = get_json({ "title": user_article_title, "content": user_article_content, "brief": user_article_breif, "tags": user_article_tag, "ximg": user_article_fenmian })
         $.ajax({
             url: get_url(iurl),
@@ -132,4 +113,12 @@ function init_editor() {
     editor.create()
 
     return editor
+}
+
+
+
+
+// 跳转到教程详情页面
+function go_experience_details(aid) {
+    window.location.href = "experience_detail.html?aid=" + aid;
 }

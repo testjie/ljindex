@@ -6,6 +6,12 @@ $(document).ready(function() {
     var id = get_id();
     var type = get_sec_params();
 
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search()
+        }
+    });
+
     $('#uid').attr("value", id);
     get_user_infos(id);
     get_fans_list(1, type);

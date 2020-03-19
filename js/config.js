@@ -9,6 +9,16 @@ const upload_url = baseurl + "/uploadedit"
 
 const __version__ = "1.0.9"
 
+
+// 类型
+const question_type = 1
+const experience_type = 3
+const inspiration_type = 2
+const test_tutorial_type = 0
+
+
+
+
 // 获取全局的地址
 function get_url(url) {
     return baseurl + url;
@@ -28,6 +38,7 @@ function get_headers() {
 function save_user_info(key, value) {
     window.localStorage.setItem(key, value);
 }
+
 
 // 获取信息
 function get_user_info(key) {
@@ -187,6 +198,7 @@ $(".select-menu2").click(function() {
     }
 });
 
+
 // 首页初始化方法
 function initialize_page(is_index = false) {
     is_index = is_index;
@@ -316,7 +328,7 @@ function go_personal_center(id, is_index = false) {
     window.location.href = personal_url;
 }
 
-// 计算页面
+// 教程/文章/提问/灵感/评论的分页
 function compute_pagenum(id, method, cid = -10000, ctype = -10000) {
     // id：当前第几页
     // method:方法名字
@@ -345,7 +357,29 @@ function compute_pagenum(id, method, cid = -10000, ctype = -10000) {
 }
 
 
-// 分页计算
+// 搜索的查询
+function compute_pagenum_by_search(id, method, tagname = '', ctype = -10000) {
+    // id：当前第几页
+    // method:方法名字
+    // cid : 
+    var total = $('#total').val();
+    var last = Math.ceil(total / 10);
+    var next = id + 1;
+    var pres = id - 1;
+    if (next > last) {
+        next = last;
+    }
+    if (pres < 1) {
+        pres = 1
+    }
+
+    $("#pre").attr("href", "javascript:" + method + "('" + tagname + "'," + ctype + " ," + pres + ")")
+    $("#next").attr("href", "javascript:" + method + "('" + tagname + "'," + ctype + "," + next + ")")
+    $("#current").text("第" + id + "页/共" + last + "页")
+}
+
+
+// 用户分页计算
 function user_compute_pagenum(id, method, uid, cid = -10000) {
     var total = $('#total').val();
     var last = Math.ceil(total / 10);
@@ -668,6 +702,46 @@ function delete_comments(id, fid, ctype) {
     });
 }
 
+// 全局搜索跳转
+function go_search_page(key, ctype, is_index = false) {
+    var url = '';
+    if (is_index == true) {
+        url = "html/";
+    }
+    if (ctype == experience_type) {
+        url = url + "experience.html?sk=" + key;
+    }
+    if (ctype == test_tutorial_type) {
+        url = url + "test_tutorial.html?sk=" + key;
+    }
+    if (ctype == question_type) {
+        url = url + "question.html?sk=" + key;
+    }
+    go_next_page(url);
+}
+
+
+// 点击事件搜索
+function all_search(is_index = false) {
+    var key = $('#all_search').val();
+    if (check_null(key) == false) {
+        alert("输入内容不能为空!");
+        return;
+    }
+    var ctype = $("#search_type option:selected").text();
+    if (ctype == "文章") {
+        ctype = experience_type;
+    }
+    if (ctype == "教程") {
+        ctype = test_tutorial_type;
+    }
+    if (ctype == "问题") {
+        ctype = question_type;
+    }
+    go_search_page(key, ctype, is_index);
+}
+
+
 // 修改评论
 function update_comments(id, content) {
     var content = $("#repeat" + id).val();
@@ -833,11 +907,15 @@ function go_personal_fans(id, type, is_index = false) {
 
 //获取页面跳转的用户id
 function get_id() {
-    var id = window.location.href.split('=')[1].replace('#', '');
-    if (id.search("&") != -1) {
-        return id.split("&")[0];
-    } else {
-        return id;
+    try {
+        var id = window.location.href.split('=')[1].replace('#', '');
+        if (id.search("&") != -1) {
+            return id.split("&")[0];
+        } else {
+            return id;
+        }
+    } catch (err) {
+        return '';
     }
 }
 
@@ -860,4 +938,19 @@ function is_email(s) {
         return false;
     }
     return true;
+}
+
+
+// 利用正则去掉前后空格
+function space_trim(val) {
+    return val.replace(/(^\s*)|(\s*$)/g, "");
+}
+
+// 检测为空方法
+function check_null(val) {　　
+    if (space_trim(val) == '') {
+        return false;
+    } else {
+        return true;
+    }
 }

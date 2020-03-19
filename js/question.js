@@ -1,10 +1,133 @@
 $(document).ready(function() {
-    initialize_page()
-    get_questions_list(1);
+    initialize_page();
+    get_tag_list(1);
     set_copyright_version();
 
+    var sk = get_id();
+    if (check_null(sk) == false) {
+        get_questions_list(1);
+    } else {
+        tag_search(sk, experience_type, 1);
+    }
+
+    // 触发全局搜索
+    $("#all_search").keyup(function(e) {
+        if (e.which == 13) {
+            all_search();
+        }
+    });
 });
 
+
+//标签搜索
+function tag_search(tagname, ctype, pagenum) {
+    var url = '/search?value=' + tagname + '&type=' + ctype + '&pagenum=' + pagenum;
+    $.ajax({
+        type: 'get',
+        url: get_url(url),
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                // 获取成功
+                var c = '';
+                var content = '';
+                var datas = str.data.contentlist
+                var counts = str.data.counts
+                for (var i = 0; i < datas.length; i++) {
+                    var author_id = datas[i].uid;
+                    var author_name = datas[i].nickname
+                    var author_headpic = get_img_url(datas[i].headpic)
+                    var author_infomation = datas[i].userinfo
+
+                    var question_likes = datas[i].goods; // 点赞数
+                    var question_collectons = datas[i].collections; // 收藏量
+
+                    var question_id = datas[i].id; // 文章id
+                    var question_title = datas[i].title; // 标题
+                    var question_content = datas[i].brief; // 简介
+                    var question_creattime = datas[i].times; // 创建时间
+                    var question_imag_url = get_img_url(datas[i].ximg); // 文章图片
+
+                    c = '<div class="question-list-item"  style="cursor:pointer;">' +
+                        '<p class="fw title" style="word-break:break-all;">' + question_title + '</p>' +
+                        '<div class="user-box" onclick="go_question_details(' + question_id + ')">' +
+                        '<div class="img-box">' +
+                        '<img src="' + author_headpic + '" onclick="go_personal_center(' + author_id + ')" style="cursor:pointer;">' +
+                        '</div>' +
+                        '<div class="info">' +
+                        '<p class="name" onclick="go_personal_center(' + author_id + ')" style="cursor:pointer;">' + author_name + '</p>' +
+                        '<p class="job">' + author_infomation + '</p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<p class="word" style="word-break:break-all;">' + question_content + '</p>' +
+                        '<div class="question-list-item-other">' +
+                        '<div class="other">' +
+                        '<span class="other-item date">' + question_creattime + '</span>' +
+                        '<div class="other-item other-icon">' +
+                        '<span class="glyphicon glyphicon-user"></span>' +
+                        '<span>收藏' + question_collectons + '</span>' +
+                        '</div>' +
+                        '<div class="other-item other-icon">' +
+                        '<span class="glyphicon glyphicon-heart"></span>' +
+                        '<span>点赞' + question_likes + '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div data-id="q' + i + '" class="aplly-btn btn-grey" style="" onclick="show_repeat_div(' + i + ')" ">立即回答</div>' +
+                        '</div>' +
+                        '<div id="q' + i + '" class="message" style="display: none;">' +
+                        '<textarea id="q' + question_id + '" class="message-input" placeholder="回答"></textarea>' +
+                        '<div data-id="q' + i + '" class="submit btn-grey" onclick="repeat_question(' + question_id + ')">确认</div>' +
+                        '</div>' +
+                        '</div>'
+
+                    content = content + c;
+                }
+                $('#question_list').html(content);
+
+                // 分页相关
+                $('#total').val(counts);
+                compute_pagenum_by_search(pagenum, "tag_search", tagname, ctype);
+
+            } else {
+                alert("数据获取失败！");
+                remove_user_login_status(str.msg)
+
+            }
+
+        },
+        fail: function(err, status) {
+            alert("数据获取失败！");
+            console.log(err);
+        }
+    });
+
+
+}
+
+//获取标签列表
+function get_tag_list(type) {
+    $.ajax({
+        type: 'get',
+        url: get_url("/gettaglist?type=" + type),
+        success: function(str) { //返回json结果
+            if (str.status == 200) {
+                var content = "";
+                var data = str.data[0].tags;
+                var tags = data.split(",");
+                for (var i = 0; i < tags.length; i++) {
+                    var tag = "<div class=\"meaus-item\" onclick=\"tag_search('" + tags[i] + "', " + question_type + ", 1)\">" + tags[i] + "</div>";
+                    content = content + tag;
+                }
+                $("#meaus").append(content);
+            }
+
+        },
+        fail: function(err, status) {
+            alert("数据获取失败！");
+            console.log(err);
+        }
+    });
+
+}
 
 // 获取问题列表
 function get_questions_list(nums) {
