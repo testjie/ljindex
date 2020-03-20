@@ -113,7 +113,7 @@ function get_inspirations_list(nums) {
                 var datas = str.data.contentlist
                 var counts = str.data.counts
                 for (var i = 0; i < datas.length; i++) {
-                    var author_id = datas[i].id;
+                    var author_id = datas[i].uid;
                     var author_name = datas[i].nickname
                     var author_infomation = datas[i].userinfo
                     var author_headpic = get_img_url(datas[i].headpic)

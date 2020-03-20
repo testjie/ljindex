@@ -7,7 +7,7 @@ $(document).ready(function() {
     if (check_null(sk) == false) {
         get_questions_list(1);
     } else {
-        tag_search(sk, experience_type, 1);
+        tag_search(sk, question_type, 1);
     }
 
     // 触发全局搜索
@@ -111,7 +111,7 @@ function get_tag_list(type) {
         success: function(str) { //返回json结果
             if (str.status == 200) {
                 var content = "";
-                var data = str.data[0].tags;
+                var data = str.data.tags;
                 var tags = data.split(",");
                 for (var i = 0; i < tags.length; i++) {
                     var tag = "<div class=\"meaus-item\" onclick=\"tag_search('" + tags[i] + "', " + question_type + ", 1)\">" + tags[i] + "</div>";

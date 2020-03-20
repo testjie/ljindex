@@ -62,11 +62,17 @@ $(document).ready(function() {
     $("#allcommit").click(function() {
         var iurl = "/question/update";
         var user_article_id = $("#user_article_id").val();
-        var user_article_tag = $("#user_article_tag").val();
+        // var user_article_tag = $("#user_article_tag").val();
         var user_article_title = $("#user_article_title").val();
         var user_article_breif = $("#user_article_breif").val();
         var user_article_content = editor.txt.html();
         var user_article_fenmian = $("#fengmian").val();
+        var user_article_tag = '';
+        $("button[value=true]").each(function() {
+            user_article_tag = user_article_tag + $(this).text() + ","
+        });
+
+
 
         if (user_article_tag == "" || user_article_title == "" || user_article_breif == "" || user_article_content == "" || user_article_fenmian == "") {
             alert("输入的参数存在空值!");
@@ -168,6 +174,18 @@ function get_question_detail(id, editor) {
                     '<input id="fengmian" type="hidden" value="' + question_imag_url + '"/>' +
                     '</div>'
                 $("#fileList").html(li);
+
+                // 设置元素
+                var tags = experience_tags.split(",");
+                $("#my_tags_list :button").each(function() {
+                    for (j = 0; j < tags.length; j++) {
+                        if ($(this).text() == tags[j]) {
+                            $(this).attr('style', 'margin-top: 2px;margin-left: 2px; display:inline;background-color:#f7726b;');
+                            $(this).val(true);
+                        }
+                    }
+                });
+
 
                 return author_id;
             } else {

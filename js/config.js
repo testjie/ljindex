@@ -769,6 +769,130 @@ function update_comments(id, content) {
 }
 
 
+// 设置按钮选中状态
+function set_tag_btn(id) {
+    var btn = $('#tag' + id);
+    if (btn.attr('style') == 'margin-top: 2px;margin-left: 2px; display:inline') {
+        btn.attr('style', 'margin-top: 2px;margin-left: 2px; display:inline;background-color:#f7726b;');
+        btn.val(true);
+    } else {
+        btn.attr('style', 'margin-top: 2px;margin-left: 2px; display:inline');
+        btn.val(false);
+    }
+}
+
+// 设置用户tags
+// function set_user_tags(ctype) {
+//     var url = "/getmytaglist?type=" + ctype;
+//     $.ajax({
+//         url: get_url(url),
+//         type: "get",
+//         headers: get_headers(),
+//         xhrFields: { withCredentials: true },
+//         crossDomain: true,
+//         success: function(str) {
+//             if (str.status == 200) {
+//                 var tags = str.data.tags;
+//                 tags = tags.split(",");
+//                 var c = '';
+//                 for (j = 0; j < tags.length; j++) {
+//                     c = c + '<button id="tag' + j + '" value="" type="button" style="margin-top: 2px;margin-left: 2px; display:inline"' +
+//                         ' class="btn-tags" onclick="set_tag_btn(' + j + ')">' + tags[j] + '</button>';
+//                 }
+//                 c = c + '<button style="margin-top: 2px;margin-left: 2px;width: 40px; display:inline" class="btn-tags" id="new_tags" onclick="new_tags()">+</button>';
+//                 $("#my_tags_list").html(c);
+//             } else {
+//                 alert(str.msg);
+//                 remove_user_login_status(str.msg)
+//             }
+//         },
+//         error: function(str) {
+//             alert("上传失败！")
+//         }
+//     });
+// }
+
+// 获取用户个人标签
+function get_user_tags(ctype) {
+    var url = "/getmytaglist?type=" + ctype;
+    $.ajax({
+        url: get_url(url),
+        type: "get",
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        async: false,
+        success: function(str) {
+            if (str.status == 200) {
+                var tags = str.data.tags;
+                tags = tags.split(",");
+                var c = '';
+                for (j = 0; j < tags.length; j++) {
+                    c = c + '<button id="tag' + j + '" value="" type="button" style="margin-top: 2px;margin-left: 2px; display:inline"' +
+                        ' class="btn-tags" onclick="set_tag_btn(' + j + ')">' + tags[j] + '</button>';
+                }
+                c = c + '<button style="margin-top: 2px;margin-left: 2px;width: 40px; display:inline" class="btn-tags" id="new_tags" onclick="new_tags()">+</button>';
+                $("#my_tags_list").html(c);
+            } else {
+                alert(str.msg);
+                remove_user_login_status(str.msg)
+            }
+        },
+        error: function(str) {
+            alert("上传失败！")
+        }
+    });
+}
+
+
+
+// 新增标签
+function new_tags() {
+    var status = $("#new_tags").text();
+    if (status == "+") {
+        $('#new_tag_div').show();
+        $("#new_tags").text('取消');
+    } else {
+        $('#new_tag_div').hide();
+        $("#new_tags").text('+')
+    }
+}
+// 提交
+function commit_tag(ctype) {
+    var tag = $("#new_tag").val();
+    if (tag == '') {
+        alert("标签不能为空!");
+        return
+    }
+
+    var url = "/newmytag";
+    var datas = get_json({ "type": ctype, "tag": tag });
+    $.ajax({
+        url: get_url(url),
+        type: "post",
+        data: datas,
+        headers: get_headers(),
+        xhrFields: { withCredentials: true },
+        crossDomain: true,
+        success: function(str) {
+            if (str.status == 200) {
+                // 成功:重新加载标签
+                get_user_tags(ctype);
+                $('#new_tag_div').hide();
+                $("#new_tags").text('+')
+            } else {
+                alert(str.msg);
+                remove_user_login_status(str.msg)
+            }
+        },
+        error: function(str) {
+            alert("操作失败！")
+        }
+    });
+
+}
+
+
 // 显示修改框
 function show_comments(id) {
     var content = $("#content" + id).text();

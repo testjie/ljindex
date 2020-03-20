@@ -5,12 +5,19 @@ $(document).ready(function() {
 
     var id = get_id();
     var editor = init_editor();
+    get_user_tags(experience_type);
     get_experience_detail(id, editor);
+    // set_user_tags(experience_type)
+
+
+
+
     $("#all_search").keyup(function(e) {
         if (e.which == 13) {
             all_search()
         }
     });
+
     // webloader初始化
     var uploader = WebUploader.create({
         // 选完文件后，是否自动上传。
@@ -63,11 +70,17 @@ $(document).ready(function() {
     $("#allcommit").click(function() {
         var iurl = "/article/update";
         var user_article_id = $("#user_article_id").val();
-        var user_article_tag = $("#user_article_tag").val();
+        // var user_article_tag = $("#user_article_tag").val();
         var user_article_title = $("#user_article_title").val();
         var user_article_breif = $("#user_article_breif").val();
         var user_article_content = editor.txt.html();
         var user_article_fenmian = $("#fengmian").val();
+
+        var user_article_tag = '';
+        $("button[value=true]").each(function() {
+            user_article_tag = user_article_tag + $(this).text() + ","
+        });
+
         if (editor.txt.text().lenght > 50) {
             alert("文章字数超过50字!");
             return;
@@ -77,6 +90,7 @@ $(document).ready(function() {
             alert("输入的参数存在空值!");
             return;
         }
+
 
         var datas = get_json({ "title": user_article_title, "content": user_article_content, "brief": user_article_breif, "tags": user_article_tag, "ximg": user_article_fenmian, "aid": user_article_id });
         $.ajax({
@@ -133,6 +147,7 @@ function init_editor() {
 
 // 获取问题详情，并回写数据
 function get_experience_detail(id, editor) {
+
     $.ajax({
         type: 'get',
         url: get_url("/get/article?aid=" + id),
@@ -167,13 +182,25 @@ function get_experience_detail(id, editor) {
                 $("#user_article_id").attr("value", experience_id); // id
                 $("#user_article_title").attr("value", experience_title); // 标题
                 $("#user_article_breif").attr("value", experience_brief); // 标题
-                $("#user_article_tag").attr("value", experience_tags); // 标题
                 editor.txt.html(experience_content); // 内容
                 var li = '<div id="WU_FILE_0" name="' + experience_imag_url + '" class="file-item thumbnail" style="width:100px;height:100px; display: inline-block;">' +
                     '<img src="' + get_img_url(experience_imag_url) + '" style="width:90px; height:90px;"/>' +
                     '<input id="fengmian" type="hidden" value="' + experience_imag_url + '"/>' +
                     '</div>'
                 $("#fileList").html(li);
+
+
+                // 设置元素
+                var tags = experience_tags.split(",");
+                $("#my_tags_list :button").each(function() {
+                    for (j = 0; j < tags.length; j++) {
+                        if ($(this).text() == tags[j]) {
+                            $(this).attr('style', 'margin-top: 2px;margin-left: 2px; display:inline;background-color:#f7726b;');
+                            $(this).val(true);
+                        }
+                    }
+                });
+
 
             } else {
                 alert("获取数据失败！");

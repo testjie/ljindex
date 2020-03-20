@@ -2,6 +2,8 @@ $(document).ready(function() {
     is_need_login();
     initialize_page();
     set_copyright_version();
+    get_user_tags(question_type);
+
 
     var editor = init_editor();
     $("#all_search").keyup(function(e) {
@@ -62,11 +64,16 @@ $(document).ready(function() {
         is_need_login();
 
         var iurl = "/question/new";
-        var user_article_tag = $("#user_article_tag").val()
+        // var user_article_tag = $("#user_article_tag").val()
         var user_article_title = $("#user_article_title").val()
         var user_article_breif = $("#user_article_breif").val()
         var user_article_content = editor.txt.html();
         var user_article_fenmian = $("#fengmian").val();
+
+        var user_article_tag = '';
+        $("button[value=true]").each(function() {
+            user_article_tag = user_article_tag + $(this).text() + ","
+        });
 
         if (user_article_tag == "" || user_article_title == "" || user_article_breif == "" || user_article_content == "" || user_article_fenmian == "") {
             alert("输入的参数存在空值!");

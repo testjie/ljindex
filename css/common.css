@@ -82,6 +82,24 @@
     cursor: pointer;
 }
 
+.btn-tags {
+    display: block;
+    border-radius: 3px;
+    border: 1px solid #f7726b;
+    background: transparent;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    justify-content: center;
+    /* color: #f7726b; */
+    /* width: 70px; */
+    height: 25px;
+    font-size: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
 .btn-grey {
     display: block;
     border-radius: 3px;

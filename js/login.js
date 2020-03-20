@@ -23,8 +23,8 @@ function login() {
         url: get_url("/login"),
         headers: get_headers(),
         data: datas,
-        xhrFields: { withCredentials: true },
-        crossDomain: true,
+        // xhrFields: { withCredentials: true },
+        // crossDomain: true,
         success: function(str) { //返回json结果
             if (str.status == 200) {
                 // 登录成功

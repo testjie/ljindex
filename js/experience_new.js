@@ -2,6 +2,9 @@ $(document).ready(function() {
     is_need_login();
     initialize_page()
     set_copyright_version();
+    get_user_tags(experience_type);
+
+
 
     $("#all_search").keyup(function(e) {
         if (e.which == 13) {
@@ -57,15 +60,22 @@ $(document).ready(function() {
         alert("上传失败，请检查服务器！")
     });
 
+    // 新增标签
     // 提交文章
     $("#allcommit").click(function() {
         var iurl = "/article/new";
-        var user_article_tag = $("#user_article_title").val()
+        // var user_article_tag = $("#user_article_title").val()
         var user_article_title = $("#user_article_title").val()
         var user_article_breif = $("#user_article_breif").val()
         var user_article_content = editor.txt.html();
         var user_article_fenmian = $("#fengmian").val();
         var content = editor.txt.text();
+
+        var user_article_tag = '';
+        $("button[value=true]").each(function() {
+            user_article_tag = user_article_tag + $(this).text() + ","
+        });
+
         if (content.lenght < 1) {
             alert("文章内容不能为空!");
             return;
@@ -102,7 +112,6 @@ $(document).ready(function() {
             }
         });
     });
-
 
 });
 

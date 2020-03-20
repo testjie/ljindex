@@ -211,6 +211,7 @@ function delete_inspiration(id) {
         success: function(str) { //返回json结果
             if (str.status == 200) {
                 go_next_page("inspiration.html");
+                // go_pre_page();
             } else {
                 alert(str.msg);
             }

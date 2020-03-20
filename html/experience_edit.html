@@ -129,7 +129,21 @@
                             <!-- <span class="glyphicon glyphicon-tag"></span> -->
                             <span>标 签:</span>
                         </div>
-                        <input type="text" id="user_article_tag" placeholder="输入文章标签" style="width: 100%;" />
+                        <div id="my_tags_list" style="display:inline">
+
+                        </div>
+                    </div>
+
+                    <!-- 新增标签 -->
+                    <div class="input-box" id="new_tag_div" style="display: none;">
+                        <div class="name">
+                            <!-- <span class="glyphicon glyphicon-tag"></span> -->
+                            <span>新增:</span>
+                        </div>
+                        <div style="display:inline">
+                            <input style="display:inline" type="text" id="new_tag" placeholder="请输入标签" />
+                            <button style="display:inline" class="btn btn-danger" onclick="commit_tag(3)">提交</button>
+                        </div>
                     </div>
 
                     <div class="submit">

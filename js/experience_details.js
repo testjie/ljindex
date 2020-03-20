@@ -209,6 +209,7 @@ function delete_article(id) {
         success: function(str) { //返回json结果
             if (str.status == 200) {
                 go_next_page("experience.html");
+                // go_pre_page();
             } else {
                 alert(str.msg);
             }

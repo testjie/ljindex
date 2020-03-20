@@ -20,8 +20,8 @@ $(document).ready(function() {
             url: get_url("/comment/new"),
             headers: get_headers(),
             data: datas,
-            xhrFields: { withCredentials: true },
-            crossDomain: true,
+            // xhrFields: { withCredentials: true },
+            // crossDomain: true,
             success: function(str) { //返回json结果
                 if (str.status == 200) {
                     $('#question_comments_ctt').val('');
@@ -290,6 +290,7 @@ function delete_questsion(id) {
         success: function(str) { //返回json结果
             if (str.status == 200) {
                 go_next_page("question.html");
+                // go_pre_page();
             } else {
                 alert(str.msg);
             }
